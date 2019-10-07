@@ -1,0 +1,35 @@
+$space_s: 5px;
+$space_m: 10px;
+$space_l: 20px;
+$space_xl: 40px;
+$space_xxl: 80px;
+
+$font-size_s: 14px;
+$font-size_default: 16px;
+$font-size_m: 20px;
+$font-size_l: 24px;
+$font_size_xl: 36px;
+
+$line-height: 1.5;
+
+$font-color_base: #3AC651;
+
+$background-color_base: #fff2e5;
+$background-color_logo: #9f9f9f;
+$background-color_menu: #fefefe;
+$background-color_button: #d0ccff;
+$background-color_modal: #808080;
+$background-color_message1: #AEC4E5;
+$background-color_message2: #5cd8e6;
+
+$site-width: 980px;
+
+$breakpoints: ('tab': 'screen and (min-width: 768px)',
+	'pc': 'screen and (min-width: 1000px)'
+) !default;
+
+@mixin mq($breakpoint: pc) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}

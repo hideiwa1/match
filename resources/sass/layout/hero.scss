@@ -1,0 +1,17 @@
+.hero {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+
+	&__banner {
+		z-index: 1;
+	}
+
+	&__textbox {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-40%);
+		z-index: 2;
+	}
+}

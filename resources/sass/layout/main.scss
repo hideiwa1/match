@@ -1,0 +1,12 @@
+.main {
+	padding: $space_l;
+	box-sizing: border-box;
+	background-color: $background-color_base;
+	flex: 1;
+
+	@include mq() {
+		width: $site-width;
+		margin: auto;
+		margin-bottom: $space_xl;
+	}
+}

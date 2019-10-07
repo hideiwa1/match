@@ -1,0 +1,62 @@
+/*均等配置*/
+.u-flex-default {
+	@include mq() {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+.u-flex {
+	@extend .u-flex-default;
+
+	@include mq() {
+		justify-content: space-between;
+	}
+}
+
+/*右寄せ*/
+.u-right {
+	text-align: right;
+}
+
+/*中央揃え*/
+.u-center {
+	text-align: center;
+}
+
+/*マージン*/
+.u-mb_m {
+	margin-bottom: $space_m;
+}
+
+.u-mb_l {
+	margin-bottom: $space_l;
+}
+
+.u-mb_xl {
+	margin-bottom: $space_xl;
+}
+
+.u-mr_l {
+	margin-right: $space_l;
+}
+
+/*パディング*/
+.u-pl_l {
+	padding-left: $space_l;
+}
+
+.u-pb_m {
+	padding-bottom: $space_m;
+}
+
+/*テーブル*/
+.u-table {
+	display: table;
+	width: 100%;
+}
+
+.u-tcell {
+	display: table-cell;
+}

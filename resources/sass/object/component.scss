@@ -1,0 +1,92 @@
+/*ボタン*/
+.c-button {
+	display: block;
+	padding: $space_m;
+	border-radius: $space_s;
+	height: 100%;
+	background-color: $background-color_button;
+}
+
+/*画像*/
+.c-img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+/*見出し*/
+.c-title {
+	font-size: $font-size_l;
+}
+
+/*テキストボックス*/
+.c-textbox {
+	display: block;
+	border-radius: $space_s;
+	padding: $space_m;
+	background-color: #fefefe;
+}
+
+/*テキストエリア*/
+.c-textarea {
+	width: 100%;
+	font-size: $font-size_m;
+	padding: $space_m;
+	box-sizing: border-box;
+}
+
+/*フォーム項目*/
+.c-formtitle {
+	display: block;
+}
+
+/*テキストフォーム*/
+.c-textform {
+	width: 100%;
+	font-size: $font-size_m;
+	padding: $space_m;
+	box-sizing: border-box;
+}
+
+/*数字フォーム*/
+.c-numform {
+	width: 30%;
+	font-size: $font-size_m;
+	box-sizing: border-box;
+}
+
+/*フォームボタン*/
+.c-formbutton {
+	@extend .c-button;
+	@extend .c-textform;
+	border: none;
+}
+
+/*テーブル項目*/
+.c-th {
+	padding: $space_m;
+}
+
+/*タイムスタンプ*/
+.c-date {
+	font-size: $font-size_s;
+	text-align: right;
+	display: block;
+}
+
+/*プロフィール画像*/
+.c-mypic {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+/*メッセージ*/
+.c-message {}
+
+.menu-trigger{
+	width: 100px;
+	height: 100px;
+	border: 1px solid;
+}

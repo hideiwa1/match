@@ -1,0 +1,16 @@
+.header {
+	padding: $space_l;
+	height: $space_xxl;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: $background-color_base;
+
+	@include mq() {
+		width: $site-width;
+		margin: auto;
+		position: relative;
+		z-index: 3;
+	}
+}
