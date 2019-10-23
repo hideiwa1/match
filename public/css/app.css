@@ -215,6 +215,7 @@ p {
 
 .c-th {
   padding: 10px;
+  white-space: nowrap;
 }
 
 /*タイムスタンプ*/
@@ -232,6 +233,19 @@ p {
   height: 100px;
   border-radius: 50%;
   overflow: hidden;
+  margin: auto;
+}
+
+.c-formpic {
+  position: relative;
+}
+
+.c-inputpic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
 }
 
 /*メッセージ*/
@@ -353,15 +367,28 @@ p {
 /*メインコンテンツ*/
 
 .p-maincontent {
-  width: 70%;
-  box-sizing: border-box;
+  width: 100%;
+}
+
+@media screen and (min-width: 1000px) {
+  .p-maincontent {
+    width: 70%;
+    box-sizing: border-box;
+  }
 }
 
 /*サイドコンテンツ*/
 
 .p-sidecontent {
-  width: 30%;
-  box-sizing: border-box;
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .p-sidecontent {
+    display: block;
+    width: 30%;
+    box-sizing: border-box;
+  }
 }
 
 /*ページネーション*/
@@ -528,13 +555,15 @@ p {
 
 .p-modal-menu {
   width: 50vw;
-  height: 120vh;
+  height: 100vh;
   text-align: center;
   background-color: rgba(128, 128, 128, 0.5);
   position: fixed;
   top: 0;
   right: 0;
-  margin-top: 80px;
+  padding-top: 80px;
+  box-sizing: border-box;
+  overflow: scroll;
 }
 
 .p-modal-menu__item {

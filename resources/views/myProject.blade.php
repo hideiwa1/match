@@ -8,18 +8,14 @@
 <main class="main u-flex">
 
   <article class="p-maincontent">
-    <h1 class="c-title">お気に入り一覧</h1>
+    <h1 class="c-title">登録案件一覧</h1>
     <section>
       <div class="p-panel">
+       @foreach($projects as $project)
         <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
+          <a href="detail/{{$project -> id}}" class="c-textbox u-mb_m">{{$project -> title}}</a>
         </div>
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
+        @endforeach
       </div>
     </section>
 

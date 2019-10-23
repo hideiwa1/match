@@ -95,14 +95,23 @@
 
 /*メインコンテンツ*/
 .p-maincontent {
-	width: 70%;
-	box-sizing: border-box;
+	width: 100%;
+	
+	@include mq(){
+		width: 70%;
+		box-sizing: border-box;
+	}
 }
 
 /*サイドコンテンツ*/
 .p-sidecontent {
-	width: 30%;
-	box-sizing: border-box;
+	display: none;
+	
+	@include mq(){
+		display: block;
+		width: 30%;
+		box-sizing: border-box;
+	}
 }
 
 /*ページネーション*/
@@ -262,13 +271,15 @@
 
 	&-menu{
 		width: 50vw;
-		height: 120vh;
+		height: 100vh;
 		text-align: center;
 		background-color: rgba($background-color_modal, 0.5);
 		position: fixed;
 		top: 0;
 		right: 0;
-		margin-top: $space_xxl;
+		padding-top: $space_xxl;
+		box-sizing: border-box;
+		overflow: scroll;
 		
 	&__item{
 		display: block;

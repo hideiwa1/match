@@ -9,10 +9,17 @@
 
   @component('components.maincontent')
     @slot('title')
-    　コメント一覧
+    コメント一覧
     @endslot
-   @component('components.panel')
-   @endcomponent
+	<section>
+		<div class="p-panel">
+		@foreach($comments as $comment)
+			<div class="p-panel__item">
+				<a href="detail/{{$comment -> project_id}}" class="c-textbox u-mb_m">{{$comment -> comment}}</a>
+			</div>
+			@endforeach
+		</div>
+	</section>
   @endcomponent
 
 @component('components.mymenu')

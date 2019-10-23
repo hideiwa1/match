@@ -65,6 +65,7 @@
 /*テーブル項目*/
 .c-th {
 	padding: $space_m;
+	white-space: nowrap;
 }
 
 /*タイムスタンプ*/
@@ -80,6 +81,19 @@
 	height: 100px;
 	border-radius: 50%;
 	overflow: hidden;
+	margin: auto;
+}
+
+.c-formpic{
+	position: relative;
+}
+
+.c-inputpic{
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 2;
 }
 
 /*メッセージ*/

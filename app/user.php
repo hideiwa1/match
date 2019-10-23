@@ -16,4 +16,20 @@ class User extends Authenticatable
       'email' => 'required|email',
       'password' => 'required|min:4|confirmed'
     );
+	
+	public function Projects(){
+		return $this -> hasMany('App\Category');
+	}
+	
+	public function Comments(){
+		return $this -> hasMany('App\Comment');
+	}
+	
+	public function Attenders(){
+		return $this -> hasMany('App\Attender');
+	}
+	
+	public function Bords(){
+		return $this -> hasMany('App\Bord');
+	}
 }

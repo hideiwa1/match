@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function index()
     {
 //			$user = User::all();
-			$user = Auth::user();
+			$user = Auth::id();
         return $user;
     }
 }

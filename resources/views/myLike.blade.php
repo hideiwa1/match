@@ -7,23 +7,21 @@
 
 <main class="main u-flex">
 
-  <article class="p-maincontent">
-    <h1 class="c-title">お気に入り一覧</h1>
+	@component('components.maincontent')
+	@slot('title')
+	お気に入り一覧
+	@endslot
     <section>
-      <div class="p-panel">
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
-      </div>
+			<div class="p-panel">
+				@foreach($likes as $like)
+				<div class="p-panel__item">
+					<a href="detail/{{$like -> project -> id}}" class="c-textbox u-mb_m">{{$like -> project -> title}}</a>
+				</div>
+				@endforeach
+			</div>
     </section>
 
-  </article>
+	@endcomponent
 
   @component('components.mymenu')
   @endcomponent

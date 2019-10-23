@@ -19,4 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 	Route::group(['middleware' => 'api'], function(){
 		Route::get('/auth', 'Api\AuthController@index');
+		Route::get('/project', 'Api\ProjectController@index');
+		Route::get('/projectSearch', 'Api\ProjectController@search');
+		
+		Route::get('/like', 'Api\LikeController@index');
+		Route::get('/liketoggle', 'Api\LikeController@toggle');
+		
+		Route::get('/profilePic', 'Api\ProfilePicController@index');
 	});
+ 

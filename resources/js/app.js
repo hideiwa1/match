@@ -1,27 +1,61 @@
 require('./bootstrap');
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import rootReducer from './js/reducers';
+import thunkMiddleware from 'redux-thunk';
 
 /*import "./sass/style.scss";*/
 /*import Form from "./js/main";*/
-import Menu from "./js/components/menu";
+import VisibleMenu from "./js/containers/visibleMenu";
+import VisibleSearch from "./js/containers/visibleSearch";
+import VisibleProjectList from "./js/containers/visibleProjectList";
+import VisibleLike from "./js/containers/visibleLike";
+import VisibleProfile from "./js/containers/visibleProfile";
 
-let store = createStore(rootReducer);
+let store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
-document.addEventListener('DOMContentLoaded', function(){
+
+document.getElementById('js-menu') &&
 	ReactDOM.render( 
 		<Provider store = {store} >
-			<Menu />
+			<VisibleMenu />
 		</Provider>,
 		document.getElementById('js-menu')
 	);
-});
 
+document.getElementById('js-search') &&
+	ReactDOM.render( 
+		<Provider store = {store} >
+			<VisibleSearch />
+		</Provider>,
+		document.getElementById('js-search')
+	);
 
+document.getElementById('js-project') &&
+ReactDOM.render( 
+	<Provider store = {store} >
+	<VisibleProjectList />
+	</Provider>,
+	document.getElementById('js-project')
+);
 
+document.getElementById('js-like') &&
+ReactDOM.render( 
+	<Provider store = {store} >
+	<VisibleLike />
+	</Provider>,
+	document.getElementById('js-like')
+);
+
+document.getElementById('js-profpic') &&
+	ReactDOM.render( 
+	<Provider store = {store} >
+	<VisibleProfile />
+	</Provider>,
+	document.getElementById('js-profpic')
+);
 
 /*
 document.addEventListener('DOMContentLoaded', function(){
