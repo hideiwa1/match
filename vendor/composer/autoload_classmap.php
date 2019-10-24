@@ -14,6 +14,7 @@ return array(
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Api\\AuthController' => $baseDir . '/app/Http/Controllers/Api/AuthController.php',
     'App\\Http\\Controllers\\Api\\LikeController' => $baseDir . '/app/Http/Controllers/Api/LikeController.php',
+    'App\\Http\\Controllers\\Api\\ProfilePicController' => $baseDir . '/app/Http/Controllers/Api/ProfilePicController.php',
     'App\\Http\\Controllers\\Api\\ProjectController' => $baseDir . '/app/Http/Controllers/Api/ProjectController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',

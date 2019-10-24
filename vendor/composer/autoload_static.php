@@ -427,6 +427,7 @@ class ComposerStaticInit84339bb5487fcb8aeb69d8dc54762875
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Api\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/AuthController.php',
         'App\\Http\\Controllers\\Api\\LikeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/LikeController.php',
+        'App\\Http\\Controllers\\Api\\ProfilePicController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ProfilePicController.php',
         'App\\Http\\Controllers\\Api\\ProjectController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ProjectController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
