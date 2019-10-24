@@ -12,7 +12,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-			Categoryß::truncate();
+			Category::truncate();
 			
 			DB::table('categories')->insert([
 				[
