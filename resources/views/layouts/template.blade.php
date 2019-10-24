@@ -20,7 +20,11 @@
 
 	<footer class="footer">
 		<p>Copyright <a href="/">match!</a> All Right Reserved</p>
+		@if(app('env') == 'local')
 		<script src="{{ asset('/js/app.js') }}"></script>
+		@else
+		<script src="{{ secure_asset('/js/app.js') }}"></script>
+		@endif
 	</footer>
 
 </body>
