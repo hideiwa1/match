@@ -22,10 +22,10 @@ if(config('app.env') === 'production'){
 
 
 Auth::routes();
-Route::get('login', 'loginController@getAuth') -> name('login');
-Route::post('login', 'loginController@postAuth');
-Route::get('signup', 'signupController@index');
-Route::post('signup', 'signupController@postSignup');
+Route::get('login', 'LoginController@getAuth') -> name('login');
+Route::post('login', 'LoginController@postAuth');
+Route::get('signup', 'SignupController@index');
+Route::post('signup', 'SignupController@postSignup');
 
 Route::get('pass/reset/{token?}', 'Auth\ForgotPasswordController@showLinkRequestForm');
 
