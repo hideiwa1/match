@@ -42,7 +42,12 @@
 			<input type="submit" name="edit" value="編集する" class="c-formbutton u-mb_m">
 			<h2>応募者一覧</h2>
 			@foreach($attenders as $attender)
-			<p>{{$attender -> user -> name}}</p>
+			<p>@if($attender -> user -> name)
+				{{$attender -> user -> name}}
+				@else
+				名無し
+				@endif
+			</p>
 			@endforeach
 		@elseif(Auth::check())
 		<input type="submit" name="comit"
