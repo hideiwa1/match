@@ -30,7 +30,7 @@ Route::post('signup', 'SignupController@postSignup');
 Route::get('pass/reset/{token?}', 'Auth\ForgotPasswordController@showLinkRequestForm');
 
 Route::group(['middleware' => 'auth'], function(){
-	Route::get('mypage', 'mypageController@index');
+	Route::get('mypage', 'MypageController@index');
 	Route::post('detail/{id}', 'DetailController@add');
 	
 	Route::get('registProject/{id?}', 'RegistProjectController@regist');
