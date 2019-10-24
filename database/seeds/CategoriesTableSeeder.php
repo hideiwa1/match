@@ -12,10 +12,19 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-			Category::create(
-											[
-												'name' => 'レベニューシェア案件',
-												'delete_flg' => false
-											]);
+			Project::truncate();
+			
+			DB::table('categories')->insert([
+				[
+					'id' => 1,
+					'name' => '単発案件',
+					'delete_flg' => false
+				],
+				[
+					'id' => 1,
+					'name' => 'レベニューシェア案件',
+					'delete_flg' => false
+				]
+			]);
     }
 }
