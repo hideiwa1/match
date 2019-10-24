@@ -15,7 +15,7 @@ class ChangeColumUsersTable extends Migration
 	{
 		Schema::table('users', function (Blueprint $table) {
 			$table->string('pic') -> after('email')-> nullable();
-			$table->string('comment')-> after('pic') -> nullable();
+			$table->text('comment')-> after('pic') -> nullable();
 			$table->boolean('delete_flg') -> after('comment') ->default(false);
 		});
 	}
