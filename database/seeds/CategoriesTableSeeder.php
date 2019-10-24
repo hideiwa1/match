@@ -21,7 +21,7 @@ class CategoriesTableSeeder extends Seeder
 					'delete_flg' => false
 				],
 				[
-					'id' => 1,
+					'id' => 2,
 					'name' => 'レベニューシェア案件',
 					'delete_flg' => false
 				]
