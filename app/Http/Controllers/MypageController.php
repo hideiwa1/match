@@ -16,6 +16,6 @@ class MypageController extends Controller
 				->take(5) -> get();
 			$likes = Like::where('user_id', $user_id)
 				->take(5) -> get();
-        return view('mypage', compact('projects', 'likes'));
+        return view('myPage', compact('projects', 'likes'));
     }
 }
