@@ -12,7 +12,7 @@
 <main class="main">
 	<article>
 		<h1 class="c-title">新着案件</h1>
-		<div class="p-panel u-flex">
+		<div class="p-panel u-flex-default">
 			@foreach($projects as $project)
 			<div class="p-panel__item5">
 				<a href="detail/{{$project -> id}}" class="c-textbox u-mb_m">

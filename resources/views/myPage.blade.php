@@ -12,7 +12,7 @@
     <h1 class="c-title">マイページ</h1>
     <section>
       <h2>登録案件</h2>
-      <div class="p-panel u-flex">
+      <div class="p-panel u-flex-default">
 				@foreach ($projects as $project)
         <div class="p-panel__item5">
          
@@ -27,7 +27,7 @@
 
 		<section>
 			<h2>お気に入り案件</h2>
-			<div class="p-panel u-flex">
+			<div class="p-panel u-flex-default">
 				@foreach ($likes as $like)
 				<div class="p-panel__item5">
 
