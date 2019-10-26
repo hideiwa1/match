@@ -22,7 +22,7 @@ class RegistProjectController extends Controller
 	public function save($id = '', Request $request){
 		$title = '登録完了';
 //		$this -> validate($request, Project::$rules);
-		if($id !== 'new'){
+		if($id === 'new'){
 			$project = new Project;
 		}else{
 			$project = Project::find($id);
@@ -34,8 +34,9 @@ class RegistProjectController extends Controller
 		$project -> comment = $request->comment;
 		$project->user_id = Auth::user()->id;
 		$project -> save();
+		$data = '';
 		
-		return view('registProject', compact('title', 'id'));
+		return view('registProject', compact('title', 'id', 'data'));
 /*			$this -> validate($request, Comment::$rules);
 		$comment = new Comment;
 		$comment->comment = $request->comment;

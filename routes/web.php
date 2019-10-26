@@ -18,7 +18,7 @@ if(config('app.env') === 'production'){
 
 	Route::get('detail/{id}', 'DetailController@index');
 
-  Route::get('', function(){return view('index');});
+  Route::get('', 'IndexController@index');
 
 
 Auth::routes();

@@ -1,4 +1,7 @@
 @section('head')
+<?php
+ini_set('display_errors', 1);
+?>
 <meta charset="UTF-8">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @if(Request::is('detail/*'))

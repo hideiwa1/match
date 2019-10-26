@@ -13,23 +13,17 @@
   <article>
     <h1 class="c-title">新着案件</h1>
     <div class="p-panel u-flex">
+     @foreach($projects as $project)
       <div class="p-panel__item5">
-        <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
+				<a href="detail/{{$project -> id}}" class="c-textbox u-mb_m">
+				<p>{{$project -> title}}</p>
+					予算：<br>
+					{{$project -> min_price}}千〜{{$project -> max_price}}千
+				</a>
       </div>
-      <div class="p-panel__item5">
-        <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-      </div>
-      <div class="p-panel__item5">
-        <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-      </div>
-      <div class="p-panel__item5">
-        <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-      </div>
-      <div class="p-panel__item5">
-        <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-      </div>
+      @endforeach
     </div>
-    <p class="u-right"><a href="project.html">>>さらに見る</a></p>
+    <p class="u-right"><a href="project">>>さらに見る</a></p>
   </article>
 
   <article>
