@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@hideiwa1">
 <meta name="twitter:title" content={{$detail -> title}}>
-<meta name="twitter:description" content={{$detail -> comment}}>
+<meta name="twitter:description" content={{$detail -> min_price}}千〜{{$detail -> max_price}}千>
 @if(app('env') == 'local')
 <meta name="twitter:image" content="{{(asset('/img/match.jpg'))}}">
 @else
