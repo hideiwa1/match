@@ -16,12 +16,18 @@
 		<table>
 			<tr>
 				<td class="c-th">発注者</td>
-				<td>@if($detail -> user -> name)
+				<td>
+				<a href="profile/{{$detail -> user_id}}">
+				@if($detail -> user -> name)
 					{{$detail -> user -> name}}
 					@else
 					名無し
-					@endif<br>
-					<a href="/messageCheck/{{$detail -> user -> id}}">ダイレクトメッセージを送る</a></td>
+					@endif
+					</a><br>
+					@if($detail -> user_id !== $user)
+					<a href="/messageCheck/{{$detail -> user -> id}}">ダイレクトメッセージを送る</a>
+					@endif
+					</td>
 			</tr>
 			<tr>
 				<td class="c-th">案件種別</td>

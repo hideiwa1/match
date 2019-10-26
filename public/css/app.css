@@ -236,6 +236,11 @@ p {
   margin: auto;
 }
 
+.c-msgpic {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .c-formpic {
   position: relative;
 }
@@ -644,5 +649,11 @@ p {
 
 .u-tcell {
   display: table-cell;
+}
+
+/*インラインブロック*/
+
+.u-inline {
+  display: inline-block;
 }
 
