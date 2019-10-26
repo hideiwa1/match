@@ -9,7 +9,12 @@ ini_set('display_errors', 1);
 <meta name="twitter:site" content="@hideiwa1">
 <meta name="twitter:title" content={{$detail -> title}}>
 <meta name="twitter:description" content={{$detail -> comment}}>
-<meta name="twitter:image" content="img/match.jpg">
+@if(app('env') == 'local')
+<meta name="twitter:image" content="{{(asset('/img/match.jpg'))}}">
+@else
+<meta name="twitter:image" content="{{(secure_asset('/img/match.jpg'))}}">
+@endif
+
 @endif
 <script src="https://kit.fontawesome.com/cf99747a60.js" crossorigin="anonymous"></script>
 <title>@yield('title')</title>
