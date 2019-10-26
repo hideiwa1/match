@@ -8,6 +8,9 @@
 <main class="main">
   <section class="p-form u-mb_l">
     <h1 class="c-title u-center u-mb_m">{{$title}}</h1>
+		@foreach ($errors -> all() as $error)
+		<p>{{ $error }}</p>
+		@endforeach
 		<form action="/registProject/{{$id}}" method="post">
 			{{ csrf_field() }}
 			<div class="p-form__content">
@@ -27,9 +30,13 @@
 				</p>
 				<p class="u-mb_m">
 					<span class="c-formtitle">案件概要</span>
-					<textarea name="comment" class="c-textarea">{{$data ? $data->comment : old('comment')}}</textarea>
+					<textarea name="comment" class="c-textarea" rows="5">{{$data ? $data->comment : old('comment')}}</textarea>
 				</p>
+				@if($id === "new")
 				<input type="submit" value="新規登録" class="c-formbutton">
+				@else
+				<input type="submit" value="更新" class="c-formbutton">
+				@endif
 			</div>
 		</form>
   </section>

@@ -25,6 +25,7 @@
 	border-radius: $space_s;
 	padding: $space_m;
 	background-color: #fefefe;
+	height: 100%;
 }
 
 /*テキストエリア*/
@@ -108,4 +109,14 @@
 	width: 100px;
 	height: 100px;
 	border: 1px solid;
+}
+
+/*お気に入り*/
+.c-active{
+	color: red;
+}
+
+.c-like{
+	font-size: $font-size-l;
+	vertical-align: top;
 }

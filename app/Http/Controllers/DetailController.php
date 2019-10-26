@@ -33,7 +33,7 @@ class DetailController extends Controller
 			$attender->save();
 			return back();
 		}else{
-			//$this -> validate($request, Comment::$rules);
+			$this -> validate($request, Comment::$rules);
 			$comment = new Comment;
 			$comment->comment = $request->comment;
 			$comment->user_id = Auth::user()->id;

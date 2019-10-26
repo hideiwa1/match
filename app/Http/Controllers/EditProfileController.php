@@ -17,7 +17,9 @@ class EditProfileController extends Controller
 		$user = User::find(Auth::id());
 		$user -> name = $request -> name;
 		$user -> email = $request -> email;
+		$rules = ['pic' => 'image|max:2000'];
 		if($request -> file('pic')){
+			$this -> validate($request, $rules);
 			$path = $request -> file('pic') -> store('public/profile-pic');
 		$user -> pic = str_replace('public/', '', $path);
 		}

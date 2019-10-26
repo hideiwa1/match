@@ -45,8 +45,8 @@ class ProjectController extends Controller
 			$max && $sql[] = ['max_price', '<=', $max];
 			
 			$category ? 
-				$projects = project::where($sql) -> whereIn('category_id', $category) -> paginate(7)
-					:$projects = project::where($sql) -> paginate(7);
+				$projects = project::where($sql) -> whereIn('category_id', $category) -> paginate(10)
+					:$projects = project::where($sql) -> paginate(10);
 			
 //			$projects = project::all();
 			$data = [];

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {pagenate} from '../actions';
 
 class Paginate extends React.Component{
 	
@@ -13,6 +14,7 @@ class Paginate extends React.Component{
 		e.preventDefault();
 		console.log(e.target.name);
 		this.props.onChange(e.target.name);
+		
 	}
 	
 	buildPages(){

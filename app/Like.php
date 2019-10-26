@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    public function project(){
+	
+	protected $guarded = array('id');
+	
+	public function project(){
 			return $this -> belongsTo('App\Project');
 		}
 }

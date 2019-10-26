@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
+import {clickPage} from '../actions';
 import axios from "axios";
 
 import Item from './item';
@@ -25,7 +26,7 @@ class ProjectList extends React.Component{
 	handlePageChange(num){
 		console.log('handlePageChange');
 		console.log('num:' + num);
-		axios
+/*		axios
 			.get('/api/project?page=' + num)
 			.then((res) => {
 			this.setState({
@@ -38,6 +39,13 @@ class ProjectList extends React.Component{
 			.catch((error) => {
 			console.log('通信失敗2');
 		})
+*/			this.props.dispatch(clickPage(num, this.props.search))
+/*		.then(this.setState({
+			activePage: this.props.data.project.current_page,
+			itemsPerPage: this.props.data.project.per_page,
+			totalItemCount: this.props.data.project.total,
+		}),
+		);*/
 	}
 	
 	componentDidMount(){
@@ -57,8 +65,8 @@ class ProjectList extends React.Component{
 			})
 		}else{
 */			console.log('2');
-		this.handlePageChange(1);
-/*			axios
+//		this.handlePageChange(1);
+			axios
 				.get('/api/project')
 					.then((res) => {
 					this.setState({
@@ -71,7 +79,7 @@ class ProjectList extends React.Component{
 					.catch((error) => {
 					console.log('通信失敗2');
 				})
-*/			}
+			}
 //	}
 	
 /*	searchProject(data, search){
@@ -101,7 +109,7 @@ class ProjectList extends React.Component{
 	render(){
 
 		console.log('3');
-		let data = this.props.data.data ? this.props.data.data : this.state.initData;
+		let data = this.props.data.data? this.props.data.data : this.state.initData;
 		console.log(data);
 /*		console.log('props');
 		console.log(this.props.search);
@@ -126,9 +134,9 @@ class ProjectList extends React.Component{
 				</div>
 				<div>
 				<Paginate 
-				activePage={this.state.activePage}
-				itemsPerPage={this.state.itemsPerPage}
-				totalItemCount={this.state.totalItemCount}
+				activePage={this.props.activePage? this.props.activePage: this.state.activePage}
+				itemsPerPage={this.props.itemsPerPage? this.props.itemsPerPage: this.state.itemsPerPage}
+				totalItemCount={this.props.totalItemCount? this.props.totalItemCount: this.state.totalItemCount}
 				pageRange={this.state.pageRange}
 				onChange={this.handlePageChange}/>
 				</div>

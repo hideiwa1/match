@@ -81,6 +81,7 @@
 	background-color: $background-color_menu;
 	padding: $space_xl;
 	box-sizing: border-box;
+	position: relative;
 
 	@include mq() {
 		width: 50%;

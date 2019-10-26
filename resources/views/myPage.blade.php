@@ -16,7 +16,7 @@
 				@foreach ($projects as $project)
         <div class="p-panel__item5">
          
-          <a href="detail/{{$project -> id}}" class="c-textbox u-mb_m">{{$project -> title}}</a>
+          <a href="/detail/{{$project -> id}}" class="c-textbox u-mb_m">{{$project -> title}}</a>
          
         </div>
 				@endforeach
@@ -43,33 +43,41 @@
     <section>
       <h2>メッセージ一覧</h2>
       <div class="p-panel">
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
+       
+				@foreach ($comments as $comment)
+				<div class="p-panel__item">
+					<a href="detail/{{$comment -> project_id}}" class="c-textbox u-mb_m">
+					<p>{{$comment -> project -> title}}</p>
+					<p>{{$comment -> comment}}</p></a>
+				</div>
+				@endforeach
+       
       </div>
-      <p class="u-right"><a href="project.html">>>さらに見る</a></p>
+      <p class="u-right"><a href="myComment">>>さらに見る</a></p>
     </section>
 
     <section>
+     
       <h2>ダイレクトメッセージ一覧</h2>
       <div class="p-panel">
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
+      
+				@foreach ($messages as $message)
+				<div class="p-panel__item">
+					<a href="bord/{{$message -> bord_id}}" class="c-textbox u-mb_m">
+						<p>
+							@if($message -> from_user_id === $user_id)
+							{{$message -> toUser -> name}}
+							@else
+							{{$message -> fromUser -> name}}
+							@endif
+							さんとのダイレクトメッセージ
+						</p>
+						<p>{{$message -> comment}}</p></a>
+				</div>
+				@endforeach
+       
       </div>
-      <p class="u-right"><a href="project.html">>>さらに見る</a></p>
+      <p class="u-right"><a href="myMessage">>>さらに見る</a></p>
     </section>
   </article>
 

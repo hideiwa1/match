@@ -21,7 +21,7 @@ class RegistProjectController extends Controller
 	
 	public function save($id = '', Request $request){
 		$title = '登録完了';
-//		$this -> validate($request, Project::$rules);
+		$this -> validate($request, Project::$rules);
 		if($id === 'new'){
 			$project = new Project;
 		}else{
@@ -34,8 +34,12 @@ class RegistProjectController extends Controller
 		$project -> comment = $request->comment;
 		$project->user_id = Auth::user()->id;
 		$project -> save();
-		$data = '';
-		
+		if($id === 'new'){
+			$last_insert_id = $project ->id;
+			$data = Project::find($last_insert_id);
+		}else{
+			$data = Project::find($id);
+		}
 		return view('registProject', compact('title', 'id', 'data'));
 /*			$this -> validate($request, Comment::$rules);
 		$comment = new Comment;

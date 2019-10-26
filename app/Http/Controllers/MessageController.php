@@ -42,6 +42,7 @@ class MessageController extends Controller
 	}
 	
 	public function add($id = '', Request $request){
+		$this -> validate($request, Message::$rules);
 		$bord = Bord::find($id);
 		$message = new Message;
 		$message -> comment = $request -> comment;
@@ -49,6 +50,7 @@ class MessageController extends Controller
 		$message -> from_user_id = Auth::id();
 		$message -> to_user_id = ($bord -> from_user_id == Auth::id()) ? $bord -> to_user_id : $bord -> from_user_id;
 		$message -> save();
+		$bord -> touch();
 		return back();
 	}
 }

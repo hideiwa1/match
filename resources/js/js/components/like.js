@@ -51,7 +51,7 @@ class Like extends React.Component{
 	}
 
 	render(){
-		let icon = this.state.like_flg ? <i className="fas fa-heart active" onClick={this.handleClick}/> : <i className="fas fa-heart" onClick={this.handleClick} />;
+		let icon = this.state.like_flg ? <i className="fas fa-heart c-active" onClick={this.handleClick}/> : <i className="fas fa-heart" onClick={this.handleClick} />;
 		return(
 			<>
 			{icon}

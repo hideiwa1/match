@@ -55,6 +55,32 @@ export function searchProject(state){
 	}
 }
 
+export function clickPage(state, search){
+	console.log(state);
+	return dispatch => {
+		dispatch(requestData())
+		let fdata = '';
+		return axios
+			.get('/api/projectSearch?page=' + state,{params: search})
+			.then((res) =>
+						{console.log(res),
+							fdata = {data: res.data, search: search},
+							dispatch(receiveData(fdata))
+						})
+			.catch((error) => {
+			console.log('通信失敗1');
+		});
+	}
+}
+	
+	
+	
+/*	return{
+		type: "PAGENATE",
+		val: state
+	};*/
+
+
 export function likeToggle(state){
 	return {
 		type: "LIKE_TOGGLE",

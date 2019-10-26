@@ -6,6 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+	
+	protected $guarded = array('id');
+
+	public static $rules = array(
+		'title' => 'required|max:191',
+		'comment' => 'required',
+		'min_price' => 'required|integer',
+		'max_price' => 'required|integer|gte:min_price',
+		'category_id' => 'required|integer',
+	);
+	
 	public function user(){
 			return $this -> belongsTo('App\User');
 		}
@@ -16,5 +27,9 @@ class Project extends Model
 	
 	public function likes(){
 		return $this -> hasMany('App\Like');
+	}
+	
+	public function comments(){
+		return $this -> hasMany('App\Comment');
 	}
 }

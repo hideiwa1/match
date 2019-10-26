@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bord extends Model
 {
+	
+	protected $guarded = array('id');
+
 	public function fromUser(){
 		return $this -> belongsTo('App\User', 'from_user_id');
 	}

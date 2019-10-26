@@ -72631,7 +72631,7 @@ if (token) {
 /*!******************************************!*\
   !*** ./resources/js/js/actions/index.js ***!
   \******************************************/
-/*! exports provided: FETCH_REQUEST, FETCH_SUCCESS, menuClick, searchProject, likeToggle, inputImg */
+/*! exports provided: FETCH_REQUEST, FETCH_SUCCESS, menuClick, searchProject, clickPage, likeToggle, inputImg */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72640,6 +72640,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FETCH_SUCCESS", function() { return FETCH_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "menuClick", function() { return menuClick; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "searchProject", function() { return searchProject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clickPage", function() { return clickPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "likeToggle", function() { return likeToggle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inputImg", function() { return inputImg; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -72698,6 +72699,28 @@ function searchProject(state) {
     	};*/
   };
 }
+function clickPage(state, search) {
+  console.log(state);
+  return function (dispatch) {
+    dispatch(requestData());
+    var fdata = '';
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/projectSearch?page=' + state, {
+      params: search
+    }).then(function (res) {
+      console.log(res), fdata = {
+        data: res.data,
+        search: search
+      }, dispatch(receiveData(fdata));
+    })["catch"](function (error) {
+      console.log('通信失敗1');
+    });
+  };
+}
+/*	return{
+		type: "PAGENATE",
+		val: state
+	};*/
+
 function likeToggle(state) {
   return {
     type: "LIKE_TOGGLE",
@@ -72889,7 +72912,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var icon = this.state.like_flg ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-heart active",
+        className: "fas fa-heart c-active",
         onClick: this.handleClick
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-heart",
@@ -73214,6 +73237,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions */ "./resources/js/js/actions/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73231,6 +73255,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -73483,10 +73508,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./item */ "./resources/js/js/components/item.js");
-/* harmony import */ var _paginate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./paginate */ "./resources/js/js/components/paginate.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions */ "./resources/js/js/actions/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _item__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./item */ "./resources/js/js/components/item.js");
+/* harmony import */ var _paginate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./paginate */ "./resources/js/js/components/paginate.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73504,6 +73530,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -73537,24 +73564,36 @@ function (_React$Component) {
   _createClass(ProjectList, [{
     key: "handlePageChange",
     value: function handlePageChange(num) {
-      var _this2 = this;
-
       console.log('handlePageChange');
       console.log('num:' + num);
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/api/project?page=' + num).then(function (res) {
-        _this2.setState({
-          initData: res.data.data,
-          activePage: res.data.project.current_page,
-          itemsPerPage: res.data.project.per_page,
-          totalItemCount: res.data.project.total
-        });
-      })["catch"](function (error) {
-        console.log('通信失敗2');
-      });
+      /*		axios
+      			.get('/api/project?page=' + num)
+      			.then((res) => {
+      			this.setState({
+      				initData: res.data.data,
+      				activePage: res.data.project.current_page,
+      				itemsPerPage: res.data.project.per_page,
+      				totalItemCount: res.data.project.total,
+      			});
+      		})
+      			.catch((error) => {
+      			console.log('通信失敗2');
+      		})
+      */
+
+      this.props.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_3__["clickPage"])(num, this.props.search));
+      /*		.then(this.setState({
+      			activePage: this.props.data.project.current_page,
+      			itemsPerPage: this.props.data.project.per_page,
+      			totalItemCount: this.props.data.project.total,
+      		}),
+      		);*/
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       /*		if(this.props.search){
       			console.log('1');
       			axios
@@ -73571,22 +73610,18 @@ function (_React$Component) {
       			})
       		}else{
       */
-      console.log('2');
-      this.handlePageChange(1);
-      /*			axios
-      				.get('/api/project')
-      					.then((res) => {
-      					this.setState({
-      						initData: res.data.data,
-      						activePage: res.data.project.current_page,
-      						itemsPerPage: res.data.project.per_page,
-      						totalItemCount: res.data.project.total,
-      					});
-      				})
-      					.catch((error) => {
-      					console.log('通信失敗2');
-      				})
-      */
+      console.log('2'); //		this.handlePageChange(1);
+
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/project').then(function (res) {
+        _this2.setState({
+          initData: res.data.data,
+          activePage: res.data.project.current_page,
+          itemsPerPage: res.data.project.per_page,
+          totalItemCount: res.data.project.total
+        });
+      })["catch"](function (error) {
+        console.log('通信失敗2');
+      });
     } //	}
 
     /*	searchProject(data, search){
@@ -73634,7 +73669,7 @@ function (_React$Component) {
       		*/
 
       var Items = data ? data.map(function (value) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_item__WEBPACK_IMPORTED_MODULE_5__["default"], {
           key: value.id,
           value: value,
           index: value.id
@@ -73642,10 +73677,10 @@ function (_React$Component) {
       }) : '';
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "p-panel"
-      }, Items), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_paginate__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        activePage: this.state.activePage,
-        itemsPerPage: this.state.itemsPerPage,
-        totalItemCount: this.state.totalItemCount,
+      }, Items), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_paginate__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        activePage: this.props.activePage ? this.props.activePage : this.state.activePage,
+        itemsPerPage: this.props.itemsPerPage ? this.props.itemsPerPage : this.state.itemsPerPage,
+        totalItemCount: this.props.totalItemCount ? this.props.totalItemCount : this.state.totalItemCount,
         pageRange: this.state.pageRange,
         onChange: this.handlePageChange
       })));
@@ -73935,7 +73970,10 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state) {
   return {
     data: state.project.data,
-    search: state.project.search
+    search: state.project.search,
+    activePage: state.project.activePage,
+    itemsPerPage: state.project.itemsPerPage,
+    totalItemCount: state.project.totalItemCount
   };
 };
 /*	const mapDispatchToProps = dispatch => {
@@ -74121,7 +74159,10 @@ __webpack_require__.r(__webpack_exports__);
 var initState = {
   data: '',
   search: '',
-  isFetching: false
+  isFetching: false,
+  activePage: '',
+  itemsPerPage: '',
+  totalItemCount: ''
 };
 function project() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;
@@ -74135,48 +74176,52 @@ function project() {
 
     case 'FETCH_SUCCESS':
       console.log(action);
+      console.log(action.data.data);
       return Object.assign({}, state, {
         isFetching: false,
         data: action.data.data,
-        search: action.data.search
+        search: action.data.search,
+        activePage: action.data.data.project.current_page,
+        itemsPerPage: action.data.data.project.per_page,
+        totalItemCount: action.data.data.project.total
       });
 
-    case 'SEARCH':
-      //object.assign stateのコピーをとる
-      console.log('project'); //			if(this.props.search){
+    /*		case 'PAGENATE':
+    			return Object.assign({}, state,{data: action.data}, {active: action.val});
+    */
 
-      /*			let fdata = '';
-      				axios
-      					.get('/api/projectSearch',{params: action.val})
-      					.then((res) => {
-      					
-      						fdata = res.data;
-      					console.log('fdata');
-      						console.log(fdata);
-      					return {search: action.val};
-      				})
-      					.catch((error) => {
-      					console.log('通信失敗1');
-      				});
-      					*/
-
-      /*			let data = [];
-      			state.data.forEach((value)=>{
-      				action.val.forEach((val, key)=>{
-      					if(value.key.indexOf(val) < 0){
-      						value.flg = false;
-      					}
-      				});
-      				value.flg && data.push(value);
-      			});
-      				return data;
-      */
-
-      return Object.assign({}, state, {
-        data: action.data
-      }, {
-        search: action.val
-      });
+    /*		case 'SEARCH':
+    			//object.assign stateのコピーをとる
+    			console.log('project');
+    
+    			if(this.props.search){
+    			let fdata = '';
+    				axios
+    					.get('/api/projectSearch',{params: action.val})
+    					.then((res) => {
+    					
+    						fdata = res.data;
+    					console.log('fdata');
+    						console.log(fdata);
+    					return {search: action.val};
+    				})
+    					.catch((error) => {
+    					console.log('通信失敗1');
+    				});
+    					
+    			let data = [];
+    			state.data.forEach((value)=>{
+    				action.val.forEach((val, key)=>{
+    					if(value.key.indexOf(val) < 0){
+    						value.flg = false;
+    					}
+    				});
+    				value.flg && data.push(value);
+    			});
+    				return data;
+    
+    			return Object.assign({}, state,{data: action.data}, {search: action.val});
+    */
 
     default:
       return state;
