@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Project;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -14,6 +15,7 @@ class ProfileController extends Controller
 			-> orderBy('updated_at', 'desc')
 			-> take(5)
 			-> get();
-		return view('profile', compact('user', 'projects'));
+		$myId = Auth::user()-> id;
+		return view('profile', compact('user', 'projects', 'myId'));
 	}
 }

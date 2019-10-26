@@ -13,12 +13,18 @@
 			<h1 class="c-title u-center u-mb_m">{{$user -> name}}さんのプロフィール</h1>
 			<div class="p-form__content">
         <div class="c-mypic">
-          <img src="/storage/{{$user -> pic}}" class="c-img">
+          <img src="{{$user -> pic}}" class="c-img">
         </div>
 				<div class="u-mb_m">
 					<p>
-						<sapn class="c-formtitle">ユーザー名</sapn>
+						<sapn class="c-formtitle">ユーザー名
+						</sapn>
 						<span class="c-formtitle u-pl_l">{{$user -> name}}</span>
+						@if($user -> id !== $myId)
+						<span class="c-formtitle u-pl_l">
+						<a href="/messageCheck/{{$user -> id}}">ダイレクトメッセージを送る</a>
+						</span>
+						@endif
          </p>
           <p>
 						<sapn class="c-formtitle">プロフィール文</sapn>
@@ -36,7 +42,6 @@
         </div>
         @endforeach
       </div>
-      <p class="u-right"><a href="project.html">>>さらに見る</a></p>
 			</div>
     </section>
 
