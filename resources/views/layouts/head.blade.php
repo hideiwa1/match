@@ -12,7 +12,7 @@ ini_set('display_errors', 1);
 @if(app('env') == 'local')
 <meta name="twitter:image" content="{{(asset('/img/match.jpg'))}}">
 @else
-<meta name="twitter:image" content="{{(secure_asset('/img/match.jpg'))}}">
+<meta name="twitter:image" content="{{(secure_asset('/img/match1.jpg'))}}">
 @endif
 
 @endif
