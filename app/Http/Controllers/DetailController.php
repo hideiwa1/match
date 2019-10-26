@@ -43,7 +43,4 @@ class DetailController extends Controller
 		}
 	}
 	
-	public function comit($id=''){
-		
-	}
 }
