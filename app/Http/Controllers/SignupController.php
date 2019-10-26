@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class SignupController extends Controller
 {
@@ -23,10 +24,19 @@ class SignupController extends Controller
         unset($form['password_confirmation']);
         $user -> fill($form) -> save();
         */
-        user::create([
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
+			$email = $request -> email;
+			$password = $request -> password;
+			$emailCheck = User::where('email', $email) -> exists();
+/*			if($emailCheck){
+				$msg = 'メールアドレスはすでに登録されています';
+				return view('signup', compact('msg'));
+			}else{
+*/        user::create([
+            'email' => $email,
+            'password' => Hash::make($password),
         ]);
+			Auth::attempt(['email' => $email, 'password' => $password]);
         return redirect('/mypage');
+			
     }
 }

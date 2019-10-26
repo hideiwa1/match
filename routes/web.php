@@ -20,6 +20,8 @@ if(config('app.env') === 'production'){
 
   Route::get('', 'IndexController@index');
 
+Route::get('profile/{id}', 'ProfileController@index');
+
 
 Auth::routes();
 Route::get('login', 'LoginController@getAuth') -> name('login');
@@ -30,6 +32,8 @@ Route::post('signup', 'SignupController@postSignup');
 Route::get('pass/reset/{token?}', 'Auth\ForgotPasswordController@showLinkRequestForm');
 
 Route::group(['middleware' => 'auth'], function(){
+	Route::get('logout', 'Auth\LoginController@logout');
+	
 	Route::get('mypage', 'MypageController@index');
 	Route::post('detail/{id}', 'DetailController@add');
 	

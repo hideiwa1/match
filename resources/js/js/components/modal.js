@@ -31,6 +31,9 @@ export default class Modal extends React.Component{
 			return(
 				<ul>
 				<li className="p-modal-menu__item"><a href="/">TOP</a></li>
+				<li className="p-modal-menu__item">
+				<a href='/project' className="c-button">案件検索</a>
+				</li>
 				<li className="p-modal-menu__item"><a href="/signup">新規登録</a></li>
 				<li className="p-modal-menu__item"><a href="/login">ログイン</a></li>
 				</ul>

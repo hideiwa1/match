@@ -13,7 +13,7 @@ class User extends Authenticatable
     protected $guarded = array('id');
 
     public static $rules = array(
-      'email' => 'required|email',
+      'email' => 'required|email|unique:users,email',
       'password' => 'required|min:4|confirmed'
     );
 	

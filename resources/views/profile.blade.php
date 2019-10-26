@@ -8,30 +8,36 @@
 <main class="main">
 
   <article class="p-form">
-    <h1 class="c-title">ユーザーのプロフィール</h1>
+    
     <section>
-      <div class="u-table">
-        <div class="c-mypic u-tcell">
-          <img src="" class="c-img">
+			<h1 class="c-title u-center u-mb_m">{{$user -> name}}さんのプロフィール</h1>
+			<div class="p-form__content">
+        <div class="c-mypic">
+          <img src="/storage/{{$user -> pic}}" class="c-img">
         </div>
-        <div class="u-tcell">
-          <h2>ユーザー名</h2>
-          <p>プロフィール文</p>
+				<div class="u-mb_m">
+					<p>
+						<sapn class="c-formtitle">ユーザー名</sapn>
+						<span class="c-formtitle u-pl_l">{{$user -> name}}</span>
+         </p>
+          <p>
+						<sapn class="c-formtitle">プロフィール文</sapn>
+						<sapn class="c-formtitle u-pl_l">{{$user -> comment}}</sapn>
+       </p>
         </div>
-      </div>
-      <h2>提案中の案件</h2>
+        <h2>提案中の案件</h2>
       <div class="p-panel">
+       @foreach($projects as $project)
         <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
+          <a href="detail/{{$project -> id}}" class="c-textbox u-mb_m">
+						<p>{{$project -> title}}</p>
+						予算：{{$project -> min_price}}千〜{{$project -> max_price}}千
+					</a>
         </div>
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
-        <div class="p-panel__item">
-          <a href="ditale.html" class="c-textbox u-mb_m">案件詳細</a>
-        </div>
+        @endforeach
       </div>
       <p class="u-right"><a href="project.html">>>さらに見る</a></p>
+			</div>
     </section>
 
   </article>

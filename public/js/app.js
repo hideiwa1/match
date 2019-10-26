@@ -72773,7 +72773,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "detail/" + this.props.value.id,
         className: "c-textbox"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u91D1\u984D\uFF1A", this.props.value.min, "\u4E07\u301C", this.props.value.max, "\u4E07")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u91D1\u984D\uFF1A", this.props.value.min, "\u5343\u301C", this.props.value.max, "\u5343")));
     }
   }]);
 
@@ -73165,6 +73165,11 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "/"
         }, "TOP")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "p-modal-menu__item"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "/project",
+          className: "c-button"
+        }, "\u6848\u4EF6\u691C\u7D22")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "p-modal-menu__item"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "/signup"
