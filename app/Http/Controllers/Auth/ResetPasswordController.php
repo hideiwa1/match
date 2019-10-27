@@ -46,7 +46,7 @@ class ResetPasswordController extends Controller
     
     public function reset(Request $request)
     {
-        $this -> validate($request, User::$rules);
+        $this -> validate($request, User::$passRules);
         
         $response = $this->broker()->reset(
             $this->credentials($request), function ($user, $password) {

@@ -17,6 +17,9 @@ class User extends Authenticatable
       'email' => 'required|email|unique:users,email',
       'password' => 'required|min:4|confirmed'
     );
+	public static $passRules = array(
+		'password' => 'required|min:4|confirmed'
+	);
 	
 	public function Projects(){
 		return $this -> hasMany('App\Category');
