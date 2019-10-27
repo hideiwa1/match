@@ -11,12 +11,12 @@
 		<h1 class="c-title u-center u-mb_m">
 			@if($bord -> from_user_id === $user)
 			<div class="p-message__pic c-msgpic u-inline">
-			<img src="/storage/{{$bord -> toUser -> pic}}" class="c-img">
+			<img src="{{$bord -> toUser -> pic}}" class="c-img">
 			</div>
 			{{$bord -> toUser -> name}}
 			@else
 			<div class="p-message__pic c-msgpic u-inline">
-			<img src="/storage/{{$bord -> fromUser -> pic}}" class="c-img">
+			<img src="{{$bord -> fromUser -> pic}}" class="c-img">
 			</div>
 			{{$bord -> fromUser -> name}}
 			@endif
@@ -28,7 +28,7 @@
 				@if($message -> to_user_id === $user)
 				<a href="/profile/{{$message -> to_user_id}}">
 				<div class="p-message__pic c-msgpic">
-					<img src="/storage/{{$message -> toUser -> pic}}" class="c-img">
+					<img src="{{$message -> toUser -> pic}}" class="c-img">
 				</div>
 				</a>
 				<div class="p-message--right c-textbox">
@@ -42,7 +42,7 @@
 				</div>
 				<a href="/profile/{{$message -> from_user_id}}">
 				<div class="p-message__pic c-msgpic">
-					<img src="/storage/{{$message -> fromUser -> pic}}" class="c-img">
+					<img src="{{$message -> fromUser -> pic}}" class="c-img">
 				</div>
 				</a>
 				@endif
