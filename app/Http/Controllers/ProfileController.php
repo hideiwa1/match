@@ -15,7 +15,11 @@ class ProfileController extends Controller
 			-> orderBy('updated_at', 'desc')
 			-> take(5)
 			-> get();
-		$myId = Auth::user()-> id;
+		if(Auth::id()){
+			$myId = Auth::id();
+		}else{
+			$myId = '';
+		}
 		return view('profile', compact('user', 'projects', 'myId'));
 	}
 }

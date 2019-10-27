@@ -35,7 +35,7 @@
       <div class="p-panel">
        @foreach($projects as $project)
         <div class="p-panel__item">
-          <a href="detail/{{$project -> id}}" class="c-textbox u-mb_m">
+          <a href="/detail/{{$project -> id}}" class="c-textbox u-mb_m">
 						<p>{{$project -> title}}</p>
 						予算：{{$project -> min_price}}千〜{{$project -> max_price}}千
 					</a>

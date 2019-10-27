@@ -72,7 +72,7 @@ value="応募する" class="c-formbutton u-mb_m">
 			@endif
 		@else
 			応募するにはログインが必要です
-			<button class="c-formbutton u-mb_m"><a href="login">ログイン</a></button>
+			<button class="c-formbutton u-mb_m"><a href="/login">ログイン</a></button>
 		@endif
 		</form>
 
@@ -105,7 +105,7 @@ value="応募する" class="c-formbutton u-mb_m">
 					<input type="submit" value="送信" class="c-formbutton">
 					@else
 					コメントするにはログインが必要です
-					<button class="c-formbutton"><a href="login">ログイン</a></button>
+					<button class="c-formbutton"><a href="/login">ログイン</a></button>
 					@endif
 				</div>
 			</form>
