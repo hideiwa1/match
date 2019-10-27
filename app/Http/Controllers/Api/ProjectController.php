@@ -25,7 +25,6 @@ class ProjectController extends Controller
 		$res = [];
 		$res['project'] = $projects;
 		$res['data'] = $data;
-		//			$pro = $projects[data];
 		return $res;
 	}
 
@@ -38,7 +37,8 @@ class ProjectController extends Controller
 			$category = [];
 			$request -> single == 'true' && $category[] = 1;
 			$request -> share == 'true' && $category[] = 2;
-
+			
+			/*SQL文の作成*/
 			$sql = [];
 			$title && $sql[] = ['title', 'LIKE', '%'.$title.'%'];
 			$min && $sql[] = ['min_price', '>=', $min];
@@ -48,7 +48,6 @@ class ProjectController extends Controller
 				$projects = project::where($sql) -> whereIn('category_id', $category) -> paginate(10)
 					:$projects = project::where($sql) -> paginate(10);
 			
-//			$projects = project::all();
 			$data = [];
 			foreach($projects as $project){
 				$data[] =[
@@ -62,7 +61,6 @@ class ProjectController extends Controller
 			$res = [];
 			$res['project'] = $projects;
 			$res['data'] = $data;
-//			$pro = $projects[data];
 			return $res;
 		}
 }

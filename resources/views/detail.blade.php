@@ -62,11 +62,17 @@
 			</p>
 			@endforeach
 		@elseif(Auth::check())
-		<input type="submit" name="comit"
-					 value="応募する" class="c-formbutton u-mb_m">
+			@if($attendFlg)
+			<div class="c-formbutton u-mb_m u-center">
+			応募済みです
+			</div>
 			@else
+			<input type="submit" name="comit"
+value="応募する" class="c-formbutton u-mb_m">
+			@endif
+		@else
 			応募するにはログインが必要です
-			<button class="c-formbutton"><a href="login">ログイン</a></button>
+			<button class="c-formbutton u-mb_m"><a href="login">ログイン</a></button>
 		@endif
 		</form>
 

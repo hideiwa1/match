@@ -50,7 +50,37 @@ class MessageController extends Controller
 		$message -> from_user_id = Auth::id();
 		$message -> to_user_id = ($bord -> from_user_id == Auth::id()) ? $bord -> to_user_id : $bord -> from_user_id;
 		$message -> save();
+		/*Bordsテーブルのupdated_atを更新*/
 		$bord -> touch();
 		return back();
+	}
+	
+	public function attend($to_user_id = '', $project_id = '', $title = ''){
+		$user = Auth::id();
+		$checks = Bord::where('from_user_id', $to_user_id)
+			->orWhere('to_user_id', $to_user_id)
+			->where('from_user_id', $user)
+			->orWhere('to_user_id', $user)
+			->get();
+		if($checks -> count()){
+			foreach($checks as $check){
+				$bord_id = $check -> id;
+			}
+		}else{
+			$bord = new Bord;
+			$bord->from_user_id = $user;
+			$bord->to_user_id = $to_user_id;
+			$bord->save();
+			$bord_id = $bord -> id;
+			$bord -> touch();
+		}
+		$message = new Message;
+		$message -> comment = $title.'に応募しました';
+		$message -> bord_id = $bord_id;
+		$message -> from_user_id = $user;
+		$message -> to_user_id = $to_user_id;
+		$message -> save();
+//		return view('detail', ['id' => $project_id]);
+		return redirect() -> action('DetailController@index', ['id' => $project_id]);
 	}
 }

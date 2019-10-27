@@ -17,6 +17,7 @@ class Profile extends React.Component{
 	}
 
 	handleChange(e){
+		/*画像ライブプレビュー*/
 		const files = e.target.files;
 		if(files.length > 0){
 			let file = files[0];
@@ -32,16 +33,15 @@ class Profile extends React.Component{
 	}
 
 	componentDidMount(){
+		/*プロフィール画像の取得*/
 		axios
 			.get('/api/profilePic', {withCredentials: true})
 			.then((res) => {
-			console.log(res)
 			this.setState({
 				img: res.data,
 			});
 		})
 			.catch((error) => {
-			console.log('通信失敗');
 		})
 	}
 

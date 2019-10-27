@@ -35,24 +35,7 @@ class Search extends React.Component {
 	
 	handleClick(e){
 		e.preventDefault();
-		console.log('10');
-/*		axios
-			.get('/api/auth', {withCredentials: true})
-			.then((res) => {
-				console.log('res' + res.data);
-				this.setState({
-					search: res.data
-				}),
-			let search = {search: res.data};
-					console.log('let:' + search);
-*/			this.props.dispatch(searchProject(this.state))
-/*			)
-			.catch((error) => {
-				console.log('通信失敗');
-			})
-			console.log('state:' + this.state.search);
-*/
-
+		this.props.dispatch(searchProject(this.state))
 	}
 	
 	render(){

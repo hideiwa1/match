@@ -19,16 +19,15 @@ class Like extends React.Component{
 	}
 
 	handleClick(){
+		/*お気に入り情報の登録*/
 		axios
 			.get('/api/liketoggle', {withCredentials: true, params: this.state})
 			.then((res) => {
-			console.log(res)
 			this.setState({
 				like_flg: res.data,
 			});
 		})
 			.catch((error) => {
-			console.log('通信失敗');
 		});
 		this.props.dispatch(likeToggle(this.state.like_flg));
 	}
@@ -36,7 +35,7 @@ class Like extends React.Component{
 	componentDidMount(){
 		let path = location.pathname;
 		let url = path.slice(1).split('/');
-		
+		/*お気に入り情報の取得*/
 		axios
 			.get('/api/like', {withCredentials: true, params: this.state})
 			.then((res) => {
@@ -46,7 +45,6 @@ class Like extends React.Component{
 			});
 		})
 			.catch((error) => {
-			console.log('通信失敗');
 		})
 	}
 

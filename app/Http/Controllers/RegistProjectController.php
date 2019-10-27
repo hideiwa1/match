@@ -41,13 +41,5 @@ class RegistProjectController extends Controller
 			$data = Project::find($id);
 		}
 		return view('registProject', compact('title', 'id', 'data'));
-/*			$this -> validate($request, Comment::$rules);
-		$comment = new Comment;
-		$comment->comment = $request->comment;
-		$comment->user_id = Auth::user()->id;
-		$comment->project_id = $id;
-		$comment->save();
-		return back();
-		*/
 	}
 }

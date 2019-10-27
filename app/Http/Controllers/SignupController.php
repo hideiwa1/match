@@ -16,22 +16,11 @@ class SignupController extends Controller
     
     public function postSignup(Request $request)
     {
-        $this -> validate($request, User::$rules);
-        /**
-        $user = new User;
-        $form = $request -> all();
-        unset($form['_token']);
-        unset($form['password_confirmation']);
-        $user -> fill($form) -> save();
-        */
+      $this -> validate($request, User::$rules);
 			$email = $request -> email;
 			$password = $request -> password;
 			$emailCheck = User::where('email', $email) -> exists();
-/*			if($emailCheck){
-				$msg = 'メールアドレスはすでに登録されています';
-				return view('signup', compact('msg'));
-			}else{
-*/        user::create([
+        user::create([
             'email' => $email,
             'password' => Hash::make($password),
         ]);

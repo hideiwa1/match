@@ -27,7 +27,7 @@ class Menu extends React.Component{
 	}
     
 	componentDidMount(){
-//		this.props.searchProject();
+		/*ユーザー認証*/
 		axios
 			.get('/api/auth', {withCredentials: true})
 			.then((res) => {
@@ -36,11 +36,11 @@ class Menu extends React.Component{
 				});
 			})
 			.catch((error) => {
-					console.log('通信失敗');
 			})
 	}
 	
 	menuItem(auth){
+		/*ログインの有無でメニュー切り替え*/
 		if(auth === 'init'){
 			return(
 				<ul></ul>
@@ -77,8 +77,6 @@ class Menu extends React.Component{
 	}
 
 	render(){
-		console.log('show' + this.state.modalShow);
-		console.log(this.state.user);
 		return(
         <div>
 					{this.menuItem(this.state.user)}

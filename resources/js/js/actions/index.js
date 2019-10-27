@@ -29,29 +29,16 @@ export function searchProject(state){
 	return dispatch => {
 		dispatch(requestData())
 		let fdata = '';
+		/*案件情報の取得*/
 		return axios
 		.get('/api/projectSearch',{params: state})
 			.then((res) =>
 						{console.log(res),
 						fdata = {data: res.data, search: state},
 			dispatch(receiveData(fdata))
-
-/*		fdata = res.data;
-		console.log('fdata');
-		console.log(fdata);
-		return {
-			type: "SEARCH",
-			val: state,
-			data: res.data
-		};*/
-	})
-		.catch((error) => {
-		console.log('通信失敗1');
-	});
-/*	return {
-		type: "SEARCH",
-		val: state
-	};*/
+		})
+			.catch((error) => {
+		});
 	}
 }
 
@@ -60,6 +47,7 @@ export function clickPage(state, search){
 	return dispatch => {
 		dispatch(requestData())
 		let fdata = '';
+		/*案件情報の取得＋ページネーション*/
 		return axios
 			.get('/api/projectSearch?page=' + state,{params: search})
 			.then((res) =>
@@ -68,18 +56,9 @@ export function clickPage(state, search){
 							dispatch(receiveData(fdata))
 						})
 			.catch((error) => {
-			console.log('通信失敗1');
 		});
 	}
 }
-	
-	
-	
-/*	return{
-		type: "PAGENATE",
-		val: state
-	};*/
-
 
 export function likeToggle(state){
 	return {

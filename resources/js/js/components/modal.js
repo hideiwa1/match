@@ -10,6 +10,7 @@ export default class Modal extends React.Component{
 	}
 
 	menuItem(auth){
+		/*ログインの有無でメニュー切り替え*/
 		if(auth){
 			return(
 				<ul>

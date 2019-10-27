@@ -24,48 +24,11 @@ class ProjectList extends React.Component{
 	}
 	
 	handlePageChange(num){
-		console.log('handlePageChange');
-		console.log('num:' + num);
-/*		axios
-			.get('/api/project?page=' + num)
-			.then((res) => {
-			this.setState({
-				initData: res.data.data,
-				activePage: res.data.project.current_page,
-				itemsPerPage: res.data.project.per_page,
-				totalItemCount: res.data.project.total,
-			});
-		})
-			.catch((error) => {
-			console.log('通信失敗2');
-		})
-*/			this.props.dispatch(clickPage(num, this.props.search))
-/*		.then(this.setState({
-			activePage: this.props.data.project.current_page,
-			itemsPerPage: this.props.data.project.per_page,
-			totalItemCount: this.props.data.project.total,
-		}),
-		);*/
+			this.props.dispatch(clickPage(num, this.props.search))
 	}
 	
 	componentDidMount(){
-/*		if(this.props.search){
-			console.log('1');
-			axios
-				.get('/api/projectSearch', {
-				params: this.props.search
-			})
-				.then((res) => {
-				this.setState({
-					initData: res.data
-				});
-			})
-				.catch((error) => {
-				console.log('通信失敗1');
-			})
-		}else{
-*/			console.log('2');
-//		this.handlePageChange(1);
+		/*案件情報の取得*/
 			axios
 				.get('/api/project')
 					.then((res) => {
@@ -77,52 +40,11 @@ class ProjectList extends React.Component{
 					});
 				})
 					.catch((error) => {
-					console.log('通信失敗2');
 				})
 			}
-//	}
-	
-/*	searchProject(data, search){
-		let fdata = [];
-		console.log('data:' + typeof data);
-		console.log('search:');
-		let fkey = this.props.search;
-		Object.keys(data).forEach((value)=>{
-			console.log(data[value].title);
-			if(fkey.keyword){
-				console.log('fkey');
-				console.log(fkey.keyword);
-				console.log(data[value].title.indexOf(fkey.keyword));
-				if(data[value].title.indexOf(fkey.keyword) < 0){
-					data[value].flg = false;
-				}else{
-					data[value].flg = true;
-				}
-				console.log(data[value].flg);
-			}
-			
-			data[value].flg && fdata.push(data[value]);
-		});
-		return fdata;
-	}
-	*/
 	render(){
-
-		console.log('3');
 		let data = this.props.data.data? this.props.data.data : this.state.initData;
-		console.log(data);
-/*		console.log('props');
-		console.log(this.props.search);
-		console.log('state');
-		console.log(this.state.test);
-		console.log('search');
-		console.log(this.state.search);
-		console.log('props');
-		console.log(this.props.search.keyword);
 		
-		data = this.props.search ? this.searchProject(data, this.state.serach) : data;
-		console.log('s:' + data);
-		*/
 		let Items = data ? data.map((value) => (
 			<Item key={value.id} value={value} index={value.id} />
 		)) : '';
@@ -142,7 +64,6 @@ class ProjectList extends React.Component{
 				</div>
 				</div>
 			);
-		
 	}
 }
 

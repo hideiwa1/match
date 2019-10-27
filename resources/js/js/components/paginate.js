@@ -12,12 +12,12 @@ class Paginate extends React.Component{
 	
 	handleLinkClick(e){
 		e.preventDefault();
-		console.log(e.target.name);
 		this.props.onChange(e.target.name);
 		
 	}
 	
 	buildPages(){
+		/*ページネーション*/
 		const {activePage, itemsPerPage, totalItemCount, pageRange} = this.props;
 		let Pages = [],
 				first_page = '',
@@ -38,7 +38,6 @@ class Paginate extends React.Component{
 						last_page = activePage + Math.floor(pageRange /2);
 			}
 		}
-		console.log(activePage);
 		
 		for(let i = first_page; i <= last_page; i++){
 			Pages.push(

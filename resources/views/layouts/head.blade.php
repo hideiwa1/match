@@ -1,6 +1,6 @@
 @section('head')
 <?php
-ini_set('display_errors', 1);
+ini_set('display_errors', 'on');
 ?>
 <meta charset="UTF-8">
 <meta name="csrf-token" content="{{ csrf_token() }}">

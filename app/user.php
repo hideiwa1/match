@@ -18,6 +18,7 @@ class User extends Authenticatable
       'password' => 'required|min:4|confirmed'
     );
 	public static $passRules = array(
+		'email' => 'required|email',
 		'password' => 'required|min:4|confirmed'
 	);
 	

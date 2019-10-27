@@ -30,9 +30,14 @@ class MypageController extends Controller
 				->take(5) -> get();
 			$messages = [];
 			foreach($bords as $bord){
-				$messages[] = $bord -> messages() -> orderBy('updated_at', 'desc') -> first();
+				$msg = '';
+				$msg = $bord -> messages() -> orderBy('updated_at', 'desc') -> first();
+				if($msg){
+				$messages[] = $msg;
+				}
 			}
 			$messages = collect($messages);
+			
 			return view('myPage', compact('projects', 'likes', 'comments', 'messages', 'bords', 'user_id'));
     }
 }

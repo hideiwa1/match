@@ -15,7 +15,6 @@ class LikeController extends Controller
 			$like = Like::where('project_id', $id)
 				-> where('user_id', $user)
 				-> count();
-//				->get();
 			return $like;
 		}
 	
@@ -23,7 +22,6 @@ class LikeController extends Controller
 		$flg = $request -> like_flg;
 		$id = $request -> id;
 		$user = Auth::user()->id;
-//		return $flg;
 		
 		if($flg == 'true'){
 			$like = Like::where('project_id', $id)

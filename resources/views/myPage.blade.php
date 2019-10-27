@@ -60,10 +60,10 @@
      
       <h2>ダイレクトメッセージ一覧</h2>
       <div class="p-panel">
-      
+      @if($messages)
 				@foreach ($messages as $message)
 				<div class="p-panel__item">
-					<a href="bord/{{$message -> bord_id}}" class="c-textbox u-mb_m">
+					<a href="message/{{$message -> bord_id}}" class="c-textbox u-mb_m">
 						<p>
 							@if($message -> from_user_id === $user_id)
 							{{$message -> toUser -> name}}
@@ -75,6 +75,7 @@
 						<p>{{$message -> comment}}</p></a>
 				</div>
 				@endforeach
+      @endif
        
       </div>
       <p class="u-right"><a href="myMessage">>>さらに見る</a></p>
