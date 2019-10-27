@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\CustomResetPassword;
 
 class User extends Authenticatable
 {
@@ -31,5 +32,9 @@ class User extends Authenticatable
 	
 	public function Bords(){
 		return $this -> hasMany('App\Bord');
+	}
+	
+	public function sendPasswordResetNotification($token){
+		$this -> notify(new CustomResetPassword($token));
 	}
 }
