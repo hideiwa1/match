@@ -26,9 +26,9 @@
 		@foreach($messages as $message)
 			<div class="u-flex u-mb_m">
 				@if($message -> to_user_id === $user)
-				<a href="/profile/{{$message -> to_user_id}}">
+				<a href="/profile/{{$message -> from_user_id}}">
 				<div class="p-message__pic c-msgpic">
-					<img src="{{$message -> toUser -> pic}}" class="c-img">
+					<img src="{{$message -> fromUser -> pic}}" class="c-img">
 				</div>
 				</a>
 				<div class="p-message--right c-textbox">

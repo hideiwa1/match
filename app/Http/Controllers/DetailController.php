@@ -36,7 +36,7 @@ class DetailController extends Controller
 			/*応募時*/
 			$attender = new Attender;
 			$attender->project_id = $id;
-			$attender->user_id = Auth::user()->id;
+			$attender->user_id = Auth::id();
 			$attender->save();
 			/*Projectsテーブルのupdated_atを更新*/
 			$project = Project::find($id);

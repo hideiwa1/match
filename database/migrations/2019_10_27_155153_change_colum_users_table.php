@@ -14,7 +14,7 @@ class ChangeColumUsersTable extends Migration
     public function up()
     {
 			Schema::table('users', function (Blueprint $table) {
-				$table->string('pic') -> _default('https://laravalsample.s3.ap-northeast-1.amazonaws.com/silet.png');
+				$table->string('pic') -> _default('https://laravalsample.s3.ap-northeast-1.amazonaws.com/silet.png')->change();
 			});
     }
 

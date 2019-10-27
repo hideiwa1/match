@@ -154,7 +154,7 @@ return [
 			'min_price' => '最低価格',
 			'max_price' => '最高価格',
 			'pic' => '画像',
-			'category_id' => '案件種別'、
+			'category_id' => '案件種別',
 		],
 
 ];
