@@ -11,6 +11,7 @@ class ProfilePicController extends Controller
 {
 	public function index(){
 		$data = User::find(Auth::id())->pic;
+		$data = "/storage/".$data;
 		return $data;
 	}
 }
