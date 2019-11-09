@@ -12,6 +12,10 @@ class RegistProjectController extends Controller
 		if($id !== 'new'){
 			$title = '登録案件編集';
 			$data = Project::find($id);
+			$user = Auth::id();
+			if($data -> user_id !== $user){
+				return redirect('mypage');
+			}
 		}else{
 			$title = '新規案件登録';
 			$data = '';
@@ -37,9 +41,10 @@ class RegistProjectController extends Controller
 		if($id === 'new'){
 			$last_insert_id = $project ->id;
 			$data = Project::find($last_insert_id);
+			$id = $last_insert_id;
 		}else{
 			$data = Project::find($id);
 		}
-		return view('registProject', compact('title', 'id', 'data'));
+		return redirect() -> action('DetailController@index', [$id]);
 	}
 }

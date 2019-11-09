@@ -13,10 +13,10 @@
         メール本文中の【認証キー】を入力してください。
       </p>
       <p class="u-mb_xl">
-        <span class="c-formtitle">認証キー</span>
-        <input type="text" name="onepass" placeholder="認証キー" class="c-textform">
+        <span class="c-form__title">認証キー</span>
+        <input type="text" name="onepass" placeholder="認証キー" class="c-form__text">
       </p>
-      <input type="submit" name="submit" value="送信" class="c-formbutton">
+      <input type="submit" name="submit" value="送信" class="c-form__button">
     </div>
   </form>
 </main>

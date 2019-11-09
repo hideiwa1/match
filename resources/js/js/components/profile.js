@@ -48,7 +48,7 @@ class Profile extends React.Component{
 	render(){
 		return(
 		<>
-			<input type="file" name="pic" className="c-img c-inputpic" onChange={this.handleChange} />
+			<input type="file" name="pic" className="c-img__input" onChange={this.handleChange} />
 			<img src={this.state.img} className="c-img" />
 		</>
 		);

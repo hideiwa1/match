@@ -1,0 +1,9 @@
+/*コメント*/
+.p-comment {
+	border-bottom: 1px solid black;
+
+	&__no {
+		font-size: $font-size_s;
+		width: $space_xxl;
+	}
+}

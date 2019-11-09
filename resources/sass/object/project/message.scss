@@ -1,0 +1,55 @@
+/*メッセージ*/
+.p-message {
+	&__pic {
+		width: $space_xxl;
+		height: $space_xxl;
+	}
+
+	&--right {
+		width: calc(100% - #{$space_xxl} - #{$space_xl});
+		position: relative;
+		background-color: $background-color_message1;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: $space_m;
+			left: -$space_xl;
+			border: $space_l solid transparent;
+			border-right: $space_l solid $background-color_message1;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: $space_m;
+			left: -$space_xl+1;
+			border: $space_l solid transparent;
+			border-right: $space_l solid $background-color_message1;
+		}
+	}
+
+	&--left {
+		width: calc(100% - #{$space_xxl} - #{$space_xl});
+		position: relative;
+		background-color: $background-color_message2;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: $space_m;
+			right: -$space_xl;
+			border: $space_l solid transparent;
+			border-left: $space_l solid $background-color_message2;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: $space_m;
+			right: -$space_xl+1;
+			border: $space_l solid transparent;
+			border-left: $space_l solid $background-color_message2;
+		}
+	}
+}

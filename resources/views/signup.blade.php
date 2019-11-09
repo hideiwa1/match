@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'myComment')
+@section('title', '新規登録')
 @include('layouts.head')
 
 @section('contents')
@@ -14,18 +14,18 @@
     @endforeach
     <div class="p-form__content">
       <p>
-        <span class="c-formtitle">Email</span>
-          <input type="text" name="email" placeholder="email" class="c-textform"  value="{{ old('email') }}">
+        <span class="c-form__title">Email</span>
+          <input type="text" name="email" placeholder="email" class="c-form__text"  value="{{ old('email') }}">
       </p>
       <p>
-        <span class="c-formtitle">Password</span>
-        <input type="password" name="password" placeholder="password" class="c-textform">
+        <span class="c-form__title">Password</span>
+        <input type="password" name="password" placeholder="password" class="c-form__text">
       </p>
       <p class="u-mb_xl">
-        <span class="c-formtitle">Password再入力</span>
-        <input type="password" name="password_confirmation" placeholder="再入力" class="c-textform">
+        <span class="c-form__title">Password再入力</span>
+        <input type="password" name="password_confirmation" placeholder="再入力" class="c-form__text">
       </p>
-      <input type="submit" value="新規登録" class="c-formbutton">
+      <input type="submit" value="新規登録" class="c-form__button">
     </div>
   </form>
 </main>

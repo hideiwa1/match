@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'message')
+@section('title', 'ダイレクトメッセージ')
 @include('layouts.head')
 
 @section('contents')
@@ -10,12 +10,12 @@
 	<article class="u-mb_l">
 		<h1 class="c-title u-center u-mb_m">
 			@if($bord -> from_user_id === $user)
-			<div class="p-message__pic c-msgpic u-inline">
+			<div class="p-message__pic c-img__msg u-inline">
 			<img src="{{$bord -> toUser -> pic}}" class="c-img">
 			</div>
 			{{$bord -> toUser -> name}}
 			@else
-			<div class="p-message__pic c-msgpic u-inline">
+			<div class="p-message__pic c-img__msg u-inline">
 			<img src="{{$bord -> fromUser -> pic}}" class="c-img">
 			</div>
 			{{$bord -> fromUser -> name}}
@@ -27,7 +27,7 @@
 			<div class="u-flex u-mb_m">
 				@if($message -> to_user_id === $user)
 				<a href="/profile/{{$message -> from_user_id}}">
-				<div class="p-message__pic c-msgpic">
+				<div class="p-message__pic c-img__msg">
 					<img src="{{$message -> fromUser -> pic}}" class="c-img">
 				</div>
 				</a>
@@ -41,7 +41,7 @@
 					<span class="c-date">{{$message -> updated_at -> timezone("JST") ->format('Y/m/d H:i')}}</span>
 				</div>
 				<a href="/profile/{{$message -> from_user_id}}">
-				<div class="p-message__pic c-msgpic">
+				<div class="p-message__pic c-img__msg">
 					<img src="{{$message -> fromUser -> pic}}" class="c-img">
 				</div>
 				</a>
@@ -54,7 +54,7 @@
 				<h1 class="c-title u-center u-mb_m">メッセージ送信</h1>
 				<div class="p-form__content">
 					<textarea class="c-textarea" name="comment" rows="5"></textarea>
-					<input type="submit" name="submit" value="送信" class="c-formbutton">
+					<input type="submit" name="submit" value="送信" class="c-form__button">
 				</div>
 			</form>
 		</section>

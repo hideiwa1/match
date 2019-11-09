@@ -16,7 +16,7 @@ export default class Modal extends React.Component{
 				<ul>
 				<li className="p-modal-menu__item"><a href="/">TOP</a></li>
 				<li className="p-modal-menu__item">
-				<a href='/project' className="c-button">案件検索</a>
+				<a href='/project'>案件検索</a>
 				</li>
 				<li className="p-modal-menu__item"><a href="/mypage">マイページ</a></li>
 				<li className="p-modal-menu__item"><a href="/registProject">新規案件登録</a></li>
@@ -33,7 +33,7 @@ export default class Modal extends React.Component{
 				<ul>
 				<li className="p-modal-menu__item"><a href="/">TOP</a></li>
 				<li className="p-modal-menu__item">
-				<a href='/project' className="c-button">案件検索</a>
+				<a href='/project'>案件検索</a>
 				</li>
 				<li className="p-modal-menu__item"><a href="/signup">新規登録</a></li>
 				<li className="p-modal-menu__item"><a href="/login">ログイン</a></li>

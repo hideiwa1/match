@@ -42,21 +42,21 @@ class Search extends React.Component {
 
 		return(
 			<form onSubmit={this.handleClick}>
-				<div className="p-form__content">
+				<div className="u-ml_l">
 			<p>
-			<span className="c-formtitle">キーワード</span>
-			<input type="text" name="keyword" placeholder="キーワード" className="c-textform" onChange={this.handleChange} value={this.state.keyword} />
+			<span className="c-form__title">キーワード</span>
+			<input type="text" name="keyword" placeholder="キーワード" className="c-form__text" onChange={this.handleChange} value={this.state.keyword} />
+			</p>
+			<p className="u-flex-form">
+			<input type="checkbox" name="category[]" value="single" onChange={this.handleCheck} checked={this.state.single} id="single" /><label htmlFor="single">単発案件</label><br />
+			<input type="checkbox" name="category[]" value="share" onChange={this.handleCheck} checked={this.state.share} id="share" /><label htmlFor="share">レベニューシェア案件</label>
 			</p>
 			<p>
-			<input type="checkbox" name="category[]" value="single" onChange={this.handleCheck} checked={this.state.single} />単発案件<br />
-			<input type="checkbox" name="category[]" value="share" onChange={this.handleCheck} checked={this.state.share} />レベニューシェア案件
+			<span className="c-form__title">金額（最低金額〜最高金額）</span>
+			<input type="number" name="min" className="c-form__num u-right" onChange={this.handleChange} value={this.state.min} />,000円〜
+			<input type="number" name="max" className="c-form__num u-right" onChange={this.handleChange} value={this.state.max} />,000円
 			</p>
-			<p>
-			<span className="c-formtitle">金額</span>
-			<input type="number" name="min" className="c-numform" onChange={this.handleChange} value={this.state.min} />千〜
-			<input type="number" name="max" className="c-numform" onChange={this.handleChange} value={this.state.max} />千
-			</p>
-			<input type="submit" name="submit" value="検索" className="c-formbutton" />
+			<input type="submit" name="submit" value="検索" className="c-form__button" />
 				</div>
 			</form>
 		);

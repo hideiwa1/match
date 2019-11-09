@@ -16,6 +16,8 @@ class EditProfileController extends Controller
 	
 	public function add(Request $request){
 		$user = User::find(Auth::id());
+		$rules = ['email' => 'required|email|unique:users,email,'.$user->id];
+		$this -> validate($request, $rules);
 		$user -> name = $request -> name;
 		$user -> email = $request -> email;
 		$rules = ['pic' => 'image|max:2000'];
@@ -27,6 +29,6 @@ class EditProfileController extends Controller
 		}
 		$user -> comment = $request -> comment;
 		$user -> save();
-		return back();
+		return back()->with('message', '登録完了');
 	}
 }

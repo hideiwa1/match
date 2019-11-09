@@ -1,0 +1,16 @@
+/*ヘッダーメニュー*/
+.p-navmenu {
+	display: none;
+	@include mq(){
+		display: block;
+	}
+	&__item {
+		background-color: $background-color_menu;
+		height: 100%;
+		margin: 0 $space_s;
+
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+}

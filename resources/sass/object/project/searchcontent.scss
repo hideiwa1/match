@@ -1,0 +1,8 @@
+.p-searchcontent {
+
+	@include mq(){
+		display: block;
+		width: 30%;
+		box-sizing: border-box;
+	}
+}

@@ -1,13 +1,13 @@
 @extends('layouts.template')
 
-@section('title', 'myComment')
+@section('title', '案件検索')
 @include('layouts.head')
 
 @section('contents')
 
 <main class="main u-flex">
 
-  <aside class="p-sidecontent">
+  <aside class="p-searchcontent u-mb_l u-pl_l">
     <h1 class="c-title">案件検索</h1>
 		<div id="js-search"></div>
   </aside>

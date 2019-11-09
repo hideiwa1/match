@@ -1,0 +1,8 @@
+/*メインコンテンツ*/
+.p-maincontent {
+
+	@include mq(){
+		width: 70%;
+		box-sizing: border-box;
+	}
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
-import {clickPage} from '../actions';
+import {clickPage, initData} from '../actions';
 import axios from "axios";
 
 import Item from './item';
@@ -29,19 +29,9 @@ class ProjectList extends React.Component{
 	
 	componentDidMount(){
 		/*案件情報の取得*/
-			axios
-				.get('/api/project')
-					.then((res) => {
-					this.setState({
-						initData: res.data.data,
-						activePage: res.data.project.current_page,
-						itemsPerPage: res.data.project.per_page,
-						totalItemCount: res.data.project.total,
-					});
-				})
-					.catch((error) => {
-				})
+		this.props.dispatch(initData())
 			}
+			
 	render(){
 		let data = this.props.data.data? this.props.data.data : this.state.initData;
 		

@@ -1,0 +1,17 @@
+/*フォーム*/
+.p-form {
+	background-color: $background-color_menu;
+	padding: $space_xl;
+	box-sizing: border-box;
+	position: relative;
+
+	@include mq() {
+		width: 50%;
+		margin: auto;
+	}
+
+	&__content {
+		width: 70%;
+		margin: auto;
+	}
+}

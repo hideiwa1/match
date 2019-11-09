@@ -18,7 +18,7 @@ class Item extends React.Component{
 			<a href={"detail/" + this.props.value.id} className="c-textbox">
 			<span>{this.props.value.title}</span><br />
 			<span>{this.props.value.category}</span><br />
-			<span>金額：{this.props.value.min}千〜{this.props.value.max}千</span>
+			<span>金額：{this.props.value.min},000円〜{this.props.value.max},000円</span>
 			</a>
 			</div>
 		);

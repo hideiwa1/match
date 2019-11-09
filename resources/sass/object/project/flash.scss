@@ -1,0 +1,12 @@
+/*フラッシュメッセージ*/
+.p-flash{
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	background: gray;
+	z-index: 4;
+	width: 100%;
+	height: $space_xl;
+	font-size: $font-size_m;
+}

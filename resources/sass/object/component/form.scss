@@ -1,0 +1,30 @@
+/*フォーム項目*/
+.c-form{
+
+	&__title {
+		display: block;
+	}
+
+	/*テキストフォーム*/
+	&__text {
+		width: 100%;
+		font-size: $font-size_m;
+		padding: $space_m;
+		box-sizing: border-box;
+	}
+
+	/*数字フォーム*/
+	&__num {
+		width: 70px;
+		font-size: $font-size_default;
+		padding: $space_s;
+		box-sizing: border-box;
+	}
+
+	/*フォームボタン*/
+	&__button {
+		@extend .c-button;
+		@extend .c-form__text;
+		border: none;
+	}
+}

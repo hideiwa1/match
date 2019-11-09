@@ -1,0 +1,36 @@
+/*
+モーダル
+*/
+
+.p-modal {
+	width: 100vw;
+	height: 120vh;
+	position: fixed;
+	top: 0;
+	right: 0;
+
+	&-menu {
+		width: 50vw;
+		height: 100vh;
+		text-align: center;
+		background-color: rgba($background-color_modal, 0.5);
+		position: fixed;
+		top: 0;
+		right: 0;
+		padding-top: $space_xxl;
+		box-sizing: border-box;
+		overflow: scroll;
+
+		&__item {
+			display: block;
+			width: 80%;
+			margin: auto;
+			line-height: 2;
+			font-size: $font-size_m;
+
+			a {
+				display: block;
+			}
+		}
+	}
+}

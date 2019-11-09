@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'myComment')
+@section('title', 'パスワード再発行')
 @include('layouts.head')
 
 @section('contents')
@@ -20,10 +20,10 @@
                 ご登録のメールアドレスを入力してください。
             </p>
             <p class="u-mb_xl">
-                <span class="c-formtitle" value="{{ old('email') }}">Email</span>
-                <input type="text" name="email" placeholder="email" class="c-textform">
+                <span class="c-form__title" value="{{ old('email') }}">Email</span>
+                <input type="text" name="email" placeholder="email" class="c-form__text">
             </p>
-            <input type="submit" name="submit" value="送信" class="c-formbutton">
+            <input type="submit" name="submit" value="送信" class="c-form__button">
         </div>
     </form>
 </main>

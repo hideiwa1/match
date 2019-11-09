@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'myComment')
+@section('title', 'プロフィール')
 @include('layouts.head')
 
 @section('contents')
@@ -12,23 +12,23 @@
     <section>
 			<h1 class="c-title u-center u-mb_m">{{$user -> name}}さんのプロフィール</h1>
 			<div class="p-form__content">
-        <div class="c-mypic">
+        <div class="c-img__profile">
           <img src="{{$user -> pic}}" class="c-img">
         </div>
 				<div class="u-mb_m">
 					<p>
-						<sapn class="c-formtitle">ユーザー名
+						<sapn class="c-form__title">ユーザー名
 						</sapn>
-						<span class="c-formtitle u-pl_l">{{$user -> name}}</span>
+						<span class="c-form__title u-pl_l">{{$user -> name}}</span>
 						@if($user -> id !== $myId)
-						<span class="c-formtitle u-pl_l">
+						<span class="c-form__title u-pl_l">
 						<a href="/messageCheck/{{$user -> id}}">ダイレクトメッセージを送る</a>
 						</span>
 						@endif
          </p>
           <p>
-						<sapn class="c-formtitle">プロフィール文</sapn>
-						<sapn class="c-formtitle u-pl_l">{{$user -> comment}}</sapn>
+						<sapn class="c-form__title">プロフィール文</sapn>
+						<sapn class="c-form__title u-pl_l">{{$user -> comment}}</sapn>
        </p>
         </div>
         <h2>提案中の案件</h2>

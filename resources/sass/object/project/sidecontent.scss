@@ -1,0 +1,10 @@
+/*サイドコンテンツ*/
+.p-sidecontent {
+	display: none;
+
+	@include mq(){
+		display: block;
+		width: 30%;
+		box-sizing: border-box;
+	}
+}

@@ -9,15 +9,29 @@ export function menuClick(state){
 	};
 }
 
+export function initData(state){
+	return dispatch => {
+		dispatch(requestData())
+		let fdata = '';
+		return axios
+			.get('/api/project')
+			.then((res) =>{
+			console.log(res),
+				fdata = {data: res.data},
+				dispatch(receiveData(fdata))
+		})
+			.catch((error) => {
+		});
+	}
+}
+
 function requestData(){
-	console.log('req');
 	return{
 		type: "FETCH_REQUEST"
 	}
 }
 
 function receiveData(data){
-	console.log('receiv');
 	return{
 		type: "FETCH_SUCCESS",
 		data: data
@@ -25,16 +39,15 @@ function receiveData(data){
 }
 
 export function searchProject(state){
-	console.log(state);
 	return dispatch => {
 		dispatch(requestData())
 		let fdata = '';
 		/*案件情報の取得*/
 		return axios
 		.get('/api/projectSearch',{params: state})
-			.then((res) =>
-						{console.log(res),
-						fdata = {data: res.data, search: state},
+			.then((res) =>{
+			console.log(res),
+			fdata = {data: res.data, search: state},
 			dispatch(receiveData(fdata))
 		})
 			.catch((error) => {
@@ -43,7 +56,6 @@ export function searchProject(state){
 }
 
 export function clickPage(state, search){
-	console.log(state);
 	return dispatch => {
 		dispatch(requestData())
 		let fdata = '';

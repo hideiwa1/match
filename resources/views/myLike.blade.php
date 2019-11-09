@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'myComment')
+@section('title', 'お気に入り一覧')
 @include('layouts.head')
 
 @section('contents')

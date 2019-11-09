@@ -1,17 +1,29 @@
 /*均等配置*/
-.u-flex-default {
+.u-flex-default{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.u-flex {
+
 	@include mq() {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+		justify-content: space-between;
 	}
 }
 
-.u-flex {
-	@extend .u-flex-default;
-
+.u-flex-form{
+	
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	
 	@include mq() {
-		justify-content: space-between;
+		display: block;
 	}
 }
 
@@ -66,3 +78,10 @@
 	display: inline-block;
 }
 
+.u-error{
+	color: red;
+}
+
+.u-active{
+	color: red;
+}

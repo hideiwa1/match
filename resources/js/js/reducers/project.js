@@ -15,8 +15,7 @@ export default function project(state = initState, action) {
 			return Object.assign({}, state,{isFetching: true});
 			
 		case 'FETCH_SUCCESS':
-			console.log(action);
-			console.log(action.data.data);
+			console.log(action.data);
 			return Object.assign({}, state,{
 				isFetching: false,
 				data: action.data.data,

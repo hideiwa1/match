@@ -1,0 +1,46 @@
+/*パネル*/
+.p-panel {
+	&__item {
+		width: 100%;
+		margin-right: 5%;
+		display: block;
+	}
+
+	&__item5 {
+		width: 100%;
+
+		@include mq() {
+			width: 15%;
+			margin-right: 5%;
+			display: block;
+		}
+
+		&:last-child {
+			@include mq() {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&__item3 {
+		width: 100%;
+
+		@include mq() {
+			width: 30%;
+			margin-right: 5%;
+			display: block;
+		}
+
+		&:last-child {
+			@include mq() {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&:last-child {
+		@include mq() {
+			margin-right: 0;
+		}
+	}
+}

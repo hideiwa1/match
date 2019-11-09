@@ -1,0 +1,34 @@
+/*
+ハンバーガー
+*/
+.p-menu-trigger {
+	width: $space_xl;
+	height: $space_l;
+	position: fixed;
+	right: $space_l;
+	top: ($font-size_xl * $line-height) /2;
+	z-index: 3;
+	@include mq() {
+		display: none;
+	}
+
+	span {
+		display: inline-block;
+		width: 100%;
+		height: 3px;
+		background: $background-color_modal;
+		position: absolute;
+
+		&:nth-of-type(1) {
+			top: 0;
+		}
+
+		&:nth-of-type(2) {
+			top: 9px;
+		}
+
+		&:nth-of-type(3) {
+			bottom: 0;
+		}
+	}
+}

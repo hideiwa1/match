@@ -68,7 +68,7 @@ class Paginate extends React.Component{
 		
 		const Pages = this.buildPages();
 		return(
-			<ul className="u-flex p-pagenation u-center">
+			<ul className="u-flex-default p-pagenation u-center">
 			{Pages}
 			</ul>
 		);

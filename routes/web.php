@@ -34,10 +34,10 @@ Route::get('pass/reset/{token?}', 'Auth\ForgotPasswordController@showLinkRequest
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('logout', 'Auth\LoginController@logout');
 	
-	Route::get('mypage', 'MypageController@index');
+	Route::get('mypage', 'MypageController@index')->name('mypage');
 	Route::post('detail/{id}', 'DetailController@add');
 	
-	Route::get('registProject/{id?}', 'RegistProjectController@regist');
+	Route::get('registProject/{id?}', 'RegistProjectController@regist')->name('registProject');
 	Route::post('registProject/{id?}', 'RegistProjectController@save');
 	
 	Route::get('myProject', 'MyProjectController@index');
