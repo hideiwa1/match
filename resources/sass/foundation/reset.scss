@@ -48,6 +48,7 @@ body {
 	-webkit-text-size-adjust: 100%;
 	position: relative;
 	background-color: $background-color_base;
+	font-family: -apple-system, BlinkMacAyatemFont, 'Helvetica Neue', 'Segoe UI', HiraginoCustom, 'Hiragino KakuGothic ProN', YuGothic, 'Yu Gothic Medium', Meiryo, sans-serif;
 }
 
 ol,
@@ -62,7 +63,14 @@ a {
 
 a:hover {
 	color: #0056b3;
-	text-decoration: underline;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+input[type='submit']:hover{
+	cursor: pointer;
 }
 
 img {

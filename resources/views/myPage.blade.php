@@ -14,9 +14,9 @@
       <h2>登録案件</h2>
       <div class="p-panel u-flex-default">
 				@foreach ($projects as $project)
-        <div class="p-panel__item5">
+				<div class="p-panel__item5 u-mb_m u-height__2line">
          
-          <a href="/detail/{{$project -> id}}" class="c-textbox u-mb_m">{{$project -> title}}</a>
+          <a href="/detail/{{$project -> id}}" class="c-textbox u-ellipsis">{{$project -> title}}</a>
          
         </div>
 				@endforeach
@@ -29,9 +29,9 @@
 			<h2>お気に入り案件</h2>
 			<div class="p-panel u-flex-default">
 				@foreach ($likes as $like)
-				<div class="p-panel__item5">
+				<div class="p-panel__item5 u-mb_m u-height__2line">
 
-					<a href="detail/{{$like -> project -> id}}" class="c-textbox u-mb_m">{{$like -> project -> title}}</a>
+					<a href="detail/{{$like -> project -> id}}" class="c-textbox u-ellipsis">{{Str::limit($like -> project -> title, 20, '...')}}</a>
 
 				</div>
 				@endforeach
@@ -45,10 +45,10 @@
       <div class="p-panel">
        
 				@foreach ($comments as $comment)
-				<div class="p-panel__item">
-					<a href="detail/{{$comment -> project_id}}" class="c-textbox u-mb_m">
-					<p>{{$comment -> project -> title}}</p>
-					<p>{{$comment -> comment}}</p></a>
+				<div class="p-panel__item u-mb_m">
+					<a href="detail/{{$comment -> project_id}}" class="c-textbox">
+					<p class="u-ellipsis__default">{{$comment -> project -> title}}</p>
+					<span class="u-ellipsis__default">{{$comment -> comment}}</span></a>
 				</div>
 				@endforeach
        
@@ -62,9 +62,9 @@
       <div class="p-panel">
       @if($messages)
 				@foreach ($messages as $message)
-				<div class="p-panel__item">
-					<a href="message/{{$message -> bord_id}}" class="c-textbox u-mb_m">
-						<p>
+				<div class="p-panel__item u-mb_m">
+					<a href="message/{{$message -> bord_id}}" class="c-textbox">
+						<p class="u-ellipsis__default">
 							@if($message -> from_user_id === $user_id)
 							{{$message -> toUser -> name}}
 							@else
@@ -72,7 +72,7 @@
 							@endif
 							さんとのダイレクトメッセージ
 						</p>
-						<p>{{$message -> comment}}</p></a>
+						<span class="u-ellipsis__default">{{$message -> comment}}</span></a>
 				</div>
 				@endforeach
       @endif

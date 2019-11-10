@@ -85,3 +85,46 @@
 .u-active{
 	color: red;
 }
+
+/*文字の丸め*/
+.u-ellipsis__default{
+	overflow: hidden;
+	position: relative;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.u-ellipsis{
+	@extend .u-ellipsis__default;
+	@include mq(){
+		white-space: initial;
+	
+		&::before{
+			content: "…";
+			position: absolute;
+			bottom: 0;
+			right: $space_m;
+			background: #fefefe;
+		}
+
+		&::after{
+			content: "";
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background: #fefefe;
+		}
+	}
+}
+
+/*高さ*/
+.u-height__2line{
+	@include mq(){
+		height: $font-size_default * 2.5 + $space_m * 2;
+	}
+}
+
+/*非表示*/
+.u-hidden{
+	display: none;
+}

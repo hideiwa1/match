@@ -14,6 +14,9 @@
 		<nav>
 			<div id="js-menu"></div>
 		</nav>
+		@if(session('message'))
+		<div class="js-flash p-flash u-center">{{session('message')}}</div>
+		@endif
 	</header>
 
   @yield('contents')
@@ -25,6 +28,13 @@
 		@else
 		<script src="{{ secure_asset('/js/app.js') }}"></script>
 		@endif
+		<script>
+		$(function(){
+			setTimeout(function(){
+				$('.js-flash').slideToggle('slow')}, 3000
+			);
+		});
+		</script>
 	</footer>
 
 </body>

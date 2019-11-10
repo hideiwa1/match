@@ -14,6 +14,7 @@ import VisibleSearch from "./js/containers/visibleSearch";
 import VisibleProjectList from "./js/containers/visibleProjectList";
 import VisibleLike from "./js/containers/visibleLike";
 import VisibleProfile from "./js/containers/visibleProfile";
+import VisibleRegistProject from "./js/containers/visibleRegistProject";
 
 let store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
@@ -58,6 +59,14 @@ document.getElementById('js-profpic') &&
 	document.getElementById('js-profpic')
 );
 
+
+document.getElementById('js-registProject') &&
+	ReactDOM.render( 
+	<Provider store = {store} >
+	<VisibleRegistProject />
+	</Provider>,
+	document.getElementById('js-registProject')
+);
 /*
 document.addEventListener('DOMContentLoaded', function(){
 	var formDom = document.getElementsByClassName('contact-form');

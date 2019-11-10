@@ -14,8 +14,8 @@
 	<section>
 		<div class="p-panel">
 		@foreach($comments as $comment)
-			<div class="p-panel__item">
-				<a href="detail/{{$comment -> project_id}}" class="c-textbox u-mb_m">{{$comment -> comment}}</a>
+			<div class="p-panel__item u-mb_m">
+				<a href="detail/{{$comment -> project_id}}" class="c-textbox u-ellipsis__default">{{$comment -> comment}}</a>
 			</div>
 			@endforeach
 		</div>

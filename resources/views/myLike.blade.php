@@ -14,8 +14,8 @@
     <section>
 			<div class="p-panel">
 				@foreach($likes as $like)
-				<div class="p-panel__item">
-					<a href="detail/{{$like -> project -> id}}" class="c-textbox u-mb_m">{{$like -> project -> title}}</a>
+				<div class="p-panel__item  u-mb_m">
+					<a href="detail/{{$like -> project -> id}}" class="c-textbox u-ellipsis__default">{{$like -> project -> title}}</a>
 				</div>
 				@endforeach
 			</div>

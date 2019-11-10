@@ -6,9 +6,7 @@
 @section('contents')
 
 <main class="main">
-	@if(session('message'))
-	<div class="p-flash u-center">{{session('message')}}</div>
-	@endif
+
 	<article class="p-form u-mb_l">
 	
 		<section>

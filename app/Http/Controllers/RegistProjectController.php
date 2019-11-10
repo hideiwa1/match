@@ -45,6 +45,6 @@ class RegistProjectController extends Controller
 		}else{
 			$data = Project::find($id);
 		}
-		return redirect() -> action('DetailController@index', [$id]);
+		return redirect() -> action('DetailController@index', [$id])->with('message', '登録完了');
 	}
 }

@@ -38,6 +38,9 @@ class MessageController extends Controller
 		$bord = Bord::find($id);
 		$messages = Message::where('bord_id', $id) -> get();
 		$user = Auth::id();
+		if($bord -> from_user_id !== $user && $bord -> to_user_id !== $user){
+			return redirect('mypage');
+		}
 		return view('message', compact('bord', 'messages', 'user'));
 	}
 	

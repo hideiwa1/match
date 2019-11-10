@@ -2,7 +2,7 @@
 	padding: $space_l;
 	box-sizing: border-box;
 	background-color: $background-color_base;
-	flex: 1;
+	flex: 1 1 auto;
 
 	@include mq() {
 		width: $site-width;

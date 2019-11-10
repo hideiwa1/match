@@ -48,6 +48,7 @@ body {
   -webkit-text-size-adjust: 100%;
   position: relative;
   background-color: #fff2e5;
+  font-family: -apple-system, BlinkMacAyatemFont, 'Helvetica Neue', 'Segoe UI', HiraginoCustom, 'Hiragino KakuGothic ProN', YuGothic, 'Yu Gothic Medium', Meiryo, sans-serif;
 }
 
 ol,
@@ -62,7 +63,14 @@ a {
 
 a:hover {
   color: #0056b3;
-  text-decoration: underline;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input[type='submit']:hover {
+  cursor: pointer;
 }
 
 img {
@@ -127,7 +135,7 @@ p {
   padding: 20px;
   box-sizing: border-box;
   background-color: #fff2e5;
-  flex: 1;
+  flex: 1 1 auto;
 }
 
 @media screen and (min-width: 1000px) {
@@ -227,6 +235,10 @@ p {
 .c-like {
   font-size: 24px;
   vertical-align: top;
+}
+
+.c-like:hover {
+  cursor: pointer;
 }
 
 /*テーブル項目*/
@@ -538,8 +550,8 @@ p {
 
 @media screen and (min-width: 1000px) {
   .p-panel__item5 {
-    width: 15%;
-    margin-right: 5%;
+    width: 16%;
+    margin-right: 4%;
     display: block;
   }
 }
@@ -689,5 +701,51 @@ p {
 
 .u-active {
   color: red;
+}
+
+/*文字の丸め*/
+
+.u-ellipsis__default,
+.u-ellipsis {
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 1000px) {
+  .u-ellipsis {
+    white-space: initial;
+  }
+
+  .u-ellipsis::before {
+    content: "…";
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    background: #fefefe;
+  }
+
+  .u-ellipsis::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #fefefe;
+  }
+}
+
+/*高さ*/
+
+@media screen and (min-width: 1000px) {
+  .u-height__2line {
+    height: 60px;
+  }
+}
+
+/*非表示*/
+
+.u-hidden {
+  display: none;
 }
 

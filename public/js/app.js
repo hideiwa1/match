@@ -76784,6 +76784,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_containers_visibleProjectList__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/containers/visibleProjectList */ "./resources/js/js/containers/visibleProjectList.js");
 /* harmony import */ var _js_containers_visibleLike__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/containers/visibleLike */ "./resources/js/js/containers/visibleLike.js");
 /* harmony import */ var _js_containers_visibleProfile__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./js/containers/visibleProfile */ "./resources/js/js/containers/visibleProfile.js");
+/* harmony import */ var _js_containers_visibleRegistProject__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./js/containers/visibleRegistProject */ "./resources/js/js/containers/visibleRegistProject.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -76796,6 +76797,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /*import "./sass/style.scss";*/
 
 /*import Form from "./js/main";*/
+
 
 
 
@@ -76818,6 +76820,9 @@ document.getElementById('js-like') && react_dom__WEBPACK_IMPORTED_MODULE_2___def
 document.getElementById('js-profpic') && react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
   store: store
 }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_js_containers_visibleProfile__WEBPACK_IMPORTED_MODULE_11__["default"], null)), document.getElementById('js-profpic'));
+document.getElementById('js-registProject') && react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
+  store: store
+}, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_js_containers_visibleRegistProject__WEBPACK_IMPORTED_MODULE_12__["default"], null)), document.getElementById('js-registProject'));
 /*
 document.addEventListener('DOMContentLoaded', function(){
 	var formDom = document.getElementsByClassName('contact-form');
@@ -76892,7 +76897,7 @@ if (token) {
 /*!******************************************!*\
   !*** ./resources/js/js/actions/index.js ***!
   \******************************************/
-/*! exports provided: FETCH_REQUEST, FETCH_SUCCESS, menuClick, initData, searchProject, clickPage, likeToggle, inputImg */
+/*! exports provided: FETCH_REQUEST, FETCH_SUCCESS, menuClick, initData, searchProject, clickPage, likeToggle, inputImg, inputForm */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -76905,6 +76910,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clickPage", function() { return clickPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "likeToggle", function() { return likeToggle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inputImg", function() { return inputImg; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inputForm", function() { return inputForm; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -76950,7 +76956,7 @@ function searchProject(state) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/projectSearch', {
       params: state
     }).then(function (res) {
-      console.log(res), fdata = {
+      fdata = {
         data: res.data,
         search: state
       }, dispatch(receiveData(fdata));
@@ -76982,6 +76988,12 @@ function likeToggle(state) {
 function inputImg(state) {
   return {
     type: "INPUT_IMG",
+    val: state
+  };
+}
+function inputForm(state) {
+  return {
+    type: "INPUT_FORM",
     val: state
   };
 }
@@ -77665,7 +77677,6 @@ function (_React$Component) {
     _classCallCheck(this, Profile);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Profile).call(this, props));
-    var img = '';
     _this.state = {
       img: _this.props.img
     };
@@ -77719,7 +77730,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         name: "pic",
-        className: "c-img__input",
+        className: "c-img c-img__input",
         onChange: this.handleChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.img,
@@ -77840,6 +77851,204 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (ProjectList);
+
+/***/ }),
+
+/***/ "./resources/js/js/components/registProject.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/js/components/registProject.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions */ "./resources/js/js/actions/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+var RegistProject =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(RegistProject, _React$Component);
+
+  function RegistProject(props) {
+    var _this;
+
+    _classCallCheck(this, RegistProject);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(RegistProject).call(this, props));
+    console.log(window.location.pathname);
+    _this.state = {
+      url: window.location.pathname !== '/registProject' ? window.location.pathname.replace('/registProject/', '') : 'new',
+      data: {
+        title: '',
+        category_id: '',
+        min_price: '',
+        max_price: '',
+        comment: ''
+      }
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(RegistProject, [{
+    key: "handleChange",
+    value: function handleChange(e) {
+      var val = e.target.value;
+      var name = e.target.name;
+      this.setState({
+        data: _objectSpread({}, this.state.data, _defineProperty({}, name, val))
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      /*プロフィール画像の取得*/
+      if (this.state.url !== 'new') {
+        axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/registProject', {
+          params: this.state.url
+        }).then(function (res) {
+          console.log(res);
+
+          _this2.setState({
+            data: {
+              title: res.data[0].title,
+              category_id: res.data[0].category_id,
+              min_price: res.data[0].min_price,
+              max_price: res.data[0].max_price,
+              comment: res.data[0].comment
+            }
+          });
+        })["catch"](function (error) {});
+      }
+    }
+  }, {
+    key: "price",
+    value: function price(flg) {
+      if (flg == 2) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "u-mb_m u-hidden"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "c-form__title"
+        }, "\u4E88\u7B97\uFF08\u6700\u4F4E\u91D1\u984D\u301C\u6700\u9AD8\u91D1\u984D\uFF09"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "number",
+          name: "min_price",
+          className: "c-form__num",
+          value: this.state.data.min_price,
+          onChange: this.handleChange
+        }), ",000\u5186\u301C", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "number",
+          name: "max_price",
+          className: "c-form__num",
+          value: this.state.data.max_price,
+          onChange: this.handleChange
+        }), ",000\u5186"));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "u-mb_m"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "c-form__title"
+        }, "\u4E88\u7B97\uFF08\u6700\u4F4E\u91D1\u984D\u301C\u6700\u9AD8\u91D1\u984D\uFF09"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "number",
+          name: "min_price",
+          className: "c-form__num",
+          value: this.state.data.min_price,
+          onChange: this.handleChange
+        }), ",000\u5186\u301C", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "number",
+          name: "max_price",
+          className: "c-form__num",
+          value: this.state.data.max_price,
+          onChange: this.handleChange
+        }), ",000\u5186"));
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.url), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.data.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "u-mb_m"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "c-form__title"
+      }, "\u30BF\u30A4\u30C8\u30EB"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "title",
+        placeholder: "title",
+        className: "c-form__text",
+        value: this.state.data.title,
+        onChange: this.handleChange
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "u-mb_m"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "c-form__title"
+      }, "\u6848\u4EF6\u7A2E\u5225"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        name: "category_id",
+        value: "1",
+        checked: this.state.data.category_id == 1,
+        onChange: this.handleChange
+      }), "\u5358\u767A\u6848\u4EF6", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        name: "category_id",
+        value: "2",
+        checked: this.state.data.category_id == 2,
+        onChange: this.handleChange
+      }), "\u30EC\u30D9\u30CB\u30E5\u30FC\u30B7\u30A7\u30A2\u6848\u4EF6"), this.state.data.category_id, this.price(this.state.data.category_id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "u-mb_m"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "c-form__title"
+      }, "\u6848\u4EF6\u6982\u8981"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        name: "comment",
+        className: "c-textarea",
+        rows: "5",
+        value: this.state.data.comment,
+        onChange: this.handleChange
+      })));
+    }
+  }]);
+
+  return RegistProject;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])()(RegistProject));
 
 /***/ }),
 
@@ -78128,6 +78337,38 @@ var mapStateToProps = function mapStateToProps(state) {
 
 /***/ }),
 
+/***/ "./resources/js/js/containers/visibleRegistProject.js":
+/*!************************************************************!*\
+  !*** ./resources/js/js/containers/visibleRegistProject.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _components_registProject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/registProject */ "./resources/js/js/components/registProject.js");
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    data: state.registProject.data
+  };
+};
+/*	const mapDispatchToProps = dispatch => {
+		return{
+
+		}
+	}
+}
+*/
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps)(_components_registProject__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
 /***/ "./resources/js/js/containers/visibleSearch.js":
 /*!*****************************************************!*\
   !*** ./resources/js/js/containers/visibleSearch.js ***!
@@ -78174,6 +78415,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project */ "./resources/js/js/reducers/project.js");
 /* harmony import */ var _like__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./like */ "./resources/js/js/reducers/like.js");
 /* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./profile */ "./resources/js/js/reducers/profile.js");
+/* harmony import */ var _registProject__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./registProject */ "./resources/js/js/reducers/registProject.js");
+
 
 
 
@@ -78183,7 +78426,8 @@ var reducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   menu: _menu__WEBPACK_IMPORTED_MODULE_1__["default"],
   project: _project__WEBPACK_IMPORTED_MODULE_2__["default"],
   like: _like__WEBPACK_IMPORTED_MODULE_3__["default"],
-  profile: _profile__WEBPACK_IMPORTED_MODULE_4__["default"]
+  profile: _profile__WEBPACK_IMPORTED_MODULE_4__["default"],
+  registProject: _registProject__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (reducer);
 
@@ -78322,6 +78566,37 @@ function project() {
         activePage: action.data.data.project.current_page,
         itemsPerPage: action.data.data.project.per_page,
         totalItemCount: action.data.data.project.total
+      });
+
+    default:
+      return state;
+  }
+}
+
+/***/ }),
+
+/***/ "./resources/js/js/reducers/registProject.js":
+/*!***************************************************!*\
+  !*** ./resources/js/js/reducers/registProject.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return registProject; });
+var initState = {
+  data: ''
+};
+function registProject() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'INPUT_FORM':
+      //object.assign stateのコピーをとる
+      return Object.assign({}, state, {
+        data: action.val
       });
 
     default:

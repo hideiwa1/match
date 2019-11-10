@@ -26,5 +26,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 		Route::get('/liketoggle', 'Api\LikeController@toggle');
 		
 		Route::get('/profilePic', 'Api\ProfilePicController@index');
+		
+		Route::get('/registProject', 'Api\ProjectController@detail');
 	});
  

@@ -46,7 +46,6 @@ export function searchProject(state){
 		return axios
 		.get('/api/projectSearch',{params: state})
 			.then((res) =>{
-			console.log(res),
 			fdata = {data: res.data, search: state},
 			dispatch(receiveData(fdata))
 		})
@@ -82,6 +81,13 @@ export function likeToggle(state){
 export function inputImg(state){
 	return {
 		type: "INPUT_IMG",
+		val: state
+	};
+}
+
+export function inputForm(state){
+	return {
+		type: "INPUT_FORM",
 		val: state
 	};
 }

@@ -28,8 +28,8 @@ class ProjectController extends Controller
 		return $res;
 	}
 
-		public function search(Request $request)
-		{
+	public function search(Request $request)
+	{
 			$title = $request -> keyword;
 			$min = $request -> min;
 			$max = $request -> max;
@@ -62,5 +62,11 @@ class ProjectController extends Controller
 			$res['project'] = $projects;
 			$res['data'] = $data;
 			return $res;
-		}
+	}
+	
+	public function detail(Request $request){
+		$id = $request;
+		$data = Project::find($id);
+		return $data;
+	}
 }
