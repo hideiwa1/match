@@ -9,16 +9,25 @@ class Item extends React.Component{
 	constructor(props){
 		super(props);
 	}
+	
+	price(flg){
+		if(flg === '単発案件'){
+			return(
+			<>
+				<span>金額：{this.props.value.min},000円〜{this.props.value.max},000円</span>
+			</>
+			);
+		}
+	}
 
 
 	render(){
-
 		return (
 			<div className="p-panel__item u-mb_m">
 			<a href={"detail/" + this.props.value.id} className="c-textbox">
 			<span>{this.props.value.title}</span><br />
 			<span>{this.props.value.category}</span><br />
-			<span>金額：{this.props.value.min},000円〜{this.props.value.max},000円</span>
+			{this.price(this.props.value.category)}
 			</a>
 			</div>
 		);

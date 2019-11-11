@@ -36,7 +36,6 @@ class RegistProject extends React.Component{
 			axios
 				.get('/api/registProject', {params: this.state.url})
 				.then((res) => {
-				console.log(res);
 				this.setState({
 					data:  {
 						title: res.data[0].title,
@@ -58,8 +57,8 @@ class RegistProject extends React.Component{
 				<>
 				<p className="u-mb_m u-hidden">
 					<span className="c-form__title">予算（最低金額〜最高金額）</span>
-				<input type="number" name="min_price" className="c-form__num" value={this.state.data.min_price} onChange={this.handleChange} />,000円〜
-				<input type="number" name="max_price" className="c-form__num" value={this.state.data.max_price} onChange={this.handleChange} />,000円
+				<input type="number" name="min_price" className="c-form__num" value='0' />,000円〜
+				<input type="number" name="max_price" className="c-form__num" value='0' />,000円
 				</p>
 				</>
 			);
@@ -80,8 +79,6 @@ class RegistProject extends React.Component{
 		
 		return(
 			<>
-			<p>{this.state.url}</p>
-			<p>{this.state.data.title}</p>
 			<p className="u-mb_m">
 				<span className="c-form__title">タイトル</span>
 			<input type="text" name="title" placeholder="title" className="c-form__text" value={this.state.data.title} onChange={this.handleChange} />
@@ -91,7 +88,6 @@ class RegistProject extends React.Component{
 			<input type="radio" name="category_id" value="1" checked={this.state.data.category_id == 1} onChange={this.handleChange} />単発案件
 			<input type="radio" name="category_id" value="2" checked={this.state.data.category_id == 2} onChange={this.handleChange} />レベニューシェア案件
 			</p>
-			{this.state.data.category_id}
 			{this.price(this.state.data.category_id)}
 			<p className="u-mb_m">
 				<span className="c-form__title">案件概要</span>

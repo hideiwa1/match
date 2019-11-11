@@ -11,7 +11,7 @@ class ProjectController extends Controller
 {
 	public function index()
 	{
-		$projects = project::paginate(10);
+		$projects = project::orderBy('updated_at', 'desc') -> paginate(10);
 		$data = [];
 		foreach($projects as $project){
 			$data[] =[
@@ -45,8 +45,13 @@ class ProjectController extends Controller
 			$max && $sql[] = ['max_price', '<=', $max];
 			
 			$category ? 
-				$projects = project::where($sql) -> whereIn('category_id', $category) -> paginate(10)
-					:$projects = project::where($sql) -> paginate(10);
+				$projects = project::where($sql) 
+					-> whereIn('category_id', $category)
+					-> orderBy('updated_at', 'desc')
+					-> paginate(10)
+				:$projects = project::where($sql) 
+					-> orderBy('updated_at', 'desc')
+					-> paginate(10);
 			
 			$data = [];
 			foreach($projects as $project){

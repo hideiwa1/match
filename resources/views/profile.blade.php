@@ -37,7 +37,10 @@
 				<div class="p-comment u-mb_m">
           <a href="/detail/{{$project -> id}}" class="c-textbox">
 						<p class="u-ellipsis__default">{{$project -> title}}</p>
+						{{$project -> category -> name }}<br>
+						@if($project -> category_id === 1)
 						予算：{{$project -> min_price}},000円〜{{$project -> max_price}},000円
+						@endif
 					</a>
         </div>
         @endforeach

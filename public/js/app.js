@@ -77053,6 +77053,13 @@ function (_React$Component) {
   }
 
   _createClass(Item, [{
+    key: "price",
+    value: function price(flg) {
+      if (flg === '単発案件') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u91D1\u984D\uFF1A", this.props.value.min, ",000\u5186\u301C", this.props.value.max, ",000\u5186"));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -77060,7 +77067,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "detail/" + this.props.value.id,
         className: "c-textbox"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u91D1\u984D\uFF1A", this.props.value.min, ",000\u5186\u301C", this.props.value.max, ",000\u5186")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), this.price(this.props.value.category)));
     }
   }]);
 
@@ -77946,8 +77953,6 @@ function (_React$Component) {
         axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/registProject', {
           params: this.state.url
         }).then(function (res) {
-          console.log(res);
-
           _this2.setState({
             data: {
               title: res.data[0].title,
@@ -77972,14 +77977,12 @@ function (_React$Component) {
           type: "number",
           name: "min_price",
           className: "c-form__num",
-          value: this.state.data.min_price,
-          onChange: this.handleChange
+          value: "0"
         }), ",000\u5186\u301C", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "number",
           name: "max_price",
           className: "c-form__num",
-          value: this.state.data.max_price,
-          onChange: this.handleChange
+          value: "0"
         }), ",000\u5186"));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -78004,7 +78007,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.url), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.data.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "u-mb_m"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "c-form__title"
@@ -78031,7 +78034,7 @@ function (_React$Component) {
         value: "2",
         checked: this.state.data.category_id == 2,
         onChange: this.handleChange
-      }), "\u30EC\u30D9\u30CB\u30E5\u30FC\u30B7\u30A7\u30A2\u6848\u4EF6"), this.state.data.category_id, this.price(this.state.data.category_id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }), "\u30EC\u30D9\u30CB\u30E5\u30FC\u30B7\u30A7\u30A2\u6848\u4EF6"), this.price(this.state.data.category_id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "u-mb_m"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "c-form__title"
@@ -78347,7 +78350,7 @@ var mapStateToProps = function mapStateToProps(state) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _components_registProject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/registProject */ "./resources/js/js/components/registProject.js");
+/* harmony import */ var _components_registProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/registProject */ "./resources/js/js/components/registProject.js");
 
 
 
@@ -78365,7 +78368,7 @@ var mapStateToProps = function mapStateToProps(state) {
 */
 
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps)(_components_registProject__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps)(_components_registProject__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 

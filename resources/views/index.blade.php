@@ -14,11 +14,15 @@
 		<h1 class="c-title">新着案件</h1>
 		<div class="p-panel u-flex-default">
 			@foreach($projects as $project)
-			<div class="p-panel__item5">
-				<a href="detail/{{$project -> id}}" class="c-textbox u-mb_m">
-					<p>{{$project -> title}}</p>
+			<div class="p-panel__item5 u-mb_m">
+				<a href="detail/{{$project -> id}}" class="c-textbox">
+					<p class="u-ellipsis__default">{{$project -> title}}</p>
+						{{$project -> category -> name }}<br>
+					@if($project -> category_id === 1)
 					予算：<br>
-					{{$project -> min_price}}千〜{{$project -> max_price}}千
+					{{$project -> min_price}},000円〜<br>
+					{{$project -> max_price}},000円
+					@endif
 				</a>
 			</div>
 			@endforeach

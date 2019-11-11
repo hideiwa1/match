@@ -86,4 +86,5 @@ class MessageController extends Controller
 //		return view('detail', ['id' => $project_id]);
 		return redirect() -> action('DetailController@index', ['id' => $project_id]);
 	}
+	
 }

@@ -33,10 +33,12 @@
 				<td class="c-th">案件種別</td>
 				<td>{{$detail -> category -> name }}</td>
 			</tr>
+			@if($detail -> category_id === 1)
 			<tr>
 				<td class="c-th">予算</td>
 				<td>{{$detail -> min_price}},000円〜{{$detail -> max_price}},000円</td>
 			</tr>
+			@endif
 			<tr>
 				<td class="c-th">説明文</td>
 				<td>{{$detail -> comment}}</td>
