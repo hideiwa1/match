@@ -19,11 +19,9 @@ class LoginController extends Controller
         $password = $request->password;
         if(Auth::attempt(['email' => $email, 'password' => $password]))
         {
-            $msg = 'ログインしました';
-            return redirect('/mypage');
+					return redirect('/mypage')->with('message', 'ログインしました');
         }else{
-            $msg = 'ログインに失敗しました';
-            return view('login', ['message' => $msg]);
+					return view('login')->with('message', 'ログインに失敗しました');
         }
     }
 }

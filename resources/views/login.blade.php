@@ -10,6 +10,9 @@
 		<form action="/login" method="post" class="p-form">
 		{{ csrf_field() }}
 			<h1 class="c-title u-center u-mb_xl">ログイン</h1>
+			@foreach ($errors -> all() as $error)
+			<p class="u-error">{{ $error }}</p>
+			@endforeach
 			<div class="p-form__content">
 				<p>
 					<span class="c-form__title">Email</span>

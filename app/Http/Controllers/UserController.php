@@ -30,7 +30,7 @@ class UserController extends Controller
 
 	public function postSignup(Request $request)
 	{
-		$this -> validate($request, User::$rules);
+		$this -> validate($request, User::$rules,['email:unique' => 'そのメールアドレスはすでに使用されています']);
 		$email = $request -> email;
 		$password = $request -> password;
 		$emailCheck = User::where('email', $email) -> exists();

@@ -40,7 +40,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::get('myComment', 'MyPageController@myComment');
 
-	Route::get('myLike', 'MyPageController@index');
+	Route::get('myLike', 'MyPageController@myLike');
 
 	Route::get('myMessage', 'MyPageController@myMessage');
 	

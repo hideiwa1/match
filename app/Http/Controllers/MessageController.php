@@ -11,14 +11,21 @@ class MessageController extends Controller
 {
     public function check($id = ''){
 			$user = Auth::id();
+			\Log::info('user:'.$user);
 			if($id === $user){
 				return back();
 			}else{
-				$checks = Bord::where('from_user_id', $id)
-					->orWhere('to_user_id', $id)
-					->where('from_user_id', $user)
-					->orWhere('to_user_id', $user)
+				\Log::info('テスト2');
+				$checks = Bord::where(function($query) use ($id){
+					$query -> where('from_user_id', $id);
+					$query -> orWhere('to_user_id', $id);
+				})
+					->where(function($query) use ($user){
+						$query -> where('from_user_id', $user);
+						$query -> orWhere('to_user_id', $user);
+					})
 					->get();
+				\Log::info($checks);
 				if($checks -> count()){
 					foreach($checks as $check){
 						$bord_id = $check -> id;
@@ -59,12 +66,18 @@ class MessageController extends Controller
 	}
 	
 	public function attend($to_user_id = '', $project_id = '', $title = ''){
+		\Log::info($to_user_id);
 		$user = Auth::id();
-		$checks = Bord::where('from_user_id', $to_user_id)
-			->orWhere('to_user_id', $to_user_id)
-			->where('from_user_id', $user)
-			->orWhere('to_user_id', $user)
+		$checks = Bord::where(function($query) use ($to_user_id){
+			$query -> where('from_user_id', $to_user_id);
+			$query -> orWhere('to_user_id', $to_user_id);
+		})
+			->where(function($query) use ($user){
+				$query -> where('from_user_id', $user);
+				$query -> orWhere('to_user_id', $user);
+			})
 			->get();
+		\Log::info($checks);
 		if($checks -> count()){
 			foreach($checks as $check){
 				$bord_id = $check -> id;

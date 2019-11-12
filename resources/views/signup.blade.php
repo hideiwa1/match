@@ -10,7 +10,7 @@
     {{ csrf_field() }}
     <h1 class="c-title u-center u-mb_xl">新規登録</h1>
     @foreach ($errors -> all() as $error)
-      <p>{{ $error }}</p>
+      <p class="u-error">{{ $error }}</p>
     @endforeach
     <div class="p-form__content">
       <p>
