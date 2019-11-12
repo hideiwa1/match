@@ -44,7 +44,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::get('myMessage', 'MyPageController@myMessage');
 	
-	Route::post('detail/{id}', 'DetailController@add');
+	Route::post('detail/{id}', 'ProjectController@add');
 	
 	Route::get('registProject/{id?}', 'ProjectController@regist')->name('registProject');
 	Route::post('registProject/{id?}', 'ProjectController@save');

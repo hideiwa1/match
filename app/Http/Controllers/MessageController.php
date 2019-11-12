@@ -84,7 +84,7 @@ class MessageController extends Controller
 		$message -> to_user_id = $to_user_id;
 		$message -> save();
 //		return view('detail', ['id' => $project_id]);
-		return redirect() -> action('DetailController@index', ['id' => $project_id]);
+		return redirect() -> action('ProjectController@detail', ['id' => $project_id]);
 	}
 	
 }

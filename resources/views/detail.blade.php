@@ -19,13 +19,10 @@
 		<table>
 			<tr>
 				<td class="c-th">発注者</td>
+				{{$detail}}
 				<td>
 				<a href="/profile/{{$detail -> user_id}}">
-				@if($detail -> user -> name)
-					{{$detail -> user -> name}}
-					@else
-					名無し
-					@endif
+			tesuo
 					</a><br>
 					</td>
 			</tr>

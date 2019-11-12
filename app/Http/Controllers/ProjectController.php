@@ -76,7 +76,7 @@ class ProjectController extends Controller
 	public function add($id= '', Request $request){
 		if($request -> edit){
 			/*編集時*/
-			return redirect() -> action('RegistProjectController@regist', ['id' => $id]);
+			return redirect() -> action('ProjectController@regist', ['id' => $id]);
 		}elseif($request -> comit){
 			/*応募時*/
 			$attender = new Attender;
@@ -91,7 +91,7 @@ class ProjectController extends Controller
 			/*応募DMを送信*/
 			$message = new MessageController;
 			$message -> attend($to_user_id, $id, $title);
-			return redirect() -> action('DetailController@index', ['id' => $id]);
+			return redirect() -> action('ProjectController@detail', ['id' => $id])->with('message', '応募しました');
 		}else{
 			/*コメント時*/
 			$this -> validate($request, Comment::$rules);
