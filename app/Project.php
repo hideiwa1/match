@@ -12,7 +12,7 @@ class Project extends Model
 	public static $rules = array(
 		'title' => 'required|max:191',
 		'comment' => 'required',
-		'min_price' => 'required|integer',
+		'min_price' => 'required|integer|gt:0',
 		'max_price' => 'required|integer|gte:min_price',
 		'category_id' => 'required|integer',
 	);
