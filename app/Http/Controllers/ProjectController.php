@@ -52,7 +52,7 @@ class ProjectController extends Controller
 		}else{
 			$data = Project::find($id);
 		}
-		return redirect() -> action('DetailController@index', [$id])->with('message', '登録完了');
+		return redirect() -> action('ProjectController@detail', [$id])->with('message', '登録完了');
 	}
 	
 	public function detail($id = ''){

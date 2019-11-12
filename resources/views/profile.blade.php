@@ -20,11 +20,7 @@
 						<sapn class="c-form__title">ユーザー名
 						</sapn>
 						<span class="c-form__title u-pl_l">{{$user -> name}}</span>
-						@if($user -> id !== $myId)
-						<span class="c-form__title u-pl_l">
-						<a href="/messageCheck/{{$user -> id}}">ダイレクトメッセージを送る</a>
-						</span>
-						@endif
+						
          </p>
           <p>
 						<sapn class="c-form__title">プロフィール文</sapn>
