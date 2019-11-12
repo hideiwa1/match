@@ -10,7 +10,7 @@ use App\Comment;
 use App\Message;
 use App\Bord;
 
-class MypageController extends Controller
+class MyPageController extends Controller
 {
     public function index()
     {
