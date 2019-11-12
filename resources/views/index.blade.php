@@ -16,11 +16,11 @@
 			@foreach($projects as $project)
 			<div class="p-panel__item5 u-mb_m">
 				<a href="detail/{{$project -> id}}" class="c-textbox">
-					<p class="u-ellipsis__default">{{$project -> title}}</p>
+					<p class="u-ellipsis u-height__2inline">{{$project -> title}}</p>
 						{{$project -> category -> name }}<br>
 					@if($project -> category_id === 1)
-					予算：<br>
-					{{$project -> min_price}},000円〜<br>
+					<span class="u-toggle">予算：</span>
+					{{$project -> min_price}},000円〜
 					{{$project -> max_price}},000円
 					@endif
 				</a>

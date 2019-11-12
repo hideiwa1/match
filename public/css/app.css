@@ -39,7 +39,8 @@ figure,
 figcaption,
 nav,
 section,
-main {
+main,
+span {
   display: block;
 }
 
@@ -230,6 +231,14 @@ p {
   left: 0;
   opacity: 0;
   z-index: 2;
+}
+
+.c-img__span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
 }
 
 /*お気に入り*/
@@ -693,8 +702,15 @@ p {
 
 /*インラインブロック*/
 
-.u-inline {
+.u-inline,
+.u-toggle {
   display: inline-block;
+}
+
+@media screen and (min-width: 1000px) {
+  .u-toggle {
+    display: block;
+  }
 }
 
 .u-error {
@@ -742,6 +758,12 @@ p {
 @media screen and (min-width: 1000px) {
   .u-height__2line {
     height: 60px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .u-height__2inline {
+    height: 50px;
   }
 }
 

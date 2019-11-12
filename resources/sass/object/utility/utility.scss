@@ -78,6 +78,13 @@
 	display: inline-block;
 }
 
+.u-toggle{
+	@extend .u-inline;
+	@include mq(){
+		display: block;
+	}
+}
+
 .u-error{
 	color: red;
 }
@@ -121,6 +128,12 @@
 .u-height__2line{
 	@include mq(){
 		height: $font-size_default * 2.5 + $space_m * 2;
+	}
+}
+
+.u-height__2inline{
+	@include mq(){
+		height: $font-size_default * 2.5 + $space_m;
 	}
 }
 

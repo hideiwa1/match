@@ -77742,7 +77742,9 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.img,
         className: "c-img"
-      }));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "c-img__span"
+      }, "\u30C9\u30E9\u30C3\u30B0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\uFF06\u30C9\u30ED\u30C3\u30D7"));
     }
   }]);
 

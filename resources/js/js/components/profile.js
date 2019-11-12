@@ -48,6 +48,7 @@ class Profile extends React.Component{
 		<>
 			<input type="file" name="pic" className="c-img c-img__input" onChange={this.handleChange} />
 			<img src={this.state.img} className="c-img" />
+			<span className="c-img__span">ドラッグ<br />＆ドロップ</span>
 		</>
 		);
 	}
