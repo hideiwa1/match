@@ -16,7 +16,7 @@
 			@foreach($projects as $project)
 			<div class="p-panel__item5 u-mb_m">
 				<a href="detail/{{$project -> id}}" class="c-textbox">
-					<p class="u-ellipsis u-height__2inline">{{$project -> title}}</p>
+					<p class=" c-textbox u-ellipsis u-height__2line">{{$project -> title}}</p>
 						{{$project -> category -> name }}<br>
 					@if($project -> category_id === 1)
 					<span class="u-toggle">予算：</span>

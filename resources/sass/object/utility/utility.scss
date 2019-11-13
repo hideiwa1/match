@@ -17,7 +17,6 @@
 }
 
 .u-flex-form{
-	
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -25,6 +24,12 @@
 	@include mq() {
 		display: block;
 	}
+}
+
+.u-flex-flash{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /*右寄せ*/
@@ -35,6 +40,10 @@
 /*中央揃え*/
 .u-center {
 	text-align: center;
+}
+
+.u-middle{
+	vertical-align: middle;
 }
 
 /*マージン*/
@@ -110,7 +119,7 @@
 			content: "…";
 			position: absolute;
 			bottom: 0;
-			right: $space_m;
+			right: 0;
 			background: #fefefe;
 		}
 

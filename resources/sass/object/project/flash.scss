@@ -4,9 +4,9 @@
 	top: 0;
 	left: 50%;
 	transform: translateX(-50%);
-	background: gray;
+	background: $background-color_flash;
 	z-index: 4;
 	width: 100%;
-	height: $space_xl;
-	font-size: $font-size_m;
+	height: $space_xxl;
+	font-size: $font-size_xl;
 }

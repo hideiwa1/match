@@ -28,7 +28,6 @@ td {
   font-size: 100%;
   vertical-align: baseline;
   box-sizing: border-box;
-  word-wrap: break-word;
 }
 
 article,
@@ -61,6 +60,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 a:hover {
@@ -302,11 +302,11 @@ p {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  background: gray;
+  background: rgba(224, 164, 80, 0.5);
   z-index: 4;
   width: 100%;
-  height: 40px;
-  font-size: 20px;
+  height: 80px;
+  font-size: 36px;
 }
 
 /*フォーム*/
@@ -336,7 +336,7 @@ p {
   display: block;
   font-size: 24px;
   border-radius: 50%;
-  background-color: #9f9f9f;
+  background-color: #ff9500;
   padding: 0 40px;
 }
 
@@ -649,6 +649,12 @@ p {
   }
 }
 
+.u-flex-flash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*右寄せ*/
 
 .u-right {
@@ -659,6 +665,10 @@ p {
 
 .u-center {
   text-align: center;
+}
+
+.u-middle {
+  vertical-align: middle;
 }
 
 /*マージン*/
@@ -740,7 +750,7 @@ p {
     content: "…";
     position: absolute;
     bottom: 0;
-    right: 10px;
+    right: 0;
     background: #fefefe;
   }
 

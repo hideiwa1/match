@@ -15,7 +15,8 @@
 			<div id="js-menu"></div>
 		</nav>
 		@if(session('message'))
-		<div class="js-flash p-flash u-center">{{session('message')}}</div>
+		<div class="js-flash p-flash u-flex-flash">
+			<span>{{session('message')}}</span></div>
 		@endif
 	</header>
 

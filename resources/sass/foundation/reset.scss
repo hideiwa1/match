@@ -28,7 +28,6 @@ td {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	word-wrap: break-word;
 }
 
 article,
@@ -61,6 +60,7 @@ ul {
 
 a {
 	text-decoration: none;
+	color: black;
 }
 
 a:hover {
