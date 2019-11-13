@@ -45,14 +45,20 @@ class MyPageController extends Controller
 		$user = Auth::id();
 		$bords = Bord::where('from_user_id', $user)
 			->orWhere('to_user_id', $user)
+			->orderBy('updated_at', 'desc')
 			->get();
 		$msgs = [];
 		foreach($bords as $bord){
-			$msgs[] = $bord -> messages() -> orderBy('updated_at', 'desc') -> first();
+			$msg = '';
+			$msg = $bord -> messages() -> orderBy('updated_at', 'desc') -> first();
+			if($msg){
+				$messages[] = $msg;
+			}
 		}
-		$collection = collect($msgs);
-		$sortedMsgs = $collection -> sortByDesc('updated_at')->values();
-		return view('myMessage', compact('bords', 'sortedMsgs', 'user'));
+			$messages = collect($messages);
+//		$collection = collect($msgs);
+//		$sortedMsgs = $collection -> sortByDesc('updated_at')->values();
+		return view('myMessage', compact('bords', 'messages', 'user'));
 	}
 	
 	public function myLike(){
