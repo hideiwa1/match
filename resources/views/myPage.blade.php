@@ -14,7 +14,7 @@
       <h2>登録案件</h2>
       <div class="p-panel u-flex-default">
 				@foreach ($projects as $project)
-				<div class="p-panel__item5 u-mb_m u-height__2line">
+				<div class="p-panel__item5 u-mb_m u-height__3line">
          
           <a href="/detail/{{$project -> id}}" class="c-textbox u-ellipsis">{{$project -> title}}</a>
          
@@ -29,7 +29,7 @@
 			<h2>お気に入り案件</h2>
 			<div class="p-panel u-flex-default">
 				@foreach ($likes as $like)
-				<div class="p-panel__item5 u-mb_m u-height__2line">
+				<div class="p-panel__item5 u-mb_m u-height__3line">
 
 					<a href="detail/{{$like -> project -> id}}" class="c-textbox u-ellipsis">{{Str::limit($like -> project -> title, 20, '...')}}</a>
 

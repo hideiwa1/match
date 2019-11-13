@@ -134,9 +134,9 @@
 }
 
 /*高さ*/
-.u-height__2line{
+.u-height__3line{
 	@include mq(){
-		height: $font-size_default * 2.5 + $space_m * 2;
+		height: $font-size_default * 4 + $space_m * 2;
 	}
 }
 

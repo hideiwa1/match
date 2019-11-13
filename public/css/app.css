@@ -766,8 +766,8 @@ p {
 /*高さ*/
 
 @media screen and (min-width: 1000px) {
-  .u-height__2line {
-    height: 60px;
+  .u-height__3line {
+    height: 84px;
   }
 }
 
