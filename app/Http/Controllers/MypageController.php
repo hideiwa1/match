@@ -47,7 +47,7 @@ class MyPageController extends Controller
 			->orWhere('to_user_id', $user)
 			->orderBy('updated_at', 'desc')
 			->get();
-		$msgs = [];
+		$messages = [];
 		foreach($bords as $bord){
 			$msg = '';
 			$msg = $bord -> messages() -> orderBy('updated_at', 'desc') -> first();
@@ -55,7 +55,7 @@ class MyPageController extends Controller
 				$messages[] = $msg;
 			}
 		}
-		$collection = collect($msgs);
+		$collection = collect($messages);
 		$sortedMsgs = $collection -> sortByDesc('updated_at')->values();
 		return view('myMessage', compact('bords', 'sortedMsgs', 'user'));
 	}
