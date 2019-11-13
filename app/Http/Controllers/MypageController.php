@@ -55,10 +55,9 @@ class MyPageController extends Controller
 				$messages[] = $msg;
 			}
 		}
-			$messages = collect($messages);
-//		$collection = collect($msgs);
-//		$sortedMsgs = $collection -> sortByDesc('updated_at')->values();
-		return view('myMessage', compact('bords', 'messages', 'user'));
+		$collection = collect($msgs);
+		$sortedMsgs = $collection -> sortByDesc('updated_at')->values();
+		return view('myMessage', compact('bords', 'sortedMsgs', 'user'));
 	}
 	
 	public function myLike(){
