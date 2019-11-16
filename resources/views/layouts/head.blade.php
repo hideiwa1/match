@@ -18,6 +18,9 @@ ini_set('display_errors', 'on');
 @endif
 <script src="https://kit.fontawesome.com/cf99747a60.js" crossorigin="anonymous"></script>
 <title>match! @yield('title')</title>
+<meta name="description" content="@yield('description')">
+<meta name="keyword" content="@yield('keyword')">
+
 @if(app('env') == 'local')
 <link rel="stylesheet" href="{{ (asset('/css/app.css')) }}">
 @else

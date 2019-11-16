@@ -1,6 +1,8 @@
 @extends('layouts.template')
 
 @section('title', '案件詳細')
+@section('description', 'エンジニアのマッチングサイト「match!」の案件詳細ページです。予算'.($detail -> min).',000円〜の案件情報です。'.($detail -> title))
+@section('keyword', 'match, 案件, エンジニア, マッチング, 気軽')
 @include('layouts.head')
 
 @section('contents')
@@ -9,8 +11,8 @@
 
 	<article class="p-form u-mb_l">
 		<h1 class="c-title u-center u-mb_m">{{$detail -> title}}</h1>
-		<div class="u-flex">
-			<div class="twitter u-inline">
+		<div class="u-flex-between u-lineheight">
+			<div class="twitter u-inline u-vertical">
 				<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="" data-show-count="false" data-lang="ja">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 			<div id="js-like" class="c-like"></div>
@@ -21,6 +23,7 @@
 				<td class="c-th">発注者</td>
 				<td>
 				<a href="/profile/{{$detail -> user_id}}">
+					<?php /*ユーザー名の表示*/ ?>
 				@if($detail -> user -> name)
 					{{$detail -> user -> name}}
 					@else
@@ -46,12 +49,14 @@
 		</table>
 		<form action="/detail/{{$detail -> id }}" method="post" class="u-mb_m">
 			{{ csrf_field() }}
+			<?php /* 作成者、未応募、応募済みの分岐 */ ?>
 		@if($detail -> user_id === $user)
 			<input type="submit" name="edit" value="編集する" class="c-form__button u-mb_m">
 			<h2 class="c-title u-center u-mb_m">応募者一覧</h2>
 			@foreach($attenders as $attender)
 			<p>
 			<a href="/profile/{{$attender -> user_id}}">
+				<?php /*ユーザー名の表示*/ ?>
 			@if($attender -> user -> name)
 				{{$attender -> user -> name}}
 				@else
@@ -80,19 +85,23 @@ value="応募する" class="c-form__button u-mb_m">
 
 		<section>
 			<h1 class="c-title u-center u-mb_m">質問・コメント</h1>
+			<?php /*コメントの展開*/ ?>
 			@foreach($comments as $comment)
 			<div class="p-comment u-mb_m">
+				<?php /*通し番号*/ ?>
 				<div class="p-comment__no">No.{{$loop -> iteration}}</div>
 				<div class="p-comment__text">
 					<span>{{$comment -> comment}}</span><br>
 					<span class="c-date">
 						<a href="/profile/{{$comment -> user_id}}">
+							<?php /*ユーザー名の表示*/ ?>
 					@if($comment -> user -> name)
 						{{$comment -> user -> name}}
 					@else
 						名無し
 					@endif
 						</a>
+						<?php /*タイムゾーンの変更*/ ?>
 						{{$comment -> created_at-> timezone("JST") ->format('Y/m/d H:i')}}</span>
 				</div>
 			</div>

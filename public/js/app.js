@@ -76805,21 +76805,33 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 var store = Object(redux__WEBPACK_IMPORTED_MODULE_3__["createStore"])(_js_reducers__WEBPACK_IMPORTED_MODULE_5__["default"], Object(redux__WEBPACK_IMPORTED_MODULE_3__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_6__["default"]));
+/*ナビメニュー*/
+
 document.getElementById('js-menu') && react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
   store: store
 }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_js_containers_visibleMenu__WEBPACK_IMPORTED_MODULE_7__["default"], null)), document.getElementById('js-menu'));
+/*案件検索欄*/
+
 document.getElementById('js-search') && react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
   store: store
 }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_js_containers_visibleSearch__WEBPACK_IMPORTED_MODULE_8__["default"], null)), document.getElementById('js-search'));
+/*案件一覧*/
+
 document.getElementById('js-project') && react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
   store: store
 }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_js_containers_visibleProjectList__WEBPACK_IMPORTED_MODULE_9__["default"], null)), document.getElementById('js-project'));
+/*お気に入り*/
+
 document.getElementById('js-like') && react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
   store: store
 }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_js_containers_visibleLike__WEBPACK_IMPORTED_MODULE_10__["default"], null)), document.getElementById('js-like'));
+/*プロフィール画像*/
+
 document.getElementById('js-profpic') && react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
   store: store
 }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_js_containers_visibleProfile__WEBPACK_IMPORTED_MODULE_11__["default"], null)), document.getElementById('js-profpic'));
+/*案件登録*/
+
 document.getElementById('js-registProject') && react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
   store: store
 }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_js_containers_visibleRegistProject__WEBPACK_IMPORTED_MODULE_12__["default"], null)), document.getElementById('js-registProject'));
@@ -76916,12 +76928,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var FETCH_REQUEST = "FETCH_REQUEST";
 var FETCH_SUCCESS = "FETCH_SUCCESS";
+/*モーダル*/
+
 function menuClick(state) {
   return {
     type: "ON_CLICK",
     val: state
   };
 }
+/*案件初期データ*/
+
 function initData(state) {
   return function (dispatch) {
     dispatch(requestData());
@@ -76946,6 +76962,8 @@ function receiveData(data) {
     data: data
   };
 }
+/*案件検索*/
+
 
 function searchProject(state) {
   return function (dispatch) {
@@ -76963,6 +76981,8 @@ function searchProject(state) {
     })["catch"](function (error) {});
   };
 }
+/*ページネーション*/
+
 function clickPage(state, search) {
   return function (dispatch) {
     dispatch(requestData());
@@ -76979,18 +76999,24 @@ function clickPage(state, search) {
     })["catch"](function (error) {});
   };
 }
+/*お気に入り*/
+
 function likeToggle(state) {
   return {
     type: "LIKE_TOGGLE",
     val: state
   };
 }
+/*プロフィール画像*/
+
 function inputImg(state) {
   return {
     type: "INPUT_IMG",
     val: state
   };
 }
+/*案件登録*/
+
 function inputForm(state) {
   return {
     type: "INPUT_FORM",
@@ -77055,6 +77081,7 @@ function (_React$Component) {
   _createClass(Item, [{
     key: "price",
     value: function price(flg) {
+      /*単発案件時のみ、価格は非表示*/
       if (flg === '単発案件') {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u91D1\u984D\uFF1A", this.props.value.min, ",000\u5186\u301C", this.props.value.max, ",000\u5186"));
       }
@@ -77130,6 +77157,8 @@ function (_React$Component) {
     _classCallCheck(this, Like);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Like).call(this, props));
+    /*URLパラメータより案件IDを取得*/
+
     var path = location.pathname;
     var url = path.slice(1).split('/');
     _this.state = {
@@ -77161,6 +77190,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
+      /*URLパラメータより案件IDを取得*/
       var path = location.pathname;
       var url = path.slice(1).split('/');
       /*お気に入り情報の取得*/
@@ -77169,9 +77199,8 @@ function (_React$Component) {
         withCredentials: true,
         params: this.state
       }).then(function (res) {
-        console.log(res);
-
         _this3.setState({
+          /*お気に入り情報があればtrue*/
           like_flg: res.data ? true : false
         });
       })["catch"](function (error) {});
@@ -77179,6 +77208,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      /*フラグによりクラスの分岐*/
       var icon = this.state.like_flg ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-heart u-active",
         onClick: this.handleClick
@@ -77193,7 +77223,7 @@ function (_React$Component) {
   return Like;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])()(Like));
+/* harmony default export */ __webpack_exports__["default"] = (Like);
 
 /***/ }),
 
@@ -77291,6 +77321,7 @@ function (_React$Component) {
       if (auth === 'init') {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null);
       } else if (auth) {
+        /*ログイン時*/
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "p-navmenu u-flex"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -77310,6 +77341,7 @@ function (_React$Component) {
           className: "c-button"
         }, "\u30ED\u30B0\u30A2\u30A6\u30C8")));
       } else {
+        /*非ログイン時*/
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "p-navmenu u-flex"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -77406,6 +77438,7 @@ function (_React$Component) {
     value: function menuItem(auth) {
       /*ログインの有無でメニュー切り替え*/
       if (auth) {
+        /*ログイン時*/
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "p-modal-menu__item"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -77448,6 +77481,7 @@ function (_React$Component) {
           href: "/logout"
         }, "\u30ED\u30B0\u30A2\u30A6\u30C8")));
       } else {
+        /*非ログイン時*/
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "p-modal-menu__item"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -77560,9 +77594,11 @@ function (_React$Component) {
           totalPage = Math.ceil(totalItemCount / itemsPerPage);
 
       if (pageRange >= totalPage) {
+        /*総ページ数による分岐*/
         first_page = 1;
         last_page = totalPage;
       } else {
+        /*現在ページ数による分岐*/
         if (activePage < pageRange / 2) {
           first_page = 1;
           last_page = pageRange;
@@ -77574,6 +77610,8 @@ function (_React$Component) {
           last_page = activePage + Math.floor(pageRange / 2);
         }
       }
+      /*ページ数の挿入*/
+
 
       for (var i = first_page; i <= last_page; i++) {
         Pages.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -77584,6 +77622,8 @@ function (_React$Component) {
           onClick: this.handleLinkClick
         }, i)));
       }
+      /*配列の手前に挿入*/
+
 
       activePage !== 1 && Pages.unshift(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "pagenation__item active",
@@ -77599,6 +77639,8 @@ function (_React$Component) {
         name: "1",
         onClick: this.handleLinkClick
       }, "\u5148\u982D\u3078")));
+      /*配列の後方に挿入*/
+
       activePage !== totalPage && Pages.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "pagenation__item active",
         key: "next"
@@ -77620,7 +77662,7 @@ function (_React$Component) {
     value: function render() {
       var Pages = this.buildPages();
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "u-flex-default p-pagenation u-center"
+        className: "u-flex-between p-pagenation u-center"
       }, Pages);
     }
   }]);
@@ -77837,6 +77879,8 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var data = this.props.data.data ? this.props.data.data : this.state.initData;
+      /*案件情報を各Itemコンポーネントに展開*/
+
       var Items = data ? data.map(function (value) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_item__WEBPACK_IMPORTED_MODULE_5__["default"], {
           key: value.id,
@@ -77921,8 +77965,8 @@ function (_React$Component) {
     _classCallCheck(this, RegistProject);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(RegistProject).call(this, props));
-    console.log(window.location.pathname);
     _this.state = {
+      /*URLパラメータにより新規、編集の分岐*/
       url: window.location.pathname !== '/registProject' ? window.location.pathname.replace('/registProject/', '') : 'new',
       data: {
         title: '',
@@ -77939,6 +77983,7 @@ function (_React$Component) {
   _createClass(RegistProject, [{
     key: "handleChange",
     value: function handleChange(e) {
+      /*フォーム名、値を取得*/
       var val = e.target.value;
       var name = e.target.name;
       this.setState({
@@ -77950,7 +77995,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      /*プロフィール画像の取得*/
+      /*案件情報の取得*/
       if (this.state.url !== 'new') {
         axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/registProject', {
           params: this.state.url
@@ -77971,6 +78016,7 @@ function (_React$Component) {
     key: "price",
     value: function price(flg) {
       if (flg == 2) {
+        /*レベニューシェアの場合、価格を非表示*/
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "u-mb_m u-hidden"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -78128,6 +78174,7 @@ function (_React$Component) {
   _createClass(Search, [{
     key: "handleChange",
     value: function handleChange(e) {
+      /*フォーム名、値を取得*/
       var val = e.target.value;
       var name = e.target.name;
       this.setState(_defineProperty({}, name, val));
@@ -78135,6 +78182,7 @@ function (_React$Component) {
   }, {
     key: "handleCheck",
     value: function handleCheck(e) {
+      /*フォームの値を取得*/
       var val = e.target.value;
       this.setState(_defineProperty({}, val, e.target.checked));
     }
@@ -78558,12 +78606,13 @@ function project() {
 
   switch (action.type) {
     case 'FETCH_REQUEST':
+      //object.assign stateのコピーをとる
       return Object.assign({}, state, {
         isFetching: true
       });
 
     case 'FETCH_SUCCESS':
-      console.log(action.data);
+      //object.assign stateのコピーをとる
       return Object.assign({}, state, {
         isFetching: false,
         data: action.data.data,

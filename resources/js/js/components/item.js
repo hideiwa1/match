@@ -11,6 +11,7 @@ class Item extends React.Component{
 	}
 	
 	price(flg){
+		/*単発案件時のみ、価格は非表示*/
 		if(flg === '単発案件'){
 			return(
 			<>

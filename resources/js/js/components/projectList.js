@@ -34,7 +34,7 @@ class ProjectList extends React.Component{
 			
 	render(){
 		let data = this.props.data.data? this.props.data.data : this.state.initData;
-		
+		/*案件情報を各Itemコンポーネントに展開*/
 		let Items = data ? data.map((value) => (
 			<Item key={value.id} value={value} index={value.id} />
 		)) : '';

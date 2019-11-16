@@ -12,6 +12,7 @@ export default class Modal extends React.Component{
 	menuItem(auth){
 		/*ログインの有無でメニュー切り替え*/
 		if(auth){
+			/*ログイン時*/
 			return(
 				<ul>
 				<li className="p-modal-menu__item"><a href="/">TOP</a></li>
@@ -29,6 +30,7 @@ export default class Modal extends React.Component{
 				</ul>
 			);
 		}else{
+			/*非ログイン時*/
 			return(
 				<ul>
 				<li className="p-modal-menu__item"><a href="/">TOP</a></li>

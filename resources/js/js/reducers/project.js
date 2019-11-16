@@ -12,10 +12,11 @@ const initState = {
 export default function project(state = initState, action) {
 	switch (action.type) {
 		case 'FETCH_REQUEST':
+			//object.assign stateのコピーをとる
 			return Object.assign({}, state,{isFetching: true});
 			
 		case 'FETCH_SUCCESS':
-			console.log(action.data);
+			//object.assign stateのコピーをとる
 			return Object.assign({}, state,{
 				isFetching: false,
 				data: action.data.data,

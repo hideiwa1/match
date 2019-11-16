@@ -1,6 +1,8 @@
 @extends('layouts.template')
 
-@section('title', 'myComment')
+@section('title', 'プロフィール編集')
+@section('description', 'エンジニアのマッチングサイト「match!」のプロフィール編集ページです。案件の成約、受注率のアップのためにも、プロフィールを充実させましょう。')
+@section('keyword', 'match, 案件, エンジニア, マッチング, 気軽')
 @include('layouts.head')
 
 @section('contents')
@@ -11,6 +13,7 @@
 	
 		<section>
 		<h1 class="c-title u-center u-mb_m">プロフィール編集</h1>
+			<?php /*バリデーションの表示*/ ?>
 			@foreach ($errors -> all() as $error)
 			<p class="u-error">{{ $error }}</p>
 			@endforeach

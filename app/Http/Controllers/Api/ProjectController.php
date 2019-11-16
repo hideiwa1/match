@@ -9,10 +9,12 @@ use App\Category;
 
 class ProjectController extends Controller
 {
+	/*案件情報の取得（10件ずつ）*/
 	public function index()
 	{
 		$projects = project::orderBy('updated_at', 'desc') -> paginate(10);
 		$data = [];
+		/*案件情報の展開*/
 		foreach($projects as $project){
 			$data[] =[
 				'id' => $project -> id,
@@ -27,13 +29,15 @@ class ProjectController extends Controller
 		$res['data'] = $data;
 		return $res;
 	}
-
+	
+	/*検索結果の取得*/
 	public function search(Request $request)
 	{
 			$title = $request -> keyword;
 			$min = $request -> min;
 			$max = $request -> max;
 			
+		/*カテゴリー名によるidの登録*/
 			$category = [];
 			$request -> single == 'true' && $category[] = 1;
 			$request -> share == 'true' && $category[] = 2;
@@ -54,6 +58,7 @@ class ProjectController extends Controller
 					-> paginate(10);
 			
 			$data = [];
+		/*案件情報の展開*/
 			foreach($projects as $project){
 				$data[] =[
 					'id' => $project -> id,
@@ -69,6 +74,7 @@ class ProjectController extends Controller
 			return $res;
 	}
 	
+	/*案件詳細情報（1件）の取得*/
 	public function detail(Request $request){
 		$id = $request;
 		$data = Project::find($id);

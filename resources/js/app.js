@@ -18,7 +18,7 @@ import VisibleRegistProject from "./js/containers/visibleRegistProject";
 
 let store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
-
+/*ナビメニュー*/
 document.getElementById('js-menu') &&
 	ReactDOM.render( 
 		<Provider store = {store} >
@@ -27,6 +27,7 @@ document.getElementById('js-menu') &&
 		document.getElementById('js-menu')
 	);
 
+/*案件検索欄*/
 document.getElementById('js-search') &&
 	ReactDOM.render( 
 		<Provider store = {store} >
@@ -35,6 +36,7 @@ document.getElementById('js-search') &&
 		document.getElementById('js-search')
 	);
 
+/*案件一覧*/
 document.getElementById('js-project') &&
 ReactDOM.render( 
 	<Provider store = {store} >
@@ -43,6 +45,7 @@ ReactDOM.render(
 	document.getElementById('js-project')
 );
 
+/*お気に入り*/
 document.getElementById('js-like') &&
 ReactDOM.render( 
 	<Provider store = {store} >
@@ -51,6 +54,7 @@ ReactDOM.render(
 	document.getElementById('js-like')
 );
 
+/*プロフィール画像*/
 document.getElementById('js-profpic') &&
 	ReactDOM.render( 
 	<Provider store = {store} >
@@ -59,7 +63,7 @@ document.getElementById('js-profpic') &&
 	document.getElementById('js-profpic')
 );
 
-
+/*案件登録*/
 document.getElementById('js-registProject') &&
 	ReactDOM.render( 
 	<Provider store = {store} >

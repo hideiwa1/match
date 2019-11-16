@@ -1,6 +1,8 @@
 @extends('layouts.template')
 
 @section('title', 'パスワード再設定')
+@section('description', 'エンジニアマッチングサイト「match!」のパスワード再設定画面です。「match!」は、案件の依頼や応募、プロジェクトへの参加を簡単に、気軽に行えるようにする「エンジニアのマッチングサイト」です。')
+@section('keyword', 'match, 案件, エンジニア, マッチング, 気軽')
 @include('layouts.head')
 
 @section('contents')

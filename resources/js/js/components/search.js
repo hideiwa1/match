@@ -23,12 +23,14 @@ class Search extends React.Component {
 		}
 
 	handleChange(e){
+		/*フォーム名、値を取得*/
 		let val = e.target.value;
 		let name = e.target.name;
 		this.setState({[name]: val});
 	}
 
 	handleCheck(e){
+		/*フォームの値を取得*/
 		let val = e.target.value;
 		this.setState({[val]: e.target.checked});
 	}

@@ -46,6 +46,7 @@ class Menu extends React.Component{
 				<ul></ul>
 			);
 		}else if(auth){
+			/*ログイン時*/
 			return(
 				<ul className="p-navmenu u-flex">
 				<li className="p-navmenu__item">
@@ -60,6 +61,7 @@ class Menu extends React.Component{
 				</ul>
 			);
 		}else{
+			/*非ログイン時*/
 			return(
 				<ul className="p-navmenu u-flex">
 				<li className="p-navmenu__item">

@@ -8,6 +8,7 @@ class Comment extends Model
 {
 	protected $guarded = array('id');
 
+	/*バリデーションルール*/
 	public static $rules = array(
 		'comment' => 'required',
 	);

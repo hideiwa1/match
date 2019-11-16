@@ -3,16 +3,22 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.u-flex-between{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: space-between;
 }
 
 .u-flex {
-
 	@include mq() {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: space-between;
+		justify-content: flex-start;
 	}
 }
 
@@ -149,4 +155,14 @@
 /*非表示*/
 .u-hidden{
 	display: none;
+}
+
+/*ライン高さ*/
+.u-lineheight{
+	line-height: 100%;
+}
+
+/*行中央*/
+.u-vertical{
+	vertical-align: middle;
 }

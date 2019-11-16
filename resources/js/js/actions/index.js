@@ -2,6 +2,7 @@ import axios from "axios";
 export const FETCH_REQUEST = "FETCH_REQUEST";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 
+/*モーダル*/
 export function menuClick(state){
 	return {
 		type: "ON_CLICK",
@@ -9,6 +10,7 @@ export function menuClick(state){
 	};
 }
 
+/*案件初期データ*/
 export function initData(state){
 	return dispatch => {
 		dispatch(requestData())
@@ -38,6 +40,7 @@ function receiveData(data){
 	}
 }
 
+/*案件検索*/
 export function searchProject(state){
 	return dispatch => {
 		dispatch(requestData())
@@ -54,6 +57,7 @@ export function searchProject(state){
 	}
 }
 
+/*ページネーション*/
 export function clickPage(state, search){
 	return dispatch => {
 		dispatch(requestData())
@@ -71,6 +75,7 @@ export function clickPage(state, search){
 	}
 }
 
+/*お気に入り*/
 export function likeToggle(state){
 	return {
 		type: "LIKE_TOGGLE",
@@ -78,6 +83,7 @@ export function likeToggle(state){
 	};
 }
 
+/*プロフィール画像*/
 export function inputImg(state){
 	return {
 		type: "INPUT_IMG",
@@ -85,6 +91,7 @@ export function inputImg(state){
 	};
 }
 
+/*案件登録*/
 export function inputForm(state){
 	return {
 		type: "INPUT_FORM",

@@ -542,7 +542,7 @@ p {
 /*ページネーション*/
 
 .p-pagenation {
-  width: 40%;
+  width: 50%;
   margin: auto;
   display: block;
 }
@@ -625,6 +625,13 @@ p {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.u-flex-between {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -633,7 +640,7 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 }
 
@@ -781,5 +788,17 @@ p {
 
 .u-hidden {
   display: none;
+}
+
+/*ライン高さ*/
+
+.u-lineheight {
+  line-height: 100%;
+}
+
+/*行中央*/
+
+.u-vertical {
+  vertical-align: middle;
 }
 

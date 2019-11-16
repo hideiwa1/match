@@ -1,6 +1,8 @@
 @extends('layouts.template')
 
 @section('title', '新規登録')
+@section('description', 'エンジニアのマッチングサイト「match!」の新規登録ページです。案件の依頼をしたい方、受注したい方、お気軽に登録してください。')
+@section('keyword', 'match, 案件, エンジニア, マッチング, 気軽')
 @include('layouts.head')
 
 @section('contents')
@@ -9,6 +11,7 @@
   <form class="p-form" action="/signup" method="post">
     {{ csrf_field() }}
     <h1 class="c-title u-center u-mb_xl">新規登録</h1>
+		<?php /*バリデーションの表示*/ ?>
     @foreach ($errors -> all() as $error)
       <p class="u-error">{{ $error }}</p>
     @endforeach

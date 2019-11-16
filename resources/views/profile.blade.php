@@ -1,6 +1,8 @@
 @extends('layouts.template')
 
 @section('title', 'プロフィール')
+@section('description', 'エンジニアのマッチングサイト「match!」'.($user -> name).'さんのプロフィールページです。案件の依頼や応募、プロジェクトへの参加を簡単に、気軽に行えるようにする「エンジニアのマッチングサイト」です。')
+@section('keyword', 'match, 案件, エンジニア, マッチング, 気軽')
 @include('layouts.head')
 
 @section('contents')
@@ -29,6 +31,7 @@
         </div>
         <h2>提案中の案件</h2>
       <div class="p-panel">
+				<?php /*登録案件の展開*/ ?>
        @foreach($projects as $project)
 				<div class="p-comment u-mb_m">
           <a href="/detail/{{$project -> id}}" class="c-textbox">

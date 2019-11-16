@@ -8,6 +8,7 @@ class Like extends React.Component{
 	constructor(props){
 		super(props);
 		
+		/*URLパラメータより案件IDを取得*/
 		let path = location.pathname;
 		let url = path.slice(1).split('/');
 		
@@ -33,14 +34,15 @@ class Like extends React.Component{
 	}
 
 	componentDidMount(){
+		/*URLパラメータより案件IDを取得*/
 		let path = location.pathname;
 		let url = path.slice(1).split('/');
 		/*お気に入り情報の取得*/
 		axios
 			.get('/api/like', {withCredentials: true, params: this.state})
 			.then((res) => {
-			console.log(res)
 			this.setState({
+				/*お気に入り情報があればtrue*/
 				like_flg: res.data ? true: false,
 			});
 		})
@@ -49,7 +51,9 @@ class Like extends React.Component{
 	}
 
 	render(){
+		/*フラグによりクラスの分岐*/
 		let icon = this.state.like_flg ? <i className="fas fa-heart u-active" onClick={this.handleClick}/> : <i className="fas fa-heart" onClick={this.handleClick} />;
+		
 		return(
 			<>
 			{icon}
@@ -58,4 +62,4 @@ class Like extends React.Component{
 	}
 }
 
-export default connect()(Like)
+export default Like

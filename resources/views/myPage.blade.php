@@ -1,6 +1,8 @@
 @extends('layouts.template')
 
 @section('title', 'マイページ')
+@section('description', 'エンジニアのマッチングサイト「match!」のマイページです。案件の依頼や応募、プロジェクトへの参加を簡単に、気軽に行えるようにする「エンジニアのマッチングサイト」です。')
+@section('keyword', 'match, 案件, エンジニア, マッチング, 気軽')
 @include('layouts.head')
 
 @section('contents')
@@ -13,6 +15,7 @@
     <section>
       <h2>登録案件</h2>
       <div class="p-panel u-flex-default">
+				<?php /*登録案件の展開*/ ?>
 				@foreach ($projects as $project)
 				<div class="p-panel__item5 u-mb_m u-height__3line">
          
@@ -28,10 +31,11 @@
 		<section>
 			<h2>お気に入り案件</h2>
 			<div class="p-panel u-flex-default">
+				<?php /*お気に入り案件の展開*/ ?>
 				@foreach ($likes as $like)
 				<div class="p-panel__item5 u-mb_m u-height__3line">
 
-					<a href="detail/{{$like -> project -> id}}" class="c-textbox u-ellipsis">{{Str::limit($like -> project -> title, 20, '...')}}</a>
+					<a href="detail/{{$like -> project -> id}}" class="c-textbox u-ellipsis">{{$like -> project -> title}}</a>
 
 				</div>
 				@endforeach
@@ -43,7 +47,7 @@
     <section>
       <h2>メッセージ一覧</h2>
       <div class="p-panel">
-       
+				<?php /*コメントの展開*/ ?>
 				@foreach ($comments as $comment)
 				<div class="p-panel__item u-mb_m">
 					<a href="detail/{{$comment -> project_id}}" class="c-textbox">
@@ -60,6 +64,7 @@
      
       <h2>ダイレクトメッセージ一覧</h2>
       <div class="p-panel">
+				<?php /*ダイレクトメッセージの展開*/ ?>
       @if($messages)
 				@foreach ($messages as $message)
 				<div class="p-panel__item u-mb_m">

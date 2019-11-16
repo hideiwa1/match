@@ -9,6 +9,7 @@ use App\User;
 
 class ProfilePicController extends Controller
 {
+	/*プロフィール画像の取得*/
 	public function index(){
 		$data = User::find(Auth::id())->pic;
 		return $data;

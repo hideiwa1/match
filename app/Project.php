@@ -9,6 +9,7 @@ class Project extends Model
 	
 	protected $guarded = array('id');
 
+	/*バリデーションルール*/
 	public static $rules = array(
 		'title' => 'required|max:191',
 		'comment' => 'required',

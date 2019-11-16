@@ -11,25 +11,17 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-
-    public function create(Request $request)
-    {
-      $this -> validate($request, User::$rules);
-      $user = new User;
-      $form = $request -> all();
-      unset($form['_token']);
-      unset($form['password_confirmation']);
-      $user -> fill($form) -> save();
-      return redirect('/user');
-    }
 	
+	/*新規登録画面の表示*/
 	public function signup()
 	{
 		return view('signup');
 	}
 
+	/*ユーザー情報の登録*/
 	public function postSignup(Request $request)
 	{
+		/*バリデーション*/
 		$this -> validate($request, User::$rules,['email:unique' => 'そのメールアドレスはすでに使用されています']);
 		$email = $request -> email;
 		$password = $request -> password;
@@ -42,14 +34,20 @@ class UserController extends Controller
 		return redirect('/mypage');
 	}
 	
+	/*プロフィール編集画面の表示*/
 	public function edit(){
 		$data = User::find(Auth::id());
 		return view('editProfile', compact('data'));
 	}
 
+	/*プロフィール変更の登録*/
 	public function add(Request $request){
 		$user = User::find(Auth::id());
-		$rules = ['email' => 'required|email|unique:users,email,'.$user->id];
+		/*重複チェックより自信を除外*/
+		$rules = [
+			'email' => 'required|email|unique:users,email,'.$user->id,
+			'name' => 'max:191',];
+		/*バリデーション*/
 		$this -> validate($request, $rules);
 		$user -> name = $request -> name;
 		$user -> email = $request -> email;
@@ -65,6 +63,7 @@ class UserController extends Controller
 		return back()->with('message', '登録完了');
 	}
 	
+	/*プロフィール画面の表示*/
 	public function profile($id = ''){
 		$user = User::find($id);
 		$projects = Project::where('user_id', $id)

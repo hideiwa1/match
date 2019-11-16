@@ -7,8 +7,9 @@ import axios from "axios";
 class RegistProject extends React.Component{
 	constructor(props){
 		super(props);
-		console.log(window.location.pathname);
+		
 		this.state={
+			/*URLパラメータにより新規、編集の分岐*/
 			url: (window.location.pathname !== '/registProject') ? window.location.pathname.replace('/registProject/', '') : 'new',
 			data: {
 				title: '',
@@ -22,16 +23,19 @@ class RegistProject extends React.Component{
 	}
 
 	handleChange(e){
+		/*フォーム名、値を取得*/
 		let val = e.target.value;
 		let name = e.target.name;
 		this.setState({
 			data: {
+				/*配列の展開*/
 				...this.state.data,
+				/*データの更新*/
 				[name]: val}});
 	}
 
 	componentDidMount(){
-		/*プロフィール画像の取得*/
+		/*案件情報の取得*/
 		if(this.state.url !== 'new'){
 			axios
 				.get('/api/registProject', {params: this.state.url})
@@ -53,6 +57,7 @@ class RegistProject extends React.Component{
 	
 	price(flg){
 		if(flg == 2){
+			/*レベニューシェアの場合、価格を非表示*/
 			return(
 				<>
 				<p className="u-mb_m u-hidden">
