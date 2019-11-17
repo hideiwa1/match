@@ -77755,8 +77755,10 @@ function (_React$Component) {
     value: function drop(e) {
       e.stopPropagation();
       e.preventDefault();
-      var files = e.dataTransfer.filse;
-      e.files = files;
+      var files = e.dataTransfer.files;
+      console.log(files);
+      e.target.files = files;
+      this.handleChange(e);
     }
   }, {
     key: "handleChange",
@@ -77767,6 +77769,7 @@ function (_React$Component) {
       e.stopPropagation();
       e.preventDefault();
       var files = e.target.files;
+      console.log(files);
 
       if (files.length > 0) {
         var file = files[0];

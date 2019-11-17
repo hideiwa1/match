@@ -31,8 +31,10 @@ class Profile extends React.Component{
 		e.stopPropagation();
 		e.preventDefault();
 		
-		const files = e.dataTransfer.filse;
-		e.files = files;
+		const files = e.dataTransfer.files;
+		console.log(files);
+		e.target.files = files;
+		this.handleChange(e);
 	}
 	
 	handleChange(e){
@@ -40,6 +42,7 @@ class Profile extends React.Component{
 		e.stopPropagation();
 		e.preventDefault();
 		const files = e.target.files;
+		console.log(files);
 		if(files.length > 0){
 			let file = files[0];
 			let reader = new FileReader();

@@ -9,7 +9,7 @@ ini_set('display_errors', 'on');
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@hideiwa1">
 <meta name="twitter:title" content="{{$detail -> title}}">
-<meta name="twitter:description" content="{{$detail -> min_price}}千〜{{$detail -> max_price}}千">
+<meta name="twitter:description" content="{{$detail -> min_price}},000円〜{{$detail -> max_price}},000円">
 @if(app('env') == 'local')
 <meta name="twitter:image" content="{{(asset('/img/match.jpg'))}}">
 @else
