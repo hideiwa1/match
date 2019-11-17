@@ -77800,7 +77800,8 @@ function (_React$Component) {
         className: "c-img c-img__input",
         onDragEnter: this.dragEnter,
         onDragOver: this.dragOver,
-        onDrop: this.handleChange
+        onDrop: this.handleChange,
+        onChange: this.handleChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.img,
         className: "c-img"
