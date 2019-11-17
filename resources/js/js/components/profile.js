@@ -12,6 +12,7 @@ class Profile extends React.Component{
 			img: this.props.img,
 		}
 		this.handleChange = this.handleChange.bind(this);
+		this.drop = this.drop.bind(this);
 		this.dragEnter = this.dragEnter.bind(this);
 		this.dragOver = this.dragOver.bind(this);
 	}
@@ -24,6 +25,14 @@ class Profile extends React.Component{
 	dragOver(e){
 		e.stopPropagation();
 		e.preventDefault();
+	}
+	
+	drop(e){
+		e.stopPropagation();
+		e.preventDefault();
+		
+		const files = e.dataTransfer.filse;
+		e.files = files;
 	}
 	
 	handleChange(e){
@@ -60,7 +69,7 @@ class Profile extends React.Component{
 	render(){
 		return(
 		<>
-			<input type="file" name="pic" className="c-img c-img__input" onDragEnter={this.dragEnter} onDragOver={this.dragOver} onDrop={this.handleChange} onChange={this.handleChange}/>
+			<input type="file" name="pic" className="c-img c-img__input" onDragEnter={this.dragEnter} onDragOver={this.dragOver} onDrop={this.drop} onChange={this.handleChange}/>
 			<img src={this.state.img} className="c-img" />
 			<span className="c-img__span">ドラッグ<br />＆ドロップ</span>
 		</>

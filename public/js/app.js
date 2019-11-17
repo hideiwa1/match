@@ -77732,6 +77732,7 @@ function (_React$Component) {
       img: _this.props.img
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.drop = _this.drop.bind(_assertThisInitialized(_this));
     _this.dragEnter = _this.dragEnter.bind(_assertThisInitialized(_this));
     _this.dragOver = _this.dragOver.bind(_assertThisInitialized(_this));
     return _this;
@@ -77748,6 +77749,14 @@ function (_React$Component) {
     value: function dragOver(e) {
       e.stopPropagation();
       e.preventDefault();
+    }
+  }, {
+    key: "drop",
+    value: function drop(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      var files = e.dataTransfer.filse;
+      e.files = files;
     }
   }, {
     key: "handleChange",
@@ -77800,7 +77809,7 @@ function (_React$Component) {
         className: "c-img c-img__input",
         onDragEnter: this.dragEnter,
         onDragOver: this.dragOver,
-        onDrop: this.handleChange,
+        onDrop: this.drop,
         onChange: this.handleChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.img,

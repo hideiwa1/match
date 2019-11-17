@@ -4,6 +4,7 @@ ini_set('display_errors', 'on');
 ?>
 <meta charset="UTF-8">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
 @if(Request::is('detail/*'))
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@hideiwa1">
