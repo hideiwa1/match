@@ -24,6 +24,7 @@
 
 	<footer class="footer">
 		<p>Copyright <a href="/">match!</a> All Right Reserved</p>
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=Object.values"></script>
 		@if(app('env') == 'local')
 		<script src="{{ asset('/js/app.js') }}"></script>
 		@else

@@ -77094,7 +77094,9 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "detail/" + this.props.value.id,
         className: "c-textbox"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), this.price(this.props.value.category)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "u-ellipsis_default"
+      }, this.props.value.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), this.price(this.props.value.category)));
     }
   }]);
 
