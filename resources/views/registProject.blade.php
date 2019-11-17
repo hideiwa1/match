@@ -17,14 +17,7 @@
 		<form action="/registProject/{{$id}}" method="post">
 		<div></div>
 			{{ csrf_field() }}
-			<div class="p-form__content">
-				<div id="js-registProject"></div>
-				<?php /*新規登録、編集の分岐*/ ?>
-				@if($id === "new")
-				<input type="submit" value="新規登録" class="c-form__button">
-				@else
-				<input type="submit" value="更新" class="c-form__button">
-				@endif
+			<div id="js-registProject" class="p-form__content">
 			</div>
 		</form>
   </section>

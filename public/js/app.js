@@ -77960,6 +77960,8 @@ function (_React$Component) {
   _inherits(RegistProject, _React$Component);
 
   function RegistProject(props) {
+    var _valid;
+
     var _this;
 
     _classCallCheck(this, RegistProject);
@@ -77974,20 +77976,94 @@ function (_React$Component) {
         min_price: '',
         max_price: '',
         comment: ''
-      }
+      },
+
+      /*エラーメッセージ*/
+      errMsg: {},
+
+      /*バリデーション項目*/
+      valid: (_valid = {}, _defineProperty(_valid, 'title', ['max', 'require']), _defineProperty(_valid, 'comment', ['require']), _defineProperty(_valid, 'category_id', ['integer', 'require']), _defineProperty(_valid, 'min_price', ['integer', 'require']), _defineProperty(_valid, 'max_price', ['integer', 'gte_min', 'require']), _valid)
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(RegistProject, [{
+    key: "validate",
+    value: function validate(name, val) {
+      var isValid = true,
+          errMsg = '',
+          valid = this.state.valid[name];
+      var errMsgRequire = '入力必須です',
+          errMsgInteger = '半角数字で入力してください。　',
+          errMsgMax = '191文字以下で入力してください。　',
+          errMsgGte_min = '最高金額は最低金額以上の値を入力してください　';
+      /*バリデーション'require'が含まれる場合*/
+
+      if (valid.indexOf('require') >= 0) {
+        isValid = val.length !== 0;
+        /*エラーメッセージを挿入*/
+
+        if (!isValid) errMsg = errMsgRequire;
+      }
+      /*入力があるとき、その他のバリデーションを実施*/
+
+
+      if (errMsg.indexOf(errMsgRequire) < 0) {
+        for (var i in valid) {
+          switch (valid[i]) {
+            case 'integer':
+              isValid = /^[0-9]/.test(val);
+              if (!isValid) errMsg = errMsgInteger;
+              break;
+
+            case 'max':
+              isValid = val.length < 191;
+              if (!isValid) errMsg = errMsgMax;
+              break;
+
+            case 'gte_min':
+              var min_price = this.state.data.min_price;
+              /*数値型へ変換後、比較*/
+
+              isValid = Number(val) >= Number(min_price);
+              if (!isValid) errMsg = errMsgGte_min;
+              break;
+          }
+        }
+      }
+
+      return errMsg;
+    }
+    /*submitボタンの制限*/
+
+  }, {
+    key: "canSubmit",
+    value: function canSubmit() {
+      /*空項目がないか*/
+      var validData = Object.values(this.state.data).filter(function (value) {
+        return value === '';
+      }).length === 0;
+      /*エラーメッセージがないか*/
+
+      var validErrMsg = Object.values(this.state.errMsg).filter(function (value) {
+        return value !== '';
+      }).length === 0;
+      /*上記を満たすときのみ、押下可能にする*/
+
+      var canSubmit = Boolean(validData && validErrMsg);
+      return canSubmit;
+    }
+  }, {
     key: "handleChange",
     value: function handleChange(e) {
       /*フォーム名、値を取得*/
       var val = e.target.value;
       var name = e.target.name;
+      var errMsg = this.validate(name, val);
       this.setState({
-        data: _objectSpread({}, this.state.data, _defineProperty({}, name, val))
+        data: _objectSpread({}, this.state.data, _defineProperty({}, name, val)),
+        errMsg: _defineProperty({}, name, errMsg)
       });
     }
   }, {
@@ -78016,7 +78092,7 @@ function (_React$Component) {
     key: "price",
     value: function price(flg) {
       if (flg == 2) {
-        /*レベニューシェアの場合、価格を非表示*/
+        /*レベニューシェアの場合、価格を非表示、金額は０で入力*/
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "u-mb_m u-hidden"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -78037,7 +78113,11 @@ function (_React$Component) {
           className: "u-mb_m"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "c-form__title"
-        }, "\u4E88\u7B97\uFF08\u6700\u4F4E\u91D1\u984D\u301C\u6700\u9AD8\u91D1\u984D\uFF09"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, "\u4E88\u7B97\uFF08\u6700\u4F4E\u91D1\u984D\u301C\u6700\u9AD8\u91D1\u984D\uFF09"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "u-block u-error"
+        }, this.state.errMsg['min_price']), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "u-block u-error"
+        }, this.state.errMsg['max_price']), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "number",
           name: "min_price",
           className: "c-form__num",
@@ -78053,13 +78133,37 @@ function (_React$Component) {
       }
     }
   }, {
+    key: "button",
+    value: function button(url) {
+      /*urlにて新規登録か編集か分岐*/
+
+      /*canSubmitにて押下フラグを設定*/
+      if (url === 'new') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "submit",
+          disabled: !this.canSubmit(),
+          value: "\u65B0\u898F\u767B\u9332",
+          className: "c-form__button"
+        });
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "submit",
+          disabled: !this.canSubmit(),
+          value: "\u66F4\u65B0",
+          className: "c-form__button"
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "u-mb_m"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "c-form__title"
-      }, "\u30BF\u30A4\u30C8\u30EB"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "\u30BF\u30A4\u30C8\u30EB"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "u-block u-error"
+      }, this.state.errMsg['title']), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         name: "title",
         placeholder: "title",
@@ -78070,7 +78174,9 @@ function (_React$Component) {
         className: "u-mb_m"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "c-form__title"
-      }, "\u6848\u4EF6\u7A2E\u5225"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "\u6848\u4EF6\u7A2E\u5225"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "u-block u-error"
+      }, this.state.errMsg['category_id']), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
         name: "category_id",
         value: "1",
@@ -78086,13 +78192,15 @@ function (_React$Component) {
         className: "u-mb_m"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "c-form__title"
-      }, "\u6848\u4EF6\u6982\u8981"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, "\u6848\u4EF6\u6982\u8981"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "u-block u-error"
+      }, this.state.errMsg['comment']), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         name: "comment",
         className: "c-textarea",
         rows: "5",
         value: this.state.data.comment,
         onChange: this.handleChange
-      })));
+      })), this.button(this.state.url));
     }
   }]);
 
