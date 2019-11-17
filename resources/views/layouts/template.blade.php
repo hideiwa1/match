@@ -11,13 +11,14 @@
 		<h1>
 			<a href="/" class="p-logo">match!</a>
 		</h1>
-		<nav>
-			<div id="js-menu"></div>
-		</nav>
 		@if(session('message'))
 		<div class="js-flash p-flash u-flex-flash">
 			<span>{{session('message')}}</span></div>
 		@endif
+		<nav>
+			<div id="js-menu"></div>
+		</nav>
+		
 	</header>
 
   @yield('contents')
