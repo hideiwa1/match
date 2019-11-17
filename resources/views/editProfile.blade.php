@@ -23,6 +23,7 @@
 
 				<div class="u-mb_m">
 					<span class="c-form__title">プロフィール画像</span>
+					<span>＊ドラッグ＆ドロップまたはクリック後ファイルを選択して下さい</span>
 					<div id="js-profpic" class="c-img__profile c-img__form">
 					</div>
 				</div>
@@ -32,7 +33,7 @@
 						<input type="text" name="name" placeholder="name" class="c-form__text" value="{{old('name') ? old('name') : $data->name}}">
 					</p>
 					<p class="u-mb_m">
-						<span class="c-form__title">メールアドレス</span>
+						<span class="c-form__title">メールアドレス　＊必須</span>
 						<input type="email" name="email" placeholder="email" class="c-form__text" value="{{old('email') ? old('email') : $data->email}}">
 					</p>
 					<p class="u-mb_m">

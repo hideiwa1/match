@@ -16,12 +16,24 @@
 			<div class="p-message__pic c-img__msg u-inline">
 			<img src="{{$bord -> toUser -> pic}}" class="c-img">
 			</div>
-			{{$bord -> toUser -> name}}
+			<a href="/profile/{{$bord -> to_user_id}}">
+				@if($bord -> toUser -> name)
+				{{$bord -> toUser -> name}}
+				@else
+				名無し
+				@endif
+			</a>
 			@else
 			<div class="p-message__pic c-img__msg u-inline">
 			<img src="{{$bord -> fromUser -> pic}}" class="c-img">
 			</div>
-			{{$bord -> fromUser -> name}}
+			<a href="/profile/{{$bord -> from_user_id}}">
+				@if($bord -> fromUser -> name)
+				{{$bord -> fromUser -> name}}
+				@else
+				名無し
+				@endif
+			</a>
 			@endif
 			さんとのダイレクトメッセージ</h1>
 		<section class="p-form">

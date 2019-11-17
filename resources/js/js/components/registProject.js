@@ -127,7 +127,7 @@ class RegistProject extends React.Component{
 			return(
 				<>
 				<p className="u-mb_m u-hidden">
-					<span className="c-form__title">予算（最低金額〜最高金額）</span>
+					<span className="c-form__title">予算（最低金額〜最高金額）　＊必須</span>
 				<input type="number" name="min_price" className="c-form__num" value='0' />,000円〜
 				<input type="number" name="max_price" className="c-form__num" value='0' />,000円
 				</p>
@@ -137,7 +137,7 @@ class RegistProject extends React.Component{
 			return(
 				<>
 				<p className="u-mb_m">
-					<span className="c-form__title">予算（最低金額〜最高金額）</span>
+					<span className="c-form__title">予算（最低金額〜最高金額）　＊必須</span>
 				<span className="u-block u-error">{this.state.errMsg['min_price']}</span>
 				<span className="u-block u-error">{this.state.errMsg['max_price']}</span>
 				<input type="number" name="min_price" className="c-form__num" value={this.state.data.min_price} onChange={this.handleChange} />,000円〜
@@ -167,19 +167,19 @@ class RegistProject extends React.Component{
 		return(
 			<>
 			<p className="u-mb_m">
-				<span className="c-form__title">タイトル</span>
+				<span className="c-form__title">タイトル　＊必須</span>
 			<span className="u-block u-error">{this.state.errMsg['title']}</span>
 			<input type="text" name="title" placeholder="title" className="c-form__text" value={this.state.data.title} onChange={this.handleChange} />
 			</p>
 			<p className="u-mb_m">
-			<span className="c-form__title">案件種別</span>
+			<span className="c-form__title">案件種別　＊必須</span>
 			<span className="u-block u-error">{this.state.errMsg['category_id']}</span>
 			<input type="radio" name="category_id" value="1" checked={this.state.data.category_id == 1} onChange={this.handleChange} />単発案件
 			<input type="radio" name="category_id" value="2" checked={this.state.data.category_id == 2} onChange={this.handleChange} />レベニューシェア案件
 			</p>
 			{this.price(this.state.data.category_id)}
 			<p className="u-mb_m">
-				<span className="c-form__title">案件概要</span>
+				<span className="c-form__title">案件概要　＊必須</span>
 					<span className="u-block u-error">{this.state.errMsg['comment']}</span>
 					<textarea name="comment" className="c-textarea" rows="5" value={this.state.data.comment} onChange={this.handleChange} />
 			</p>

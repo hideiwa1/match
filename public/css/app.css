@@ -214,6 +214,7 @@ p {
   border-radius: 50%;
   overflow: hidden;
   margin: auto;
+  border: 1px dotted;
 }
 
 .c-img__msg {

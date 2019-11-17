@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Project;
+use App\User;
 use Faker\Factory as Faker;
 
-class ProjectsTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,14 +13,13 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-			Project::truncate();
-			
-			factory(Project::class, 20) -> create();
+			User::truncate();
+
+			factory(User::class, 70) -> create();
 			/*$faker = Faker::create('en_US');
 
 			for($i = 0; $i < 10; $i++){
-				Project::create([
-					'title' => $faker -> name
+				User::create([
 					$table->string('title');
 					$table->string('comment');
 					$table->integer('min_price');

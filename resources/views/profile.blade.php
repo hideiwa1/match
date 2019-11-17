@@ -12,7 +12,13 @@
   <article class="p-form">
     
     <section>
-			<h1 class="c-title u-center u-mb_m">{{$user -> name}}さんのプロフィール</h1>
+			<h1 class="c-title u-center u-mb_m">
+				@if($user -> name)
+				{{$user -> name}}
+				@else
+				名無し
+				@endif
+				さんのプロフィール</h1>
 			<div class="p-form__content">
         <div class="c-img__profile">
           <img src="{{$user -> pic}}" class="c-img">
@@ -21,7 +27,13 @@
 					<p>
 						<sapn class="c-form__title">ユーザー名
 						</sapn>
-						<span class="c-form__title u-pl_l">{{$user -> name}}</span>
+						<span class="c-form__title u-pl_l">
+							@if($user -> name)
+							{{$user -> name}}
+							@else
+							名無し
+							@endif
+						</span>
 						
          </p>
           <p>

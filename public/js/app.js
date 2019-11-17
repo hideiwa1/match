@@ -77732,42 +77732,17 @@ function (_React$Component) {
       img: _this.props.img
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
-    _this.drop = _this.drop.bind(_assertThisInitialized(_this));
-    _this.dragEnter = _this.dragEnter.bind(_assertThisInitialized(_this));
-    _this.dragOver = _this.dragOver.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Profile, [{
-    key: "dragEnter",
-    value: function dragEnter(e) {
-      e.stopPropagation();
-      e.preventDefault();
-    }
-  }, {
-    key: "dragOver",
-    value: function dragOver(e) {
-      e.stopPropagation();
-      e.preventDefault();
-    }
-  }, {
-    key: "drop",
-    value: function drop(e) {
-      e.stopPropagation();
-      e.preventDefault();
-      var files = e.dataTransfer.files;
-      console.log(files);
-      e.target.files = files;
-      this.handleChange(e);
-    }
-  }, {
     key: "handleChange",
     value: function handleChange(e) {
       var _this2 = this;
 
       /*画像ライブプレビュー*/
-      e.stopPropagation();
-      e.preventDefault();
+      //	e.stopPropagation();
+      //	e.preventDefault();
       var files = e.target.files;
       console.log(files);
 
@@ -77810,16 +77785,11 @@ function (_React$Component) {
         type: "file",
         name: "pic",
         className: "c-img c-img__input",
-        onDragEnter: this.dragEnter,
-        onDragOver: this.dragOver,
-        onDrop: this.handleChange,
         onChange: this.handleChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.img,
         className: "c-img"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "c-img__span"
-      }, "\u30C9\u30E9\u30C3\u30B0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "\uFF06\u30C9\u30ED\u30C3\u30D7"));
+      }));
     }
   }]);
 
@@ -78130,7 +78100,7 @@ function (_React$Component) {
           className: "u-mb_m u-hidden"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "c-form__title"
-        }, "\u4E88\u7B97\uFF08\u6700\u4F4E\u91D1\u984D\u301C\u6700\u9AD8\u91D1\u984D\uFF09"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, "\u4E88\u7B97\uFF08\u6700\u4F4E\u91D1\u984D\u301C\u6700\u9AD8\u91D1\u984D\uFF09\u3000\uFF0A\u5FC5\u9808"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "number",
           name: "min_price",
           className: "c-form__num",
@@ -78146,7 +78116,7 @@ function (_React$Component) {
           className: "u-mb_m"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "c-form__title"
-        }, "\u4E88\u7B97\uFF08\u6700\u4F4E\u91D1\u984D\u301C\u6700\u9AD8\u91D1\u984D\uFF09"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        }, "\u4E88\u7B97\uFF08\u6700\u4F4E\u91D1\u984D\u301C\u6700\u9AD8\u91D1\u984D\uFF09\u3000\uFF0A\u5FC5\u9808"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "u-block u-error"
         }, this.state.errMsg['min_price']), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "u-block u-error"
@@ -78194,7 +78164,7 @@ function (_React$Component) {
         className: "u-mb_m"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "c-form__title"
-      }, "\u30BF\u30A4\u30C8\u30EB"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "\u30BF\u30A4\u30C8\u30EB\u3000\uFF0A\u5FC5\u9808"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "u-block u-error"
       }, this.state.errMsg['title']), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
@@ -78207,7 +78177,7 @@ function (_React$Component) {
         className: "u-mb_m"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "c-form__title"
-      }, "\u6848\u4EF6\u7A2E\u5225"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "\u6848\u4EF6\u7A2E\u5225\u3000\uFF0A\u5FC5\u9808"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "u-block u-error"
       }, this.state.errMsg['category_id']), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "radio",
@@ -78225,7 +78195,7 @@ function (_React$Component) {
         className: "u-mb_m"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "c-form__title"
-      }, "\u6848\u4EF6\u6982\u8981"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "\u6848\u4EF6\u6982\u8981\u3000\uFF0A\u5FC5\u9808"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "u-block u-error"
       }, this.state.errMsg['comment']), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         name: "comment",

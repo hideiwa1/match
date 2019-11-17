@@ -71,9 +71,17 @@
 					<a href="message/{{$message -> bord_id}}" class="c-textbox">
 						<p class="u-ellipsis__default">
 							@if($message -> from_user_id === $user_id)
-							{{$message -> toUser -> name}}
+								@if($message -> toUser -> name)
+								{{$message -> toUser -> name}}
+								@else
+								名無し
+								@endif
 							@else
-							{{$message -> fromUser -> name}}
+								@if($message -> fromUser -> name)
+								{{$message -> fromUser -> name}}
+								@else
+								名無し
+								@endif
 							@endif
 							さんとのダイレクトメッセージ
 						</p>
