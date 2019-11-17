@@ -27,7 +27,7 @@
 		<section class="p-form">
 
 		@foreach($messages as $message)
-			<div class="u-flex u-mb_m">
+			<div class="u-flex-between u-mb_m">
 				<?php /*メッセージの送信・受信ユーザーの分岐*/ ?>
 				@if($message -> to_user_id === $user)
 				<a href="/profile/{{$message -> from_user_id}}">

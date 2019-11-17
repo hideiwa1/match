@@ -45,7 +45,7 @@
 		</section>
    
     <section>
-      <h2>メッセージ一覧</h2>
+      <h2>コメント一覧</h2>
       <div class="p-panel">
 				<?php /*コメントの展開*/ ?>
 				@foreach ($comments as $comment)
