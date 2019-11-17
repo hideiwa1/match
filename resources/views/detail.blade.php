@@ -10,7 +10,7 @@
 <main class="main">
 
 	<article class="p-form u-mb_l">
-		<h1 class="c-title u-center u-mb_m">{{$detail -> title}}</h1>
+		<h1 class="c-title u-center u-mb_m u-word">{{$detail -> title}}</h1>
 		<div class="u-flex-between u-lineheight">
 			<div class="twitter u-inline u-vertical">
 				<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="" data-show-count="false" data-lang="ja">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -44,7 +44,7 @@
 			@endif
 			<tr>
 				<td class="c-th">説明文</td>
-				<td>{{$detail -> comment}}</td>
+				<td class="u-word">{{$detail -> comment}}</td>
 			</tr>
 		</table>
 		<form action="/detail/{{$detail -> id }}" method="post" class="u-mb_m">

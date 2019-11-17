@@ -16,6 +16,8 @@ class Profile extends React.Component{
 
 	handleChange(e){
 		/*画像ライブプレビュー*/
+		e.stopPropagation();
+		e.preventDefault();
 		const files = e.target.files;
 		if(files.length > 0){
 			let file = files[0];

@@ -77741,6 +77741,8 @@ function (_React$Component) {
       var _this2 = this;
 
       /*画像ライブプレビュー*/
+      e.stopPropagation();
+      e.preventDefault();
       var files = e.target.files;
 
       if (files.length > 0) {
