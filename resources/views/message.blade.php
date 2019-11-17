@@ -35,13 +35,13 @@
 					<img src="{{$message -> fromUser -> pic}}" class="c-img">
 				</div>
 				</a>
-				<div class="p-message--right c-textbox">
+				<div class="p-message--right c-textbox u-word">
 					<span>{{$message -> comment}}</span><br>
 					<?php /*タイムゾーンの変更*/ ?>
 					<span class="c-date">{{$message -> updated_at -> timezone("JST") ->format('Y/m/d H:i')}}</span>
 				</div>
 				@else
-				<div class="p-message--left c-textbox">
+				<div class="p-message--left c-textbox u-word">
 					<span>{{$message -> comment}}</span><br>
 					<?php /*タイムゾーンの変更*/ ?>
 					<span class="c-date">{{$message -> updated_at -> timezone("JST") ->format('Y/m/d H:i')}}</span>

@@ -123,7 +123,7 @@
 .u-ellipsis{
 	@extend .u-ellipsis__default;
 	@include mq(){
-		white-space: initial;
+		white-space: normal;
 	
 		&::before{
 			content: "…";
@@ -141,6 +141,11 @@
 			background: #fefefe;
 		}
 	}
+}
+
+/*折り返し*/
+.u-word{
+	word-break: break-all;
 }
 
 /*高さ*/

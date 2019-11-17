@@ -26,7 +26,7 @@ class Item extends React.Component{
 		return (
 			<div className="p-panel__item u-mb_m">
 			<a href={"detail/" + this.props.value.id} className="c-textbox">
-			<span className="u-ellipsis_default">{this.props.value.title}</span><br />
+			<span className="u-ellipsis__default">{this.props.value.title}</span><br />
 			<span>{this.props.value.category}</span><br />
 			{this.price(this.props.value.category)}
 			</a>

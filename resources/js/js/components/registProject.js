@@ -14,8 +14,8 @@ class RegistProject extends React.Component{
 			data: {
 				title: '',
 				category_id: '',
-				min_price: '',
-				max_price: '',
+				min_price: 0,
+				max_price: 0,
 				comment: '',
 			},
 			/*エラーメッセージ*/

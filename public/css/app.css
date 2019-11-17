@@ -754,7 +754,7 @@ p {
 
 @media screen and (min-width: 1000px) {
   .u-ellipsis {
-    white-space: initial;
+    white-space: normal;
   }
 
   .u-ellipsis::before {
@@ -772,6 +772,12 @@ p {
     width: 100%;
     background: #fefefe;
   }
+}
+
+/*折り返し*/
+
+.u-word {
+  word-break: break-all;
 }
 
 /*高さ*/

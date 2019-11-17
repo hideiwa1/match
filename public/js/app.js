@@ -77095,7 +77095,7 @@ function (_React$Component) {
         href: "detail/" + this.props.value.id,
         className: "c-textbox"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "u-ellipsis_default"
+        className: "u-ellipsis__default"
       }, this.props.value.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.value.category), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), this.price(this.props.value.category)));
     }
   }]);
@@ -77782,7 +77782,7 @@ function (_React$Component) {
         type: "file",
         name: "pic",
         className: "c-img c-img__input",
-        onChange: this.handleChange
+        ondrop: this.handleChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.img,
         className: "c-img"
@@ -77975,8 +77975,8 @@ function (_React$Component) {
       data: {
         title: '',
         category_id: '',
-        min_price: '',
-        max_price: '',
+        min_price: 0,
+        max_price: 0,
         comment: ''
       },
 
