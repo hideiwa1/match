@@ -17,7 +17,7 @@
 			</div>
 			<div id="js-like" class="c-like"></div>
 		</div>
-		
+
 		<table>
 			<tr>
 				<td class="c-th">発注者</td>
@@ -91,7 +91,7 @@ value="応募する" class="c-form__button u-mb_m">
 				<?php /*通し番号*/ ?>
 				<div class="p-comment__no">No.{{$loop -> iteration}}</div>
 				<div class="p-comment__text">
-					<span>{{$comment -> comment}}</span><br>
+					<span class="u-word">{{$comment -> comment}}</span><br>
 					<span class="c-date">
 						<a href="/profile/{{$comment -> user_id}}">
 							<?php /*ユーザー名の表示*/ ?>
@@ -106,7 +106,7 @@ value="応募する" class="c-form__button u-mb_m">
 				</div>
 			</div>
 			@endforeach
-			
+
 			<form action="/detail/{{$detail -> id }}" method="post">
 				{{ csrf_field() }}
 				<h1 class="c-title u-center u-mb_m">コメント投稿</h1>

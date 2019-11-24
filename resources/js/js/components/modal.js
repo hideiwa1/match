@@ -23,9 +23,9 @@ export default class Modal extends React.Component{
 				<li className="p-modal-menu__item"><a href="/registProject">新規案件登録</a></li>
 				<li className="p-modal-menu__item"><a href="/myProject">登録案件一覧</a></li>
 				<li className="p-modal-menu__item"><a href="/myLike">お気に入り</a></li>
-				<li className="p-modal-menu__item"><a href="/myMessage">メッセージ一覧</a></li>
-				<li className="p-modal-menu__item"><a href="/myDM">ダイレクトメッセージ一覧</a></li>
-				<li className="p-modal-menu__item"><a href="/profile">プロフィール編集</a></li>
+				<li className="p-modal-menu__item"><a href="/myComment">メッセージ一覧</a></li>
+				<li className="p-modal-menu__item"><a href="/myMessage">ダイレクトメッセージ一覧</a></li>
+				<li className="p-modal-menu__item"><a href="/editProfile">プロフィール編集</a></li>
 				<li className="p-modal-menu__item"><a href="/logout">ログアウト</a></li>
 				</ul>
 			);
@@ -44,7 +44,7 @@ export default class Modal extends React.Component{
 		}
 	}
 
-	
+
 	render(){
 		return(
 			ReactDOM.createPortal(

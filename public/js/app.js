@@ -77468,15 +77468,15 @@ function (_React$Component) {
         }, "\u304A\u6C17\u306B\u5165\u308A")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "p-modal-menu__item"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "/myMessage"
+          href: "/myComment"
         }, "\u30E1\u30C3\u30BB\u30FC\u30B8\u4E00\u89A7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "p-modal-menu__item"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "/myDM"
+          href: "/myMessage"
         }, "\u30C0\u30A4\u30EC\u30AF\u30C8\u30E1\u30C3\u30BB\u30FC\u30B8\u4E00\u89A7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "p-modal-menu__item"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "/profile"
+          href: "/editProfile"
         }, "\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u7DE8\u96C6")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "p-modal-menu__item"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
